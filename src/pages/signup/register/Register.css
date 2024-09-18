@@ -1,0 +1,115 @@
+.register-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.registerBackground {
+    position: absolute;
+    bottom: -3%;
+    right: 0;
+    transform: rotate(180deg);
+    /* width: 45%0; */
+    height: 55%;
+}
+
+.register-header {
+    position: relative;
+    width: 13%;
+    right: 11rem;
+    z-index: 100;
+}
+
+.register-form {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: 75%;
+    margin-left: 1rem;
+    padding-top: 1rem;
+}
+
+.form-group {
+    width: 100%;
+    margin-top: 0.8rem;
+}
+
+.name-box {
+    display: block;
+    font-size: 1.2em;
+    color: #2E1108;
+    font-weight: bold;
+    color: #4a4a4a;
+}
+
+.form-group input{
+    width: 93%;
+    padding: 10px;
+    border: none;
+    background-color: #703A31;
+    color: white;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.sex {
+    width: 65%;
+    padding: 0.4rem;
+    border-radius: 0.313rem;
+    background-color: #703A31;
+    color: #ffffffc0;
+}
+
+.hint {
+    font-size: 13px;
+    color: #6b7280;
+    margin-top: 4px;
+}
+
+.hint2 {
+    font-size: 13px;
+    color: #6b7280;
+    margin-top: 4px;
+}
+
+.date-select {
+    display: flex;
+    width: 90%;
+    gap: 10px;
+}
+
+.date-select select {
+    background-color: #703A31;
+    flex: 1;
+    width: 50%;
+    padding: 0.4rem;
+    border-radius: 0.313rem;
+    color: #ffffffc0;
+}
+
+.from-link {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 0.5rem;
+    justify-content: end;
+    padding-top: 1rem;
+}
+
+.from-link img {
+    width: 5%;
+    height: 5%;
+}
+
+.from-link a {
+    color: #9D1A1A;
+}
+
+
+

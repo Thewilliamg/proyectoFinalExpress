@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import backgroundImage_middle from '../../../../img/image_middle_fraction.png';
+import backgroundImage_middle from '/img/image_middle_fraction.png';
 import GoBackArrow from '../../../../../src/pages/components/backArrow'
 import './policy.css';
 
