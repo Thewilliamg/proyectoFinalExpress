@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import backgroundImage_middle from '../../../../img/image_middle_fraction.png';
-import GoBackArrow from '../../../../../src/pages/components/backArrow'
+import GoBackArrow from '../../../../../src/pages/components/backArrow';
 import './policy.css';
 
 export default function Policy() {
@@ -32,7 +32,7 @@ export default function Policy() {
                 checked={isChecked1}
                 onChange={handleCheckboxChange1}
                 />
-                <span className="checkmark"></span>
+                <span className="checkmark-policy"></span>
                 He leído y acepto la Política de privacidad*
             </label>
 
@@ -42,7 +42,7 @@ export default function Policy() {
                 checked={isChecked2}
                 onChange={handleCheckboxChange2}
                 />
-                <span className="checkmark"></span>
+                <span className="checkmark-policy"></span>
                 He leído y acepto los Términos y condiciones*
             </label>
 
@@ -52,7 +52,7 @@ export default function Policy() {
                 checked={isChecked3}
                 onChange={handleCheckboxChange3}
                 />
-                <span className="checkmark"></span>
+                <span className="checkmark-policy"></span>
                 Acepto que me envíen promociones y eventos a mi correo
                 electrónico
             </label>

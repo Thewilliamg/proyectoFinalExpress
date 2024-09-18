@@ -19,9 +19,10 @@
 }
 
 .checkbox-container-policy {
-    font-size: 78%;
-    font-family: 'Bellota';
     display: flex;
+    font-size: 80%;
+    font-family: 'Bellota', sans-serif;
     gap: 2%;
 }
+
 
