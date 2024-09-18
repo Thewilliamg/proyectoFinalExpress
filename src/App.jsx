@@ -6,6 +6,7 @@ import User from './pages/user/User.jsx';
 import Markets from './pages/markets/Markets.jsx';
 import Discounts from './pages/discounts/Discounts.jsx';
 import Shop from './pages/shop/Shop.jsx';
+import Parrafito from './pages/discounts/components/parrafito.jsx';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         
         <Route index element={<Home />} />
         <Route path="/discounts" element={<Discounts/>} />
+        <Route path="/bill" element={<Parrafito />} />
         <Route path="/markets" element={<Markets />} />
         <Route path="/shop" element={<Shop />} />
         <Route path='/user' element={<User />} />

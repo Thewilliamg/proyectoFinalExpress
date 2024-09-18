@@ -1,5 +1,5 @@
 import './discounts.css';
-import Parrafito from './components/parrafito.jsx'
+import {Link} from 'react-router-dom'
 
 export default function Discounts() {
 
@@ -12,7 +12,7 @@ export default function Discounts() {
         <div className='discount-container'>
             <h1>Discounts</h1>
             <button onClick={mostrar}>Oprimeme</button>
-            <Parrafito />   
+            <Link to={'/bill'}>nano</Link>  
         </div>
     )
 }
