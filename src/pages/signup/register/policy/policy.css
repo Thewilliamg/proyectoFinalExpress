@@ -1,0 +1,27 @@
+.container-policy{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.background-img-1 img{
+    position: absolute;
+    bottom: 0;
+    height: 400px;
+}
+
+.checkboxes-policy {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    align-self: center;
+}
+
+.checkbox-container-policy {
+    font-size: 78%;
+    font-family: 'Bellota';
+    display: flex;
+    gap: 2%;
+}
+
