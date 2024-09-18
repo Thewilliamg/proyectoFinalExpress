@@ -14,7 +14,7 @@
 .checkboxes-policy {
     display: flex;
     flex-direction: column;
-    width: 80%;
+    width: 90%;
     align-self: center;
 }
 
@@ -23,6 +23,17 @@
     font-size: 80%;
     font-family: 'Bellota', sans-serif;
     gap: 2%;
+    border:1px solid red;
 }
 
+.checkbox-policy-input {
+    width: 2em;
+    height: 2em;
+    accent-color:white;
+    border: 5px solid green;
+    border-radius: 0.8rem;
+}
 
+input[type="checkbox"]:checked {
+    box-shadow: 0 0 0 3px hotpink;
+}

@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import backgroundImage_middle from '../../../../img/image_middle_fraction.png';
+import backgroundImage_middle from '/img/image_middle_fraction.png';
 import GoBackArrow from '../../../../../src/pages/components/backArrow';
 import './policy.css';
+import { Link } from 'react-router-dom';
 
 export default function Policy() {
     const [isChecked1, setIsChecked1] = useState(false); //checkbox 1
@@ -23,11 +24,12 @@ export default function Policy() {
 
     return (
     <div className="container-policy">
-        <GoBackArrow />
+        <Link to='/signup/register'><GoBackArrow /></Link>
         <div className="checkboxes-policy">
 
             <label className="checkbox-container-policy">
                 <input
+                className='checkbox-policy-input'
                 type="checkbox"
                 checked={isChecked1}
                 onChange={handleCheckboxChange1}
@@ -38,6 +40,7 @@ export default function Policy() {
 
             <label className="checkbox-container-policy">
                 <input
+                className='checkbox-policy-input'
                 type="checkbox"
                 checked={isChecked2}
                 onChange={handleCheckboxChange2}
@@ -45,9 +48,11 @@ export default function Policy() {
                 <span className="checkmark-policy"></span>
                 He leído y acepto los Términos y condiciones*
             </label>
-
+            <div>
+            </div>
             <label className="checkbox-container-policy">
                 <input
+                className='checkbox-policy-input'
                 type="checkbox"
                 checked={isChecked3}
                 onChange={handleCheckboxChange3}
@@ -58,7 +63,9 @@ export default function Policy() {
             </label>
         </div>
         <div className="register-button">
-            <button>Registrarse</button>
+            <Link to="/login" className="linkme">
+                Registrarse
+            </Link>
         </div>
         <div className="background-img-1">
             <img src={backgroundImage_middle} alt="img_background" />
