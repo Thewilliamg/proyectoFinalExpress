@@ -1,5 +1,4 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import './App.css'
 
 import Home from './pages/home/Home.jsx';
 import User from './pages/user/User.jsx';
@@ -7,7 +6,8 @@ import Markets from './pages/markets/Markets.jsx';
 import Discounts from './pages/discounts/Discounts.jsx';
 import Shop from './pages/shop/Shop.jsx';
 import SignUp from './pages/signup/SignUp.jsx'
-import Policy from './pages/signup/components/Policy.jsx'
+import Policy from './pages/signup/register/policy/Policy.jsx'
+import Register from './pages/signup/register/Register.jsx'
 
 
 function App() {
@@ -26,6 +26,7 @@ function App() {
         <Route path='/user' element={<User />} />
         //Rutas de registro
         <Route path='/signup' element={<SignUp />} />                       // Pantalla 2
+        <Route path='/signup/register' element={<Register />} /> 
         <Route path='/signup/register/policy' element={<Policy />} />       // Ruta para pantallas 4 y 5
       </Routes>
   </BrowserRouter>

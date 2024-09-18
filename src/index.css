@@ -21,7 +21,7 @@
 
 @font-face {
   font-family: "Bellota";
-  src: url("../fonts/Bellota/Bellota-Italic.ttf") format("truetype");
+  src: url("../fonts/Bellota/Bellota-LightItalic.ttf") format("truetype");
   font-weight: 300;
   font-style: italic;
 }
@@ -45,5 +45,6 @@ body {
     box-sizing: border-box;
     height: 100vh;
     width: 100vw;
+    font-family: 'Bellota';
 }
 
