@@ -16,15 +16,15 @@ function App() {
       <Routes>
 
         <Route index element={<Home />} />
-        //Rutas de descuentos
+        {/*Rutas de descuentos*/}
         <Route path="/discounts" element={<Discounts/>} />
-        //Rutas de tiendas
+        {/* Rutas de tiendas*/ }
         <Route path="/markets" element={<Markets />} />
-        //Rutas de comprar
+        {/* Rutas de comprar */}
         <Route path="/shop" element={<Shop />} />
-        //Rutas de perfil de usuario
+        {/* Rutas de perfil de usuario */}
         <Route path='/user' element={<User />} />
-        //Rutas de registro
+        {/* //Rutas de registro */}
         <Route path='/signup' element={<SignUp />} />                       // Pantalla 2
         <Route path='/signup/register' element={<Register />} /> 
         <Route path='/signup/register/policy' element={<Policy />} />       // Ruta para pantallas 4 y 5

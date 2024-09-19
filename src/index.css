@@ -46,11 +46,20 @@
   font-display: swap;
 } 
 
-body {
-    margin: 0;
-    box-sizing: border-box;
-    height: 100vh;
-    width: 100vw;
-    font-family: 'Bellota', sans-serif;
+* {
+  box-sizing: content-box;
+  margin: 0;
+  padding: 0;
 }
 
+body {
+  margin: 0;
+  box-sizing: border-box;
+  height: 100vh;
+  width: 100vw;
+  font-family: 'Bellota', sans-serif;
+}
+
+button {
+  font-family: 'Bellota', sans-serif;
+}
