@@ -12,7 +12,7 @@ export default function Discounts() {
         <div className='discount-container'>
             <h1>Discounts</h1>
             <button onClick={mostrar}>Oprimeme</button>
-            <Link to={'/bill'}>nano</Link>  
+            <Link to={'discounts/product'}>nano</Link>  
         </div>
     )
 }
