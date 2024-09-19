@@ -1,0 +1,73 @@
+.box-workshopsInfo {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+}
+
+.box-BackArrow {
+    position: absolute;
+    left: 0;
+    /* border: 1px solid blue; */
+}
+
+.image-workshopsInfo {
+    display: flex;
+    width: 100%;
+    height: 40%;
+}
+
+.image-workshopsInfo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.titule-workshopsInfo {
+    display: flex;
+    width: 100%;
+    height: 7vh;
+    background: #2E1108;
+    color: white;
+    align-items: center;
+}
+
+.titule-workshopsInfo img {
+    position: absolute;
+    object-fit: contain;
+    width: 5%;
+    height: 6%;
+    left: 0;
+}
+
+.subtitule-workshopsInfo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 75%;
+    height: 50%;
+    font-size: 1.1em;
+}
+
+.informacion-workshopsInfo {
+    display: flex;
+    width: 100%;
+    height: 80vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.box-firstText-workshopsInfo {
+    width: 90%;
+    height: 20%;
+}
+
+.box-info-workshopsInfo {
+    width: 90%;
+    height: 20%;
+}
+
+.box-list-workshopsInfo {
+    width: 90%;
+}
