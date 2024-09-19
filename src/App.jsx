@@ -8,6 +8,7 @@ import Shop from './pages/shop/Shop.jsx';
 import SignUp from './pages/signup/SignUp.jsx'
 import Policy from './pages/signup/register/policy/Policy.jsx'
 import Register from './pages/signup/register/Register.jsx'
+import Service from './pages/home/components/customerService/Service.jsx'
 
 
 function App() {
@@ -28,6 +29,8 @@ function App() {
         <Route path='/signup' element={<SignUp />} />                       // Pantalla 2
         <Route path='/signup/register' element={<Register />} /> 
         <Route path='/signup/register/policy' element={<Policy />} />       // Ruta para pantallas 4 y 5
+        //Rutas de servicio al cliente
+        <Route path="/customer-service" element={<Service/> } />
       </Routes>
   </BrowserRouter>
   )
