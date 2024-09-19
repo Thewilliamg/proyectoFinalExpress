@@ -17,6 +17,7 @@ function App() {
       <Routes>
 
         <Route index element={<Home />} />
+        <Route path="/customer-service" element={<Service/> } />  //Ruta para pantalla 25
         //Rutas de descuentos
         <Route path="/discounts" element={<Discounts/>} />
         //Rutas de tiendas
@@ -29,8 +30,6 @@ function App() {
         <Route path='/signup' element={<SignUp />} />                       // Pantalla 2
         <Route path='/signup/register' element={<Register />} /> 
         <Route path='/signup/register/policy' element={<Policy />} />       // Ruta para pantallas 4 y 5
-        //Rutas de servicio al cliente
-        <Route path="/customer-service" element={<Service/> } />
       </Routes>
   </BrowserRouter>
   )
