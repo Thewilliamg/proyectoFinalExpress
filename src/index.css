@@ -38,16 +38,23 @@
   src: url("../fonts/Bellota/Bellota-BoldItalic.ttf") format("truetype");
   font-weight: 700;
   font-style: italic;
+  font-display: swap;
 } 
 
-body {
-    margin: 0;
-    box-sizing: border-box;
-    height: 100vh;
-    width: 100vw;
-    font-family: 'Bellota';
+* {
+  box-sizing: content-box;
+  margin: 0;
+  padding: 0;
 }
 
-button {
-  font-family: 'Bellota';
+body {
+  margin: 0;
+  box-sizing: border-box;
+  height: 100svh;
+  width: 100vw;
+  font-family: 'Bellota', sans-serif;
+}
+
+button,input {
+  font-family: 'Bellota', sans-serif;
 }
