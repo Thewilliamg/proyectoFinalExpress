@@ -1,0 +1,45 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+body {
+    background-color: #2F0808;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    color: white;
+    display: flex;
+    flex-direction: column;
+  }
+
+
+.startBack{
+    display: flex;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden; 
+    background-image: url("/public/img/start-background.svg");
+    justify-content: center;
+    align-items: center;
+}
+
+.startLogo{
+    display: flex;
+    /* border: 1px solid red; */
+    justify-content: center;
+    align-items: center;
+    width: 70vw;
+    height: 30vh;
+}
+
+.startLogo img{
+    height: 100%;
+    width: 100%;
+}
