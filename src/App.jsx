@@ -8,6 +8,7 @@ import Shop from './pages/shop/Shop.jsx';
 import SignUp from './pages/signup/SignUp.jsx'
 import Policy from './pages/signup/register/policy/Policy.jsx'
 import Register from './pages/signup/register/Register.jsx'
+import Service from './pages/home/components/customerService/Service.jsx'
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
       <Routes>
 
         <Route index element={<Home />} />
+        <Route path="/customer-service" element={<Service/> } />  //Ruta para pantalla 25
         //Rutas de descuentos
         <Route path="/discounts" element={<Discounts/>} />
         //Rutas de tiendas
