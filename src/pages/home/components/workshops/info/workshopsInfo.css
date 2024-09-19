@@ -2,13 +2,12 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 100vh;
+    height: 100%;
 }
 
 .box-BackArrow {
     position: absolute;
     left: 0;
-    /* border: 1px solid blue; */
 }
 
 .image-workshopsInfo {
@@ -18,6 +17,7 @@
 }
 
 .image-workshopsInfo img {
+    display: flex;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -26,7 +26,7 @@
 .titule-workshopsInfo {
     display: flex;
     width: 100%;
-    height: 7vh;
+    height: 6vh;
     background: #2E1108;
     color: white;
     align-items: center;
@@ -36,7 +36,7 @@
     position: absolute;
     object-fit: contain;
     width: 5%;
-    height: 6%;
+    height: 5%;
     left: 0;
 }
 
@@ -52,22 +52,63 @@
 .informacion-workshopsInfo {
     display: flex;
     width: 100%;
-    height: 80vh;
+    height: 60%;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
 }
 
 .box-firstText-workshopsInfo {
     width: 90%;
     height: 20%;
+    font-size: 0.9em;
+    justify-content: center;
+    align-items: center;
 }
 
 .box-info-workshopsInfo {
-    width: 90%;
-    height: 20%;
+    display: flex;
+    width: 92%;
+    flex-direction: column;
+    align-items: baseline;
+    justify-content: start;
+}
+
+.box-info-workshopsInfo div {
+    display: flex;
+    width: 100%;
+    height: 90%;
+    flex-direction: column;
+    /* padding-top: 0.2rem; */
+}
+
+.box-info-workshopsInfo div p {
+    margin: 0.2rem;
 }
 
 .box-list-workshopsInfo {
+    display: flex;
     width: 90%;
+    height: 30%;
+    flex-direction: column;
+}
+
+.box-list-workshopsInfo p {
+    margin: 0.2em;
+}
+
+.box-button-workshopsInfo {
+    display: flex;
+    width: 90%;
+    height: 10%;
+    border: 1px solid blue;
+}
+
+.colorTitule {
+    font-size: 1.1em;
+    font-weight: 600;
+    color: #9D1A1A;
+}
+
+.colorText {
+    color: gray;
 }
