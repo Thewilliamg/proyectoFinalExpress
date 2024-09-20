@@ -2,7 +2,7 @@ import "./favorites.css";
 import { Link } from "react-router-dom";
 import GoBackArrow from "../../../components/backArrow";
 import CategoryCarosel from "../../../components/categoryCarousel/categoryCarousel";
-import imagePrueba from '/img/imagenPrueba.svg'
+import BoxArticle from "./components/BoxArticle";
 
 export default function Favorites() {
   const data = [
@@ -14,10 +14,49 @@ export default function Favorites() {
     "William",
   ];
 
+  const objeto = {
+    "data1": {
+        "imagen": "https://via.placeholder.com/200",
+        "texto1": "Chullo II",
+        "texto2": "S/ 250",
+        "texto3": "Nacion Q'ero"
+    },
+    "data2": {
+        "imagen": "https://via.placeholder.com/200",
+        "texto1": "Chullo II",
+        "texto2": "S/ 250",
+        "texto3": "Nacion Q'ero"
+    },
+    "data3": {
+        "imagen": "https://via.placeholder.com/200",
+        "texto1": "Chullo II",
+        "texto2": "S/ 250",
+        "texto3": "Nacion Q'ero"
+    },
+    "data4": {
+        "imagen": "https://via.placeholder.com/200",
+        "texto1": "Chullo II",
+        "texto2": "S/ 250",
+        "texto3": "Nacion Q'ero"
+    },
+    "data5": {
+      "imagen": "https://via.placeholder.com/200",
+      "texto1": "Chullo II",
+      "texto2": "S/ 250",
+      "texto3": "Nacion Q'ero"
+    },
+    "data6": {
+      "imagen": "https://via.placeholder.com/200",
+      "texto1": "Chullo II",
+      "texto2": "S/ 250",
+      "texto3": "Nacion Q'ero"
+    }
+};
+
   return (
     <div className="container-favorites">
       <div className="box-backArrow">
-        <Link to="/workshops" className="br">
+        <Link to="/" className="br">
           <GoBackArrow />
         </Link>
       </div>
@@ -44,18 +83,7 @@ export default function Favorites() {
         </h5>
       </div>
       {data && <CategoryCarosel data={data} />}
-      <div className="box-articles">
-        <div className="box-containerArticle">
-          <div className="box-imagenArtixle">
-            <img src={imagePrueba} alt="" />
-          </div>
-          <div className="box-textArticle">
-            <p>Chullo II</p>
-            <p>S/ 250</p>
-            <p>Nacion Q'ero</p>
-          </div>
-        </div>
-      </div>
+      <BoxArticle objecto={objeto}/>
     </div>
   );
 }
