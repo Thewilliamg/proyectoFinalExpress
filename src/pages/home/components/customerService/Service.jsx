@@ -26,7 +26,7 @@ export default function Service() {
 			rx="7"
 			transform="matrix(0.707107 0.707107 0.707107 -0.707107 -2 118)"
 			fill="#703A31"
-			fill-opacity="0.38"
+			fillOpacity="0.38"
 		  />
 		</svg>
 		<h4 className="tituleService colorTitule">

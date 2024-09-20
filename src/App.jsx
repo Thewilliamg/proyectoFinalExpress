@@ -13,8 +13,7 @@ import Service from './pages/home/components/customerService/Service.jsx'
 import WorkshopsInfo from './pages/home/components/workshops/info/WorkshopsInfo.jsx'
 import Login from './pages/login/Login.jsx'
 import Login_User from './pages/login/user/User.jsx'
-
-
+import Favorites from './pages/home/components/favorites/Favorites.jsx'
 
 function App() {
   return (
@@ -24,6 +23,7 @@ function App() {
         <Route index element={<Home />} />
         <Route path="/customer-service" element={<Service/> } />  //Ruta para pantalla 25
         <Route path="/workshops/info" element={<WorkshopsInfo/> } /> //Ruta para pantalla 28
+        <Route path="/favorites" element={<Favorites/> } />
         //Rutas de descuentos
         {/* //Rutas de descuentos */}
         <Route path="/start" element={<Start/>}/>
@@ -44,5 +44,3 @@ function App() {
   </BrowserRouter>
   )
 }
-
-export default App
