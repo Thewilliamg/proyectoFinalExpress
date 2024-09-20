@@ -1,6 +1,6 @@
 .back-arrow {
     display: inline-block;
-    width: 100%;
+    width: 38%;
     height: min-content;
     z-index: 1000;
 }

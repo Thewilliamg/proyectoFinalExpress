@@ -6,6 +6,7 @@ import User from './pages/user/User.jsx';
 import Markets from './pages/markets/Markets.jsx';
 import Discounts from './pages/discounts/Discounts.jsx';
 import Shop from './pages/shop/Shop.jsx';
+import Workshop from './pages/home/components/workShop.jsx'
 import Parrafito from './pages/discounts/components/beforeShop.jsx';
 
 function App() {
@@ -13,7 +14,8 @@ function App() {
     <BrowserRouter>
       <Routes>
         
-        <Route index element={<Home />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/workshop" element={<Workshop />} />
         <Route path="/discounts" element={<Discounts/>} />
         <Route path="discounts/product" element={<Parrafito />} />
         <Route path="/markets" element={<Markets />} />
