@@ -11,6 +11,7 @@ import Policy from './pages/signup/register/policy/Policy.jsx'
 import Register from './pages/signup/register/Register.jsx'
 import Service from './pages/home/components/customerService/Service.jsx'
 import WorkshopsInfo from './pages/home/components/workshops/info/WorkshopsInfo.jsx'
+import Login from './pages/login/Login.jsx'
 
 
 
@@ -33,9 +34,10 @@ function App() {
         {/* //Rutas de perfil de usuario */}
         <Route path='/user' element={<User />} />
         {/* //Rutas de registro */}
-        <Route path='/signup' element={<SignUp />} />                       // Pantalla 2
+        <Route path='/signup' element={<SignUp />} />      
+        <Route path='/login' element={<Login />} />                      
         <Route path='/signup/register' element={<Register />} /> 
-        <Route path='/signup/register/policy' element={<Policy />} />       // Ruta para pantallas 4 y 5
+        <Route path='/signup/register/policy' element={<Policy />} />      
       </Routes>
   </BrowserRouter>
   )
