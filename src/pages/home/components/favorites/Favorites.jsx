@@ -2,6 +2,7 @@ import "./favorites.css";
 import { Link } from "react-router-dom";
 import GoBackArrow from "../../../components/backArrow";
 import CategoryCarosel from "../../../components/categoryCarousel/categoryCarousel";
+import imagePrueba from '/img/imagenPrueba.svg'
 
 export default function Favorites() {
   const data = [
@@ -38,11 +39,23 @@ export default function Favorites() {
           />
         </svg>
         <h5 className="menuTitule-h5">
-          Tus artesanías
-          <br /> favoritas
+          {" "}
+          Tus artesanías <br /> favoritas
         </h5>
       </div>
       {data && <CategoryCarosel data={data} />}
+      <div className="box-articles">
+        <div className="box-containerArticle">
+          <div className="box-imagenArtixle">
+            <img src={imagePrueba} alt="" />
+          </div>
+          <div className="box-textArticle">
+            <p>Chullo II</p>
+            <p>S/ 250</p>
+            <p>Nacion Q'ero</p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
