@@ -12,6 +12,7 @@ import Register from './pages/signup/register/Register.jsx'
 import Service from './pages/home/components/customerService/Service.jsx'
 import WorkshopsInfo from './pages/home/components/workshops/info/WorkshopsInfo.jsx'
 import Login from './pages/login/Login.jsx'
+import Login_User from './pages/login/user/User.jsx'
 
 
 
@@ -35,7 +36,8 @@ function App() {
         <Route path='/user' element={<User />} />
         {/* //Rutas de registro */}
         <Route path='/signup' element={<SignUp />} />      
-        <Route path='/login' element={<Login />} />                      
+        <Route path='/login' element={<Login />} />
+        <Route path='/login/user' element={<Login_User />} />                      
         <Route path='/signup/register' element={<Register />} /> 
         <Route path='/signup/register/policy' element={<Policy />} />      
       </Routes>
