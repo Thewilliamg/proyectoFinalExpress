@@ -24,19 +24,22 @@ export default function Policy() {
     };
 
     const data = [
-        {'checked':isChecked1,'handle':handleCheckboxChange1,'text':'He leído y acepto la ','link':'Política de privacidad*','href':'/#policy'},
-        {'checked':isChecked2,'handle':handleCheckboxChange2,'text':'He leído y acepto los ','link':' Términos y condiciones*','href':'/#terms'},
-        {'checked':isChecked3,'handle':handleCheckboxChange3,'text':'Acepto que me envíen promociones y eventos a mi correo electrónico'}
+        { 'checked': isChecked1, 'handle': handleCheckboxChange1, 'text': 'He leído y acepto la ', 'link': 'Política de privacidad*', 'href': '/#policy' },
+        { 'checked': isChecked2, 'handle': handleCheckboxChange2, 'text': 'He leído y acepto los ', 'link': ' Términos y condiciones*', 'href': '/#terms' },
+        { 'checked': isChecked3, 'handle': handleCheckboxChange3, 'text': 'Acepto que me envíen promociones y eventos a mi correo electrónico' }
     ]
 
     return (
         <div className="body-policy">
             <Link className='back-arrow-policy' to='/signup/register'><GoBackArrow /></Link>
+            <div className="background-img-2">
+                <img src={backgroundImage_middle} alt="img_background" />
+            </div>
             <div className="container-policy">
                 <div className="checkboxes-policy">
-                    {data.map((policy,index)=>{
+                    {data.map((policy, index) => {
                         return (
-                            <div className='checkbox-container-policy' key={'k'+index}>
+                            <div className='checkbox-container-policy' key={'k' + index}>
                                 <input
                                     className='checkbox-policy-input'
                                     type="checkbox"
@@ -45,15 +48,16 @@ export default function Policy() {
                                 </input>
                                 <span className="checkmark-policy"></span>
                                 <label className="label-policy">
-                                    {policy.text}<span className='space-policy-link'></span>{(policy.link)&&<a href={policy.href} className='label-policy-link'>{policy.link}</a>}
+                                    {policy.text}<span className='space-policy-link'></span>{(policy.link) && <a href={policy.href} className='label-policy-link'>{policy.link}</a>}
                                 </label>
                             </div>
-                        )})
+                        )
+                    })
                     }
                 </div>
                 <div className="register-button-pol">
                     <img src={arrow} alt="right-arrow-policy" />
-                    <Link to="/signup/register/policy" classname="linkme">
+                    <Link to="/login" classname="linkme">
                         Registrarse
                     </Link>
                 </div>

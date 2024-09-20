@@ -1,0 +1,36 @@
+.container-search-bar {
+    background-color: #2e1108;
+    width: 100%;
+    height: 10%;
+    display: flex;
+    flex-direction: row;
+}
+
+.burguer-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 12%;
+    height: 100%;
+    box-sizing: border-box;
+    background-color: transparent ;
+    border: none;
+    cursor:pointer;
+}
+
+.burguer-container img {
+    width: 60%;
+    height: 60%;
+}
+
+.searcher-container{
+    width: 88%;
+    height: 100%;
+}
+
+/* .lens{
+
+}
+.input-search-products{
+
+} */
