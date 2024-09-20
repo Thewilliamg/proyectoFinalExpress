@@ -10,6 +10,7 @@ import SignUp from './pages/signup/SignUp.jsx'
 import Policy from './pages/signup/register/policy/Policy.jsx'
 import Register from './pages/signup/register/Register.jsx'
 import Login from './pages/login/Login.jsx'
+import Login_User from './pages/login/user/User.jsx'
 
 
 
@@ -30,7 +31,8 @@ function App() {
         <Route path='/user' element={<User />} />
         {/* //Rutas de registro */}
         <Route path='/signup' element={<SignUp />} />      
-        <Route path='/login' element={<Login />} />                      
+        <Route path='/login' element={<Login />} />
+        <Route path='/login/user' element={<Login_User />} />                      
         <Route path='/signup/register' element={<Register />} /> 
         <Route path='/signup/register/policy' element={<Policy />} />      
       </Routes>
