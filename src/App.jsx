@@ -10,7 +10,7 @@ import Policy from './pages/signup/register/policy/Policy.jsx'
 import Register from './pages/signup/register/Register.jsx'
 import Service from './pages/home/components/customerService/Service.jsx'
 import WorkshopsInfo from './pages/home/components/workshops/info/WorkshopsInfo.jsx'
-
+import Favorites from './pages/home/components/favorites/Favorites.jsx'
 
 function App() {
   return (
@@ -20,6 +20,7 @@ function App() {
         <Route index element={<Home />} />
         <Route path="/customer-service" element={<Service/> } />  //Ruta para pantalla 25
         <Route path="/workshops/info" element={<WorkshopsInfo/> } /> //Ruta para pantalla 28
+        <Route path="/favorites" element={<Favorites/> } />
         //Rutas de descuentos
         <Route path="/discounts" element={<Discounts/>} />
         //Rutas de tiendas
