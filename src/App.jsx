@@ -14,6 +14,7 @@ import WorkshopsInfo from './pages/home/components/workshops/info/WorkshopsInfo.
 import Login from './pages/login/Login.jsx'
 import Login_User from './pages/login/user/User.jsx'
 import Favorites from './pages/home/components/favorites/Favorites.jsx'
+import SignupEmail from "./pages/signup/email/Email.jsx";
 
 function App() {
   return (
@@ -34,10 +35,11 @@ function App() {
         <Route path="/shop" element={<Shop />} />
         {/* Rutas de perfil de usuario */}
         <Route path='/user' element={<User />} />
-        {/* Rutas de registro */}
-        <Route path='/signup' element={<SignUp />} />      
+        {/* Rutas de registro */}   
         <Route path='/login' element={<Login />} />
         <Route path='/login/user' element={<Login_User />} />                      
+        <Route path='/signup' element={<SignUp />} />                       // Pantalla 2
+        <Route path='/signup/email' element={<SignupEmail />} />            // Pantalla 6
         <Route path='/signup/register' element={<Register />} /> 
         <Route path='/signup/register/policy' element={<Policy />} />      
       </Routes>
