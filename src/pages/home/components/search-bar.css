@@ -1,16 +1,20 @@
 .container-search-bar {
     background-color: #2e1108;
     width: 100%;
-    height: 10%;
+    height: 10vh;
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
 .burguer-container{
+    width: 12%;
+    max-width: 3em;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 12%;
     height: 100%;
     box-sizing: border-box;
     background-color: transparent ;
@@ -19,18 +23,52 @@
 }
 
 .burguer-container img {
-    width: 60%;
+    width: 100%;
     height: 60%;
 }
 
 .searcher-container{
-    width: 88%;
+    width: 78%;
+    height: 45%;
+    background-color: #703A31;
+    display: flex;
+    align-items: center;
+    border-radius: 0.4em 0.4em;
+    overflow: hidden;
+}
+
+
+.searchbar-input {
+    height: 80%;
+    margin-left: 0.5em;
+    border: transparent;
+    color: #FFFFFF;
+    width: 80%;
+    background-color: transparent;
+    font-size: 1.2em;
+    opacity: 90%;
+    transition: 0.5s;
+    border-radius: 0.2em 0.2em;
+}
+
+.searchbar-input:focus {
+    border:none;
+    outline: 0;
+}
+
+
+.searchbar-input::placeholder {
+    color: #FFFFFF;
+    opacity: 30%;
+}
+
+.lens{
+    width: 10%;
+    height: 60%;
+}
+
+.lens img{
+    padding-left: 0.2em;
+    width: 100%;
     height: 100%;
 }
-
-/* .lens{
-
-}
-.input-search-products{
-
-} */
