@@ -11,6 +11,7 @@ import Register from './pages/signup/register/Register.jsx'
 import Service from './pages/home/components/customerService/Service.jsx'
 import WorkshopsInfo from './pages/home/components/workshops/info/WorkshopsInfo.jsx'
 import Favorites from './pages/home/components/favorites/Favorites.jsx'
+import SignupEmail from "./pages/signup/email/Email.jsx";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
         <Route path='/user' element={<User />} />
         //Rutas de registro
         <Route path='/signup' element={<SignUp />} />                       // Pantalla 2
+        <Route path='/signup/email' element={<SignupEmail />} />            // Pantalla 6
         <Route path='/signup/register' element={<Register />} /> 
         <Route path='/signup/register/policy' element={<Policy />} />       // Ruta para pantallas 4 y 5
       </Routes>
