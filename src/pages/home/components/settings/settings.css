@@ -1,0 +1,46 @@
+.container-Settings {
+    width: 100%;
+    height: 100%;
+}
+
+.nav-Settings {
+    width: 20%;
+    position: absolute;
+    left: 0;
+}
+
+.titule-Settings {
+    display: flex;
+    width: 100%;
+    height: 20%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #9D1A1A;
+    /* border: 1px solid red; */
+}
+
+.subtitule-Settings {
+    position: absolute;
+    font-size: 1.2em;
+}
+
+.informa-Setting {
+    display: flex;
+    width: 100%;
+    height: 80%;
+    flex-direction: column;
+    border: 1px solid red;
+    justify-content: space-between;
+    padding: 2rem;
+}
+
+.subInfo-Settings {
+    width: 100%;
+    height: 40%;
+    border: 1px solid red;
+}
+
+.options-Settings {
+    border: 1px solid brown;
+}

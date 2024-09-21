@@ -12,6 +12,7 @@ import Service from './pages/home/components/customerService/Service.jsx'
 import WorkshopsInfo from './pages/home/components/workshops/info/WorkshopsInfo.jsx'
 import Favorites from './pages/home/components/favorites/Favorites.jsx'
 import SignupEmail from "./pages/signup/email/Email.jsx";
+import Settings from "./pages/home/components/settings/Settings.jsx";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/customer-service" element={<Service/> } />  //Ruta para pantalla 25
         <Route path="/workshops/info" element={<WorkshopsInfo/> } /> //Ruta para pantalla 28
         <Route path="/favorites" element={<Favorites/> } />
+        <Route path="/settings" element={<Settings/> } />
         //Rutas de descuentos
         <Route path="/discounts" element={<Discounts/>} />
         //Rutas de tiendas
