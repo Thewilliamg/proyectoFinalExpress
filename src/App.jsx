@@ -27,14 +27,13 @@ function App() {
         <Route path="/workshops/info" element={<WorkshopsInfo/> } /> //Ruta para pantalla 28
         <Route path="/favorites" element={<Favorites/> } />
         <Route path="/settings" element={<Settings/> } />
-        //Rutas de descuentos
         {/* //Rutas de descuentos */}
         <Route path="/start" element={<Start/>}/>
-        <Route path="/discounts" element={<Discounts/>} />
+        <Route path="/discounts" element={<Home page={<Discounts/>}/>} />
         {/* Rutas de tiendas*/ }
-        <Route path="/markets" element={<Markets />} />
+        <Route path="/markets" element={<Home page={<Markets/>}/>} />
         {/* Rutas de comprar */}
-        <Route path="/shop" element={<Shop />} />
+        <Route path="/shop" element={<Home page={<Shop/>}/>} />
         {/* Rutas de perfil de usuario */}
         <Route path='/user' element={<User />} />
         {/* Rutas de registro */}   

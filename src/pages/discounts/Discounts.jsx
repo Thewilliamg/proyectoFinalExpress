@@ -8,10 +8,9 @@ export default function Discounts() {
     }
 
     return (
-        // Este es un ejemplo
-        <div className='discount-container'>
+        <div className='discount-container'> {/*IMPORTANTE: Modificar Solo dentro de esta vista*/}
             <h1>Discounts</h1>
-            <button onClick={mostrar}>Oprimeme</button>
+            <button onClick={mostrar}>Solo modificar</button>
             <Parrafito />   
         </div>
     )

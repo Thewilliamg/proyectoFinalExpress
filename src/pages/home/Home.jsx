@@ -4,7 +4,7 @@ import FooterNavbar from "./components/footer-navbar";
 import { useState} from 'react';
 import Sidebar from "./components/sidebar/sidebar";
 
-export default function Home() {
+export default function Home({page=HomePage()}) {
 
     const [isOpen, setIsOpen] = useState(false);
 
@@ -18,10 +18,18 @@ export default function Home() {
             <div className="all-container-home">
                 <Sidebar isOpen={isOpen}/>
                 <div className="home-container">
-                    <p>Home container lalalalal</p>
+                    {page}
                 </div>
             </div>
             <FooterNavbar />
+        </div>
+    )
+}
+
+function HomePage() {
+    return(
+        <div className="homepage-container">
+            <p>Home container lalalalal</p>
         </div>
     )
 }
