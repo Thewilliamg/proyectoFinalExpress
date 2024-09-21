@@ -1,5 +1,5 @@
 .home-page {
-    height: 100svh;
+    height: 100dvh;
     width: 100vw;
     display: flex;
     flex-direction: column;
@@ -16,4 +16,6 @@
     position: absolute;
     top: 10%;
     left: 0%;
+    width: 100vw;
+    height: 80dvh;
 }
