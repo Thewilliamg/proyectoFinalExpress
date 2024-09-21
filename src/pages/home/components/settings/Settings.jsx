@@ -1,8 +1,23 @@
 import './settings.css'
 import BackArrow from "../../../components/backArrow";
 import { Link } from "react-router-dom";
+import { useState } from 'react';
 
 export default function Settings() {
+    const [toggles, setToggles] = useState({
+        compras: true,
+        descuentos: true,
+        talleres: true,
+        sonido: true
+    });
+
+    const toggleOption = (option) => {
+        setToggles(prev => ({
+            ...prev,
+            [option]: !prev[option]
+        }));
+    };
+
     return (
         <div className='container-Settings'>
             <div className='nav-Settings'>
@@ -16,9 +31,9 @@ export default function Settings() {
                     <h4>Ajustes</h4>
                 </div>
             </div>
-            <div className='informa-Settings'>
+            <div className='informacion-Settings'>
                 <div className='subInfo-Settings'>
-                    <h4>Global</h4>
+                    <h4 className='colorTitule-Settings'>Global</h4>
                     <div className='options-Settings'>
                         <div className='subOptions-Settings'>
                             <span>Cambiar pais y region</span>
@@ -36,34 +51,38 @@ export default function Settings() {
                 </div>
 
                 <div className='subInfo-Settings'>
-                    <h4>Notificaciones</h4>
+                    <h4 className='colorTitule-Settings'>Notificaciones</h4>
                     <div className='options-Settings'>
                         <div className='subOptions-Settings'>
-                            <span>Cambiar pais y region</span>
-                            <div className="toggle active"></div>
+                            <span>Mostrar notificaciones de compras</span>
+                            <div className={`toggle ${toggles.compras ? 'active' : ''}`} onClick={() => toggleOption('compras')}></div>
                         </div>
                         <div className='subOptions-Settings'>
-                            <span>Cambiar pais y region</span>
-                            <div className="toggle active"></div>
+                            <span>Mostrar notificaciones de descuentos</span>
+                            <div className={`toggle ${toggles.descuentos ? 'active' : ''}`} onClick={() => toggleOption('descuentos')}></div>
                         </div>
                         <div className='subOptions-Settings'>
-                            <span>Cambiar pais y region</span>
-                            <div className="toggle active"></div>
+                            <span>Mostrar notificaciones de talleres</span>
+                            <div className={`toggle ${toggles.talleres ? 'active' : ''}`} onClick={() => toggleOption('talleres')}></div>
+                        </div>
+                        <div className='subOptions-Settings'>
+                            <span>Sonido de notificaciones</span>
+                            <div className={`toggle ${toggles.sonido ? 'active' : ''}`} onClick={() => toggleOption('sonido')}></div>
                         </div>
                     </div>
                 </div>
 
                 <div className='subInfo-Settings'>
-                    <h4>Global</h4>
+                    <h4 className='colorTitule-Settings'>Legal</h4>
                     <div className='options-Settings'>
                         <div className='subOptions-Settings'>
-                            <span>Cambiar pais y region</span>
+                            <span>Política de privacidad</span>
                         </div>
                         <div className='subOptions-Settings'>
-                            <span>Cambiar idioma</span>
+                            <span>Información legala</span>
                         </div>
                         <div className='subOptions-Settings'>
-                            <span>Cambiar Moneda</span>
+                            <span>Libro de reclamaciones</span>
                         </div>
                     </div>
                 </div>
