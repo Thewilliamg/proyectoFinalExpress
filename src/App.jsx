@@ -35,7 +35,7 @@ function App() {
         {/* Rutas de comprar */}
         <Route path="/shop" element={<Home page={<Shop/>}/>} />
         {/* Rutas de perfil de usuario */}
-        <Route path='/user' element={<User />} />
+        <Route path='/user' element={<Home page={<User/>}/>} />
         {/* Rutas de registro */}   
         <Route path='/login' element={<Login />} />
         <Route path='/login/user' element={<Login_User />} />                      

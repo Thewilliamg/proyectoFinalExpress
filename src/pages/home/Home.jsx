@@ -5,6 +5,7 @@ import { useState} from 'react';
 import Sidebar from "./components/sidebar/sidebar";
 import textil from "/img/textil-icon.svg";
 
+
 export default function Home({page=HomePage()}) {
 
     const [isOpen, setIsOpen] = useState(false);
