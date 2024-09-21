@@ -1,12 +1,12 @@
 .home-page {
-    height: 100vh;
+    height: 100svh;
     width: 100vw;
     display: flex;
     flex-direction: column;
 }
 
 .all-container-home {
-    height: 80%; // Dont change
+    height: 80%; /*Dont change*/
     width: 100%;
     overflow: auto;
     display: flex;

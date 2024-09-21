@@ -55,11 +55,11 @@
 body {
   margin: 0;
   box-sizing: border-box;
-  height: 100vh;
+  height: 100svh;
   width: 100vw;
   font-family: 'Bellota', sans-serif;
 }
 
-button {
+button,input {
   font-family: 'Bellota', sans-serif;
 }
