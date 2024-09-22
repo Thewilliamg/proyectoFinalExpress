@@ -11,6 +11,8 @@ import Policy from './pages/signup/register/policy/Policy.jsx'
 import Register from './pages/signup/register/Register.jsx'
 import Login from './pages/login/Login.jsx'
 import Login_User from './pages/login/user/User.jsx'
+import CustomerService from './pages/customerService/CustomerService.jsx'
+import Chat from './pages/customerService/chat/Chat.jsx'
 
 
 
@@ -35,6 +37,8 @@ function App() {
         <Route path='/login/user' element={<Login_User />} />                      
         <Route path='/signup/register' element={<Register />} /> 
         <Route path='/signup/register/policy' element={<Policy />} />      
+        <Route path='/customerService' element={<CustomerService />}/>
+        <Route path='/customerService/chat' element={<Chat/>} />
       </Routes>
   </BrowserRouter>
   )
