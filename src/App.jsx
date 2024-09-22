@@ -6,6 +6,7 @@ import User from './pages/user/User.jsx';
 import Markets from './pages/markets/Markets.jsx';
 import Discounts from './pages/discounts/Discounts.jsx';
 import Shop from './pages/shop/Shop.jsx';
+import Confirmation from './pages/shop/confirmation/Confirmation.jsx'
 import SignUp from './pages/signup/SignUp.jsx'
 import Policy from './pages/signup/register/policy/Policy.jsx'
 import Register from './pages/signup/register/Register.jsx'
@@ -38,6 +39,7 @@ function App() {
         <Route path="/markets" element={<Home page={<Markets/>}/>} />
         {/* Rutas de comprar */}
         <Route path="/shop" element={<Home page={<Shop/>}/>} />
+        <Route path="/shop/confirmation" element={<Confirmation />} />
         {/* Rutas de perfil de usuario */}
         <Route path='/user' element={<Home page={<User/>}/>} />
         {/* Rutas de registro */}   
