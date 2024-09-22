@@ -9,9 +9,9 @@ export default function SignUp() {
     return (
         <div className="signupBack">
                 <div className="signupTitle">
-                    <h1>Regístrate ahora y obtén <br/>
-                    las mejores promociones <br/> 
-                    en <span className='signupTitle_2'>artesanías colombianas</span>
+                    <h1>Inicia sesión y  <br/>
+                    continua viendo <span className='signupTitle_2'>tus</span> <br/> 
+                    <span className='signupTitle_2'>artesanías favoritas</span>
                     </h1>
                 </div>
                 <div className="signupButtons2">
@@ -42,7 +42,7 @@ export default function SignUp() {
                             <p className='signup_p2'>Inicia sesión con <span className='signupBtnSpan2'>Gmail</span></p>
                         </button>
                     </a>
-                    <a className='signupAll2'>
+                    <Link to="/login/user" className='signupAll2'>
                         <button className='signup_btn2'>
                             <span className='signupBtnSpan'>
                                 <img src= {User} alt="User">
@@ -50,16 +50,8 @@ export default function SignUp() {
                             </span>
                             <p className='signup_p1'>Inicia sesión con tu cuenta de <span className='signupBtnSpan2'>ruraq maki</span> </p>
                         </button>
-                    </a>
+                    </Link>
                 </div>
-                <div className="signupAccount2">
-                    <h1>
-                        ¿Ya tienes una cuenta?
-                    </h1>
-                </div>
-                <Link to="/login" className='signupAccount_link'>
-                    Inicia Sesión
-                </Link>
         </div>
     )
 }
