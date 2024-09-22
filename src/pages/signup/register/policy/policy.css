@@ -1,27 +1,115 @@
-.container-policy{
-    height: 100vh;
-    width: 100%;
+.body-policy{
+    height: 100svh;
+    width: 100vw;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.back-arrow-policy{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.container-policy {
+    position: absolute;
+    width: 85%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .background-img-1 img{
     position: absolute;
     bottom: 0;
+    left: 0;
     height: 400px;
+}
+
+.background-img-2 img{
+    position: absolute;
+    top: -12%;
+    right: 0;
+    height: 200px;
+    transform: rotate(180deg);
 }
 
 .checkboxes-policy {
     display: flex;
+    padding-left: 5%;
     flex-direction: column;
-    width: 80%;
+    height: 45%;
     align-self: center;
+    justify-content: center;
+    gap: 10%;
 }
 
 .checkbox-container-policy {
     font-size: 78%;
     font-family: 'Bellota';
     display: flex;
-    gap: 2%;
+    font-family: 'Bellota', sans-serif;
+    gap: 1%;
+    width: 100%;
+    z-index: 10;
 }
 
+.checkbox-policy-input {
+    width: 2.1em;
+    height: 2.1em;
+    appearance: none;
+    -webkit-appearance: none;
+    border: 3px solid #ffa800;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.body-policy input[type="checkbox"]:checked {
+    background-image: url('/img/input-check.svg');
+    object-fit: cover;
+}
+
+.label-policy {
+    margin-left: 10px;
+    width: 90%;
+    display: inline;
+    font-size: 0.8em;
+    align-self: center;
+    text-decoration-thickness: 5px;
+}
+
+.label-policy a{
+    text-decoration-thickness: 1px;
+}
+
+.space-policy-link {
+    visibility:hidden;
+}
+
+.label-policy-link {
+    color: #9d1a1a;
+    font-weight: 600;
+}
+
+.register-button-pol {
+    text-decoration: none;
+    display: flex;
+    justify-content:end;
+    align-items: center;
+    gap: 3%;
+    padding-right: 5%;
+}
+
+.register-button-pol img {
+    height: 40%;
+}
+
+.register-button-pol a:visited { 
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    color: #9D1A1A;
+    font-size: 1.2em;
+    display: flex;
+    align-items: center;
+}
