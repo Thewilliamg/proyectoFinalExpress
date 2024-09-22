@@ -2,6 +2,7 @@ import { useState } from 'react'
 import GoBackArrow from '../../components/backArrow'
 import Title from '../storage/img/Rectangle-86.svg'
 import Search from '../storage/img/Group-6.svg'
+import Flower from '../storage/img/Rectangle-51.png'
 
 export default function Workshop() {
     const [busqueda, setBusqueda] = useState('');
@@ -36,6 +37,18 @@ export default function Workshop() {
                     />
                 </div>
             </form>
+            <div className='container-items'>
+                <img src={Flower} />
+                <div className='item-container'>
+                    <div className='text-item-container'>
+                        <p>Taller de bordado ayacuchano</p>
+                        <p>Para el público en general</p>
+                        <p>Taller dado por los artesanos de</p>
+                        <p>Taller Awaq Ayllus</p>
+                    </div>
+                    <button className='button-item' onClick='submit'>Entérate más sobre el taller aquí</button>
+                </div>
+            </div>
         </article>
     )
 }
