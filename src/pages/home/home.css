@@ -19,3 +19,41 @@
     width: 100vw;
     height: 80dvh;
 }
+
+
+/* ------------------------------------- */
+
+.homepage-view{
+    height: 100%;
+}
+
+.top-homepage{
+    height: 20%;
+    border: 2px solid brown;
+}
+
+.title-page-home{
+    display: flex;
+    color: #9D1A1A;
+}
+
+.categories-container {
+    display: flex;
+    flex-wrap: wrap;
+    height: 30%;
+    gap: 3%;
+    row-gap: 12%;
+    column-gap: 5%;
+    padding-left: 6%;
+}
+
+.box-categorie-home {
+    width: 15%;
+    min-height: max-content;
+    background-color: blue;
+    justify-content: center;
+}
+
+.box-categorie-home img {
+    width: 95%;
+}
