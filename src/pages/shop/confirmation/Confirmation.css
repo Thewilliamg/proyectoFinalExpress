@@ -1,0 +1,35 @@
+
+.confirmationAll{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid green;
+    width: 100vw;
+    height: 100vh;  
+}
+
+.confirmationTop{
+    display: flex;
+    border: 1px solid red;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 38vh;
+}
+
+.confirmationTop_img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 230px;
+    height: 230px;
+    align-items: center;
+    border-radius: 10px;
+    border: 5px solid #FFA800;
+    transform: rotate(135deg);
+}
+
+.confirmationTop_img img{
+    width: 60%;
+    height: auto;
+    transform: rotate(225deg);
+}
