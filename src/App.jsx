@@ -16,6 +16,10 @@ import Login_User from './pages/login/user/User.jsx'
 import Favorites from './pages/home/components/favorites/Favorites.jsx'
 import SignupEmail from "./pages/signup/email/Email.jsx";
 import Settings from "./pages/home/components/settings/Settings.jsx";
+import CustomerService from './pages/customerService/CustomerService.jsx'
+import Chat from './pages/customerService/chat/Chat.jsx'
+
+
 
 function App() {
   return (
@@ -43,6 +47,8 @@ function App() {
         <Route path='/signup/email' element={<SignupEmail />} />            // Pantalla 6
         <Route path='/signup/register' element={<Register />} /> 
         <Route path='/signup/register/policy' element={<Policy />} />      
+        <Route path='/customerService' element={<CustomerService />}/>
+        <Route path='/customerService/chat' element={<Chat/>} />
       </Routes>
   </BrowserRouter>
   )
