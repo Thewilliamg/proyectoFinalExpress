@@ -32,18 +32,16 @@
 
 .signupButtons{
     display: flex;
-    /* border: 1px solid red; */
     align-items: center;
     flex-direction: column;
-    margin-top: 5%;
+    margin-top: 0%;
     width: 100%;
-    height: 50vh;
+    height: 48vh;
     gap: 2%;
 }
 
 .signupA{
     display: flex;
-    /* border: 1px solid red; */
     width: 80vw;
     height: 6vh;
     justify-content: center;
@@ -97,7 +95,6 @@
 
 .signupAll{
     display: flex;
-    /* border: 1px solid red; */
     width: 80vw;
     height: 6vh;
     justify-content: center;
@@ -124,28 +121,20 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 18vh;
+    height: auto;
     align-items: center;
-    margin-top: 3%;
     color: #fff;
     font-size: 90%;
-}
+}   
 
-.signupAccount_span{
+.signupAccount_link{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 5vh;
-}
-
-
-.signupAccount a{
-    display: flex;
-    font-size: 50%;
+    font-size: 155%;
     color: #F4A002;
     text-decoration: underline;
-    height: 100%;
+    height: auto;
     width: auto;
     justify-content: center;
     align-items: center;
+    margin-top: -3%;
 }
