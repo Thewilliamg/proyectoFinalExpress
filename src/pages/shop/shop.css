@@ -1,0 +1,47 @@
+.popUp-shop {
+    position: relative;
+    display: flex;
+    width: 40%;
+    height: 50%;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 1.8rem;
+    gap: 0.5rem;
+    border-radius: 0.5rem;
+    top: 10rem;
+    left: 5rem;
+    color: white;
+    background: #703A31;
+}
+
+.text-popUp {
+    display: flex;
+    width: 90%;
+    height: 50%;
+    text-align: center;
+}
+
+.button-popUp {
+    display: flex;
+    width: 100%;
+    height: 50%;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.button-popUp button {
+    width: 50%;
+    border: none;
+    background: #2E1108;
+    padding: 0.3rem;
+    color: white;
+    font-size: 1.1em;
+    border-radius: 0.3rem;
+    /* padding: 0.2rem 0.5rem; */
+}
+
+.link-popUp {
+    text-decoration: none;
+    color: white;
+}
