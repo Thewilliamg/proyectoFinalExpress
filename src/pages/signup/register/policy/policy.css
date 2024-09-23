@@ -91,7 +91,6 @@
 }
 
 .register-button-pol {
-    text-decoration: none;
     display: flex;
     justify-content:end;
     align-items: center;
@@ -101,6 +100,12 @@
 
 .register-button-pol img {
     height: 40%;
+}
+
+.register-button-pol a{
+    text-decoration-color: none;
+    color: #9D1A1A;
+
 }
 
 .register-button-pol a:visited { 

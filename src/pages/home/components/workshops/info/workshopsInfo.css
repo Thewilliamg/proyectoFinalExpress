@@ -1,0 +1,142 @@
+.box-workshopsInfo {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.box-BackArrow {
+    position: absolute;
+    left: 0;
+}
+
+.image-workshopsInfo {
+    display: flex;
+    width: 100%;
+    height: 30vh;
+}
+
+.image-workshopsInfo img {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.titule-workshopsInfo {
+    display: flex;
+    width: 100%;
+    height: 6vh;
+    background: #2E1108;
+    color: white;
+    align-items: center;
+}
+
+.titule-workshopsInfo img {
+    position: absolute;
+    object-fit: contain;
+    width: 5%;
+    height: 5%;
+    left: 0;
+}
+
+.subtitule-workshopsInfo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 75%;
+    height: 50%;
+    font-size: 1.1em;
+}
+
+.informacion-workshopsInfo {
+    display: flex;
+    width: 100%;
+    height: 60%;
+    flex-direction: column;
+    align-items: center;
+}
+
+.box-firstText-workshopsInfo {
+    width: 92%;
+    height: 20%;
+    font-size: 0.9em;
+    justify-content: center;
+    align-items: center;
+}
+
+.box-info-workshopsInfo {
+    display: flex;
+    width: 92%;
+    flex-direction: column;
+    align-items: baseline;
+    justify-content: start;
+}
+
+.box-info-workshopsInfo div {
+    display: flex;
+    width: 100%;
+    height: 90%;
+    flex-direction: column;
+    /* padding-top: 0.2rem; */
+}
+
+.box-info-workshopsInfo div p {
+    margin: 0.2rem;
+}
+
+.box-list-workshopsInfo {
+    display: flex;
+    width: 92%;
+    height: 30%;
+    flex-direction: column;
+    margin-top: 0.6rem;
+}
+
+.box-list-workshopsInfo p {
+    margin: 0.2em;
+}
+
+.box-button-workshopsInfo {
+    display: flex;
+    width: 92%;
+    height: 10%;
+    /* justify-content: space-between; */
+    align-items: center;
+    gap: 1.2rem;
+    margin-top: 0.6rem;
+}
+
+.box-button-workshopsInfo button {
+    display: flex;
+    width: 55%;
+    height: 100%;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 0.4rem;
+    text-decoration: none;
+    align-items: center;
+    background-color: #2E1108;
+    color: white;
+    font-size: 1.1rem;
+    gap: 1rem;
+}
+
+.box-button-workshopsInfo p {
+    color: #ef7777;
+}
+
+.box-button-workshopsInfo button img {
+    width: 12%;
+    height: 12%;
+}
+
+.colorTitule {
+    font-size: 1.1em;
+    font-weight: 600;
+    color: #9D1A1A;
+}
+
+.colorText {
+    color: gray;
+}

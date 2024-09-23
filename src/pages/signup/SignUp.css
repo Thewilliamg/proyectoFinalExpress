@@ -1,0 +1,141 @@
+
+.signupBack{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('/public/img/SignUpBackground.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    background-color: #34160B;
+    align-items: center;
+}
+
+.signupTitle{
+    display: flex;
+    margin-top: 20%;
+    width: auto;
+    height: auto;
+    color: #fff;
+    font-size: 90%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-weight: lighter;
+}
+
+
+.signupTitle_2{
+    color: #F4A002; 
+}
+
+.signupButtons{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 3%;
+    width: 100%;
+    height: 48vh;
+    gap: 2%;
+}
+
+.signupA{
+    display: flex;
+    width: 80vw;
+    height: 6vh;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    margin-top: 5%;
+}
+
+.signup_btn{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 120%;
+    font-family: 'Bellota';
+    background-color: #703A31;
+    border-radius: 10px;
+    border: none;
+    color: #fff;
+    gap: 6%;
+}
+
+.signup_p1{
+    margin-right: 3%;
+    width: 62vw;
+}
+
+.signupBtnSpan{
+    display: flex;
+    width: 8vw;
+    height: 100%;
+    margin-left: 5%;
+    justify-content: center;
+    align-items: center;
+}
+
+.signupBtnSpan img{
+    width: 100%;
+    height: auto;
+}
+
+
+.signupBtnSpan2{
+    font-weight: bold;
+}
+
+.signup_p2{
+    margin-right: 10%;
+}
+
+.signupAll{
+    display: flex;
+    width: 80vw;
+    height: 6vh;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    margin-top: 5%;
+}
+
+.signup_btn2{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 120%;
+    font-family: 'Bellota';
+    background-color: #703A31;
+    border-radius: 10px;
+    border: none;
+    color: #fff;
+}
+
+.signupAccount{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    align-items: center;
+    color: #fff;
+    font-size: 90%;
+    margin-top: 4%;
+}   
+
+.signupAccount_link{
+    display: flex;
+    font-size: 155%;
+    color: #F4A002;
+    text-decoration: underline;
+    height: auto;
+    width: auto;
+    justify-content: center;
+    align-items: center;
+    margin-top: -3%;
+}

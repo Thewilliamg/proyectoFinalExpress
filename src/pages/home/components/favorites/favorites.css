@@ -1,0 +1,33 @@
+.container-favorites {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.box-backArrow {
+    position: absolute;
+    left: 0;
+    width: 70%;
+}
+
+.box-menuTitule {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 10%;
+    align-items: center;
+    justify-content: center;
+    /* border: 1px solid red; */
+}
+
+.box img {
+    width: 100%;
+    height: 100%;
+}
+
+.menuTitule-h5 {
+    position: absolute;
+    text-align: center;
+    font-size: 1em;
+    color: #9D1A1A;
+}
