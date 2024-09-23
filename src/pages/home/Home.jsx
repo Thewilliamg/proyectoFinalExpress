@@ -43,11 +43,11 @@ export default function Home({page=HomePage()}) {
 function HomePage() {
 
     const dataCategories = [
-        {icon:textil, title:"Textileria"},{icon:ceramic, title:"Ceramica"},
-        {icon:goldsmith, title:"Orfebreria"},{icon:rockCarving, title:"Talla en piedra"},
-        {icon:woodCarving, title:"Talla en madera"},{icon:embroidery, title:"Bordado"},
-        {icon:jewelry, title:"Joyeria"},{icon:tinsmith, title:"Hojalateria"},
-        {icon:stamp, title:"Estampado"},{icon:paint, title:"Pintura tradicional"}
+        {icon:textil, title:"Textileria",href:'textil'},{icon:ceramic, title:"Ceramica",href:'ceramica'},
+        {icon:goldsmith, title:"Orfebreria",href:'orfebreria'},{icon:rockCarving, title:"Talla en piedra",href:'talla_piedra'},
+        {icon:woodCarving, title:"Talla en madera",href:'talla_madera'},{icon:embroidery, title:"Bordado",href:'bordado'},
+        {icon:jewelry, title:"Joyeria",href:'joyeria'},{icon:tinsmith, title:"Hojalateria",href:'hojalateria'},
+        {icon:stamp, title:"Estampado",href:'estampado'},{icon:paint, title:"Pintura tradicional",href:'pintura'}
     ]
 
     return(
@@ -67,7 +67,7 @@ function HomePage() {
             <div className="categories-container">
                 {dataCategories.map((item,index)=>{
                     return (
-                        <a key={'icon'+index} className="box-categorie-home">
+                        <a href={'/categories?cat='+item.href} key={'icon'+index} className="box-categorie-home">
                             <img src={item.icon} alt="icon" />
                             <small>{item.title}</small>
                         </a>
