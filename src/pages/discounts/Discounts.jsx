@@ -1,7 +1,8 @@
 import './discounts.css';
 import square from '/img/square-brown-figure.svg'
 import prueba from '/img/imagenPrueba.svg'
-import DiscountFigure from './components/DiscountFigure';
+import DiscountFigure1 from './components/DiscountFigure1';
+import DiscountFigure2 from './components/DiscountFigure2';
 
 export default function Discounts() {
 
@@ -10,40 +11,35 @@ export default function Discounts() {
           discount: "-30%",
           image: prueba,
           name: "Chalina Beige con flecos",
-          oldPrice: "S/.100",
-          newPrice: "S/.65",
+          Price: "S/.100 S/.65",
           artisan: "Asoc. de artesanos Tinkuy"
         },
         {
-            discount: "-30%",
+            discount: "Envio Gratis",
             image: prueba,
             name: "Chalina Beige con flecos",
-            oldPrice: "S/.100",
-            newPrice: "S/.65",
+            Price: "S/.100 S/.65",
+            artisan: "Asoc. de artesanos Tinkuy"
+          },
+          {
+            discount: "3x2",
+            image: prueba,
+            name: "Chalina Beige con flecos",
+            Price: "S/.100 S/.65",
             artisan: "Asoc. de artesanos Tinkuy"
           },
           {
             discount: "-30%",
             image: prueba,
             name: "Chalina Beige con flecos",
-            oldPrice: "S/.100",
-            newPrice: "S/.65",
+            Price: "S/.100 S/.65",
             artisan: "Asoc. de artesanos Tinkuy"
           },
           {
             discount: "-30%",
             image: prueba,
             name: "Chalina Beige con flecos",
-            oldPrice: "S/.100",
-            newPrice: "S/.65",
-            artisan: "Asoc. de artesanos Tinkuy"
-          },
-          {
-            discount: "-30%",
-            image: prueba,
-            name: "Chalina Beige con flecos",
-            oldPrice: "S/.100",
-            newPrice: "S/.65",
+            Price: "S/.100 S/.65",
             artisan: "Asoc. de artesanos Tinkuy"
           }
         // Añade más objetos aquí para más items
@@ -72,20 +68,24 @@ export default function Discounts() {
             <div className='infoItem-discount'>
                 <div className='containerInfo-discount'>
                     {discountItems.map((item, index) => (
-                    <div className='subinfo-discount' key={index}>
-                        <DiscountFigure text={item.discount}/>
-                        <div className='imagenInfo-discount'>
-                            <img src={item.image} alt={item.name} />
+                        <div className='subinfo-discount' key={index}>
+                            {index % 2 === 0 ? (
+                                <DiscountFigure1 text={item.discount}/>
+                            ) : (
+                                <DiscountFigure2 text={item.discount}/>
+                            )}
+                            <div className='imagenInfo-discount'>
+                                <img src={item.image} alt={item.name} />
+                            </div>
+                            <div className='textInfo-discount'>
+                                <p>{item.name}</p>
+                                <p>{item.Price}</p>
+                                <p>{item.artisan}</p>
+                            </div>
                         </div>
-                        <div className='textInfo-discount'>
-                            <p>{item.name}</p>
-                            <p>{item.oldPrice} {item.newPrice}</p>
-                            <p>{item.artisan}</p>
-                        </div>
-                    </div>
                     ))}
                 </div>
-                </div>
+            </div>
         </div>
     )
 }

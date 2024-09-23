@@ -1,9 +1,9 @@
 import imagen from '/img/discountFigure.svg'
-import './discountFigure.css'
+import './discountFigure1.css'
 
-export default function Parrafito({text}) {
+export default function DiscountFigure1({text}) {
     return (
-        <div className='container-discountFigure'>
+        <div className='container-discountFigure1'>
             <img src={imagen} alt="" />
             <p>{text}</p>
         </div>
