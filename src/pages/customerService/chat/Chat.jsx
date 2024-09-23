@@ -17,19 +17,26 @@ export default function Chat(){
             </div>
             <div className='chatMiddle'>
                 <div className='chatMiddle_boxes'>
-                    <div className='chatMiddle_textBoxes'>
-                        <h1>Aqui iria el texto... </h1>
-                    </div>
-                    <div className='chatMiddle_textDown'>
+
+                    {/* Esta es la cajaque se usa en la parte de la izquierda del chat */}
+                    <div className='chatMiddle_Unique'>
+                        <div className='chatMiddle_textBoxes'>
+                            <h1>Aqui iria el texto... </h1>
+                        </div>
+                        <div className='chatMiddle_textDown'>
+                        </div>
                     </div>
 
-                    <div className='chatMiddle_textBoxes2'>
-                        <h1>Lorem ipsum dolor sit amet consectetur adipiscing elit, cum ligula justo condimentum ac proin. Interdum luctus porta netus tincidunt purus nec ac, sociosqu ligula leo suspendisse nullam class congue, non commodo inceptos scelerisque imperdiet aenean.</h1>
-                    </div>
-                    <div className='chatMiddle_textDown2'>
+                    {/* Esta es la cajaque se usa en la parte de la derecha del chat */}
+                    <div className='chatMiddle_Unique2'>
+                        <div className='chatMiddle_textBoxes2'>
+                            <h1>Lorem ipsum dolor sit amet consectetur adipiscing elit, cum ligula justo condimentum ac proin. Interdum luctus porta netus tincidunt purus nec ac, sociosqu ligula leo suspendisse nullam class congue, non commodo inceptos scelerisque imperdiet aenean.</h1>
+                        </div>
+                        <div className='chatMiddle_textDown2'>
+                        </div>
                     </div>
 
-                    
+
                 </div>
             </div>
             <div className='chatDown'>

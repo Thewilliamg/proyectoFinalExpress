@@ -2,7 +2,6 @@
 .confirmationAll{
     display: flex;
     flex-direction: column;
-    border: 1px solid green;
     width: 100vw;
     height: 100vh;  
 }
