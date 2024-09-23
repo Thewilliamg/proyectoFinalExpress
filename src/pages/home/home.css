@@ -16,7 +16,7 @@
     position: absolute;
     top: 10%;
     left: 0%;
-    width: 100vw;
+    width: 100%;
     height: 80dvh;
 }
 
@@ -25,35 +25,124 @@
 
 .homepage-view{
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    color: #9D1A1A; 
 }
 
 .top-homepage{
-    height: 20%;
-    border: 2px solid brown;
+    height: 22%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.localizate-bar{
+    width: 93%; 
+    height: 34%; 
+    display: flex;
+    background-color: #703A31;
+    justify-content: space-around;
+    border-radius: 0.4em 0.4em;
+    align-items: center;
+}
+
+.localizate-bar img{
+    width: 6%;
+    height: 70%;
+    opacity: 85%;
+}
+.localizate-bar input{
+    height: 90%;
+    width: 84%;
+    background-color: transparent;
+    font-size: 1em;
+    border: transparent;
+    color: #FFFFFF;
+}
+
+.localizate-bar input::placeholder{
+    opacity: 40%;
+}
+
+.localizate-bar input:focus{
+    border: none;
+    outline: 0;
 }
 
 .title-page-home{
     display: flex;
-    color: #9D1A1A;
+    align-self: start;
+}
+
+.title-page-home h1{
+    font-size: 1.4em;
+    padding-left: 0.3em;
 }
 
 .categories-container {
+    height: 30%;
     display: flex;
     flex-wrap: wrap;
-    height: 30%;
-    gap: 3%;
-    row-gap: 12%;
-    column-gap: 5%;
-    padding-left: 6%;
+    width: 98%;
+    align-self: center;
+    justify-content: space-between;
+    align-content: space-between;
 }
 
 .box-categorie-home {
-    width: 15%;
-    min-height: max-content;
-    background-color: blue;
-    justify-content: center;
+    width: 17%;
+    height: 45%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
 }
 
 .box-categorie-home img {
-    width: 95%;
+    width: 100%;
+    height: 58%;
+}
+
+/* -------------------------------------- */
+
+.courses-all-container {
+    display: flex;
+    flex-direction: column;
+    height: 48%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.courses-all-container p{
+    height: 10%;
+    font-size: 0.9em;
+}
+
+.home-figure{
+    display: flex;
+    align-items: end;
+    width: 90%;
+    height: 70%;
+}
+.courses-info-container {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    padding-top: 2%;
+    justify-content: center;
+    gap: 4%;
+}
+.courses-info-container h1 {
+    font-size: 1.4em;
+}
+.home-dots-square {
+    width: 20%;
+    display: flex;
+    gap: 5%;
+    justify-content: center;
+}
+
+.home-dots-square img{
+    width: 18%;
 }
