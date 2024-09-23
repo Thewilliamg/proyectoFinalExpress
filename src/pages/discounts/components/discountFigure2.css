@@ -1,24 +1,32 @@
 .container-discountFigure2 {
+    display: flex;
     position: absolute;
     bottom: 2.5rem;
     left: 8rem;
-    width: 40%;
-    height: 40%;
+    width: 42%;
+    height: 42%;
+    align-items: center;
+    justify-content: center;
     color: white;
     z-index: 1; 
+    transform: rotate(20deg);
 }
 
 .container-discountFigure2 img {
-    width: 90%;
-    height: 90%;
+    width: 92%;
+    height: 92%;
 }
 
 .container-discountFigure2 p {
+    display: flex;
+    width: 50%;
+    height: 40%;
     position: absolute;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8rem;
     /* bottom: 2rem;
     left: 0.8rem; */
-    left: 0.9rem;
-    top: 1.5rem;
-    font-size: 0.9rem;
-    transform: rotate(20deg);
+    /* left: 0.9rem; */
+    /* top: 1.5rem; */
 }
