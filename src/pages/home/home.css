@@ -96,6 +96,10 @@
     display: flex;
     flex-direction: column;
     text-align: center;
+    text-decoration-style: none;
+    text-decoration: none;
+    font-weight: 800;
+    color: #9D1A1A;
 }
 
 .box-categorie-home img {
