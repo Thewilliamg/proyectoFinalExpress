@@ -51,6 +51,7 @@
     border: 1px solid #8B4513;
     border-radius: 4px;
     box-sizing: border-box;
+    color: white;
 }
 .hint {
     font-size: 0.85em;

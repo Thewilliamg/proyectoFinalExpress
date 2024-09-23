@@ -49,8 +49,8 @@ function App() {
         <Route path='/signup/email' element={<SignupEmail />} />            // Pantalla 6
         <Route path='/signup/register' element={<Register />} /> 
         <Route path='/signup/register/policy' element={<Policy />} />      
-        <Route path='/customerService' element={<CustomerService />}/>
-        <Route path='/customerService/chat' element={<Chat/>} />
+        <Route path='/customer_service' element={<CustomerService />}/>
+        <Route path='/customer_service/chat' element={<Chat/>} />
       </Routes>
   </BrowserRouter>
   )
