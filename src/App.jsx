@@ -18,8 +18,7 @@ import Favorites from './pages/home/components/favorites/Favorites.jsx'
 import SignupEmail from "./pages/signup/email/Email.jsx";
 import Settings from "./pages/home/components/settings/Settings.jsx";
 import Chat from './pages/customerService/chat/Chat.jsx'
-
-
+import Products from "./pages/markets/products/Products.jsx";
 
 function App() {
   return (
@@ -36,6 +35,7 @@ function App() {
         <Route path="/discounts" element={<Home page={<Discounts/>}/>} />
         {/* Rutas de tiendas*/ }
         <Route path="/markets" element={<Home page={<Markets/>}/>} />
+        <Route path="/markets/products" element={<Products />} />
         {/* Rutas de comprar */}
         <Route path="/shop" element={<Home page={<Shop/>}/>} />
         <Route path="/shop/confirmation" element={<Confirmation />} />
