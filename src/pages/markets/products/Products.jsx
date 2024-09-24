@@ -4,7 +4,7 @@ import item1 from "/img/product-workshop1.png";
 import triangle from "/img/square-brown-figure.svg";
 import { Link } from 'react-router-dom';
 import GoBackArrow from "../../../pages/components/backArrow";
-
+import localizate from "/img/localization-icon.svg"
 export default function Products() {
 
     //TODO: Este es un objeto de ejemplo: 
@@ -39,18 +39,21 @@ export default function Products() {
     };
 
     return (
+        <>
         <div className="crafts-container">
 
-            <Link to="/markets" classname="link-from-crafts">
-                <GoBackArrow />
-            </Link>
             <div className="header-crafts">
-                <img
-                    src={dataWorkShopProducts.workshop.imgWorkshop}
-                    alt={dataWorkShopProducts.workshop.name}
-                    className="header-image-workshop"
-                />
+                <div className="link-to-markets">
+                    <Link to="/markets" classname="link-from-crafts">
+                        <GoBackArrow />
+                    </Link>
+                </div>
                 <div className="header-overlay-crafts">
+                    <img
+                        src={dataWorkShopProducts.workshop.imgWorkshop}
+                        alt={dataWorkShopProducts.workshop.name}
+                        className="header-image-workshop"
+                    />
                     <h1 className="header-title-crafts">{dataWorkShopProducts.workshop.name}</h1>
                     <a href="/workshop/business-presentation">
                         <img className="left-triangle-craft" src={triangle} alt="left-triangle" />
@@ -66,7 +69,17 @@ export default function Products() {
             <div className="content-description-craft">
 
                 <div className="searchbar-products">
-
+                    <div className="title-and-input-products">
+                    <div className="cardTitle">
+                        Artesanias
+                    </div>
+                    <div className="localizate-bar">
+                        <img src={localizate} alt="icon-localization" />
+                        <input type="text" placeholder="Ubicacion de energía actual"/>
+                        
+                    </div>
+                    </div>
+                    <div className="svg-icon-products"></div>
                 </div>
 
                 <div className="product-grid">
@@ -93,5 +106,6 @@ export default function Products() {
 
             </div>
         </div>
+        </>
     );
 };

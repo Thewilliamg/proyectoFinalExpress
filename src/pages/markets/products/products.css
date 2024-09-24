@@ -1,32 +1,33 @@
 .crafts-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    /* align-items: center; */
     /* background-color: #f7fafc; */
-    background-color: #f725fc;
+    /* background-color: #f725fc; */
 
     height: 100svh;
     width: 100%;
   }
   
-.link-from-crafts{
+.link-to-markets{
+    width: 12%;
+    height: 30%;
+    z-index: 20;
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 600px;
 }
 
 .header-crafts {
     position: relative;
     width: 100%;
     height: 35vh;
-    background-color: blue;
 }
   
 .header-crafts .header-image-workshop {
     width: 100%;
     height: 95%;
     object-fit: cover;
+    position: absolute;
+    z-index: -10;
 }
   
 .header-overlay-crafts {
@@ -40,6 +41,7 @@
     justify-content: space-between;
     align-items: center;
     color: white;
+    z-index: 1;
 }
   
 .header-title-crafts {
@@ -61,6 +63,7 @@
     display: flex;
     justify-content: space-between;
     padding: 4px 0;
+    z-index: 5;
   }
   
 .left-triangle-craft .right-triangle-craft{
@@ -88,18 +91,32 @@
 .content-description-craft{
     /* display: flex; */
     width: 100%;
-    height: 50svh;
+    height: 65%;
     background-color: blue;
-    /*z-index: 50; */
+}
+
+.searchbar-products{
+    height: 20%;
+    width: 100%;
+    display: flex;
+}
+
+.title-and-input-products{
+    display: flex;
+    flex-direction: column;
+    
 }
 
 /* ----------- PRODUCT CARDS STYLE ---------------- */
-  .product-grid {
+
+
+
+.product-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 0.5em;
     justify-items: center;
-    height: 98%;
+    height: 80%;
     width: 100%;
   }
   
