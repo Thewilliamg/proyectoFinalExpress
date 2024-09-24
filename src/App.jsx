@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import Home from './pages/home/Home.jsx';
 import Start from './pages/start/Start.jsx';
@@ -27,13 +28,13 @@ function App() {
     <BrowserRouter>
       <Routes>
 
-        <Route index element={<Home />} />
+      <Route index element={<Link to="/start"><Start /></Link>} />
         <Route path="/customer-service" element={<Service/> } />  //Ruta para pantalla 25
         <Route path="/workshops/info" element={<WorkshopsInfo/> } /> //Ruta para pantalla 28
         <Route path="/favorites" element={<Favorites/> } />
         <Route path="/settings" element={<Settings/> } />
         {/* //Rutas de descuentos */}
-        <Route path="/start" element={<Start/>}/>
+        <Route path="/" element={<Home/>}/>
         <Route path="/discounts" element={<Home page={<Discounts/>}/>} />
         {/* Rutas de tiendas*/ }
         <Route path="/markets" element={<Home page={<Markets/>}/>} />
