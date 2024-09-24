@@ -4,7 +4,10 @@ import item1 from "/img/product-workshop1.png";
 import triangle from "/img/square-brown-figure.svg";
 import { Link } from 'react-router-dom';
 import GoBackArrow from "../../../pages/components/backArrow";
-import localizate from "/img/localization-icon.svg"
+import localizate from "/img/localization-icon.svg";
+import settingsbar from "/img/sett-searchbar-icon.svg";
+import chaticon from "/img/chat-info-icon.svg";
+
 export default function Products() {
 
     //TODO: Este es un objeto de ejemplo: 
