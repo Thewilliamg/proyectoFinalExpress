@@ -28,13 +28,13 @@ function App() {
     <BrowserRouter>
       <Routes>
 
-      <Route index element={<Link to="/start"><Start /></Link>} />
+      <Route index element= {<Start/>}/>
         <Route path="/customer-service" element={<Service/> } />  //Ruta para pantalla 25
         <Route path="/workshops/info" element={<WorkshopsInfo/> } /> //Ruta para pantalla 28
         <Route path="/favorites" element={<Favorites/> } />
         <Route path="/settings" element={<Settings/> } />
         {/* //Rutas de descuentos */}
-        <Route path="/" element={<Home/>}/>
+        <Route path="/home" element={<Home/>}/>
         <Route path="/discounts" element={<Home page={<Discounts/>}/>} />
         {/* Rutas de tiendas*/ }
         <Route path="/markets" element={<Home page={<Markets/>}/>} />

@@ -24,7 +24,7 @@ export default function Login_User(){
                     <input type='text'></input>
                 </div>
                 <div className='userForm-middle'>
-                    <Link to="/">
+                    <Link to="/home">
                         Iniciar sesión
                     </Link>
                     <Link to="">

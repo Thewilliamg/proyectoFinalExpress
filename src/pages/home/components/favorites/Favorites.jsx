@@ -56,7 +56,7 @@ export default function Favorites() {
   return (
     <div className="container-favorites">
       <div className="box-backArrow">
-        <Link to="/" className="br">
+        <Link to="/home" className="br">
           <GoBackArrow />
         </Link>
       </div>

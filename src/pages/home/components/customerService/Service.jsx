@@ -8,7 +8,7 @@ export default function Service() {
   return (
 	<div className="box-Service">
 	  <div className="box-arrowLeft">
-		<Link to="/" classname="nombre-para-dar-Style">
+		<Link to="/home" classname="nombre-para-dar-Style">
 		  <GoBackArrow />
 		</Link>
 	  </div>
