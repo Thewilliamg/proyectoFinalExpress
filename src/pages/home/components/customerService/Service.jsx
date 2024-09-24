@@ -52,7 +52,7 @@ export default function Service() {
 		  ¿Necesitas atención personalizada? habla con nuestro equipo de soporte
 		</h4>
 		<div className="box-button-personalizedAttention">
-		  <Link to="/customer_service/chat">
+		  <Link className="link-service" to="/customer_service/chat">
 			<button>
 				<img className="button-image" src={chatImage} alt="chatImage" />
 				Empieza un chat

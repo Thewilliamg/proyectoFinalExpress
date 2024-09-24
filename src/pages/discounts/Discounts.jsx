@@ -1,4 +1,5 @@
 import './discounts.css';
+import { useState} from 'react';
 import square from '/img/square-brown-figure.svg'
 import prueba from '/img/imagenPrueba.svg'
 import DiscountFigure1 from './components/DiscountFigure1';
@@ -45,6 +46,12 @@ export default function Discounts() {
         // Añade más objetos aquí para más items
       ];
 
+    const [activeNavLink, setActiveNavLink] = useState(0);
+
+    const handleNavLinkClick = (index) => {
+        setActiveNavLink(index);
+    };
+
     return (
         <div className='discount-container'> {/*IMPORTANTE: Modificar Solo dentro de esta vista*/}
             <div className='header-discount'>
@@ -56,13 +63,21 @@ export default function Discounts() {
                     <p className='colorp2-discount'>En cientos de artesanias</p>
                 </div>
             </div>
-            <nav class="carrusel-discount">
-                <ul class="itemsCarrusel-discount">
-                    <li class="navItem-discount majorNav-discount"><button className='navLink-discount'>Textileria</button></li>
-                    <li class="navItem-discount"><button className='navLink-discount'>Textileria</button></li>
-                    <li class="navItem-discount"><button className='navLink-discount'>Textileria</button></li>
-                    <li class="navItem-discount"><button className='navLink-discount'>Textileria</button></li>
-                    <li class="navItem-discount"><button className='navLink-discount'>Textileria</button></li>
+            <nav className="carrusel-discount">
+                <ul className="itemsCarrusel-discount">
+                    {discountItems.map((_, index) => (
+                        <li
+                            key={index}
+                            className={`navItem-discount ${index === activeNavLink ? 'majorNav-discount' : ''}`}
+                        >
+                            <button
+                                className='navLink-discount'
+                                onClick={() => handleNavLinkClick(index)}
+                            >
+                                Textileria
+                            </button>
+                        </li>
+                    ))}
                 </ul>
             </nav>
             <div className='infoItem-discount'>
