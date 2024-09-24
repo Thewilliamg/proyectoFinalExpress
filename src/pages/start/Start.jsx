@@ -10,7 +10,7 @@ export default function Start() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
-      navigate('/home');
+      navigate('/signup');
     }, 3000);
 
     return () => clearTimeout(timer);

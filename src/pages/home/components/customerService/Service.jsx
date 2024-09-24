@@ -52,10 +52,12 @@ export default function Service() {
 		  ¿Necesitas atención personalizada? habla con nuestro equipo de soporte
 		</h4>
 		<div className="box-button-personalizedAttention">
-		  <button>
-			<img className="button-image" src={chatImage} alt="chatImage" />
-			Empieza un chat
-		  </button>
+		  <Link to="/customer_service/chat">
+			<button>
+				<img className="button-image" src={chatImage} alt="chatImage" />
+				Empieza un chat
+			</button>
+		  </Link>
 		  <button>
 			<img className="button-image" src={phoneImage} alt="phoneImage" />
 			Programa una llamada
