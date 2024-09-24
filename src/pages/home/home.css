@@ -128,3 +128,118 @@
     gap: 1rem;
     overflow-y: scroll;
 }
+
+/* orders ----------------------------- */
+
+
+.orders-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+}
+
+.container-shopped{
+    display: flex;
+    width: 100%;
+    height: 42.5%;
+    align-items: center;
+    flex-direction: column;
+    overflow-y: scroll;
+    gap: 1rem;
+}
+
+.card-shopped{
+    display: flex;
+    width: 97%;
+    height: 50%;
+    border-radius: 10px;
+    background: #703A31;
+    gap: 1.2rem;
+}
+
+.container-items-shopped{
+    display: flex;
+    flex-direction: column;
+    width: 65%;
+    height: 100%;
+    gap: 0.3rem;
+}
+
+.container-text-shopped{
+    color: #fff;
+    font-size: 0.7rem;
+}
+
+.img-product{
+    object-fit: contain;
+    height: 100%;
+    width: 25%;
+}
+
+.img-message{
+    position: relative;
+    top: 10%;
+    left: 0%;
+    height: 25%;
+    width: 100%;
+}
+
+.message-container{
+    height: 100%;
+    width: 10%;
+}
+
+.button-shopped{
+    background-color: #2E1108;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: underline;
+    height: 120%;
+    width: 90%;
+    border-style: none;
+}
+
+/* artesan ------------------------------------ */
+
+.container-artesan{
+    width: 100%;
+    height: 42.5%;
+    overflow-y: scroll;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    justify-items: center;
+    grid-gap: 1rem;
+}   
+
+
+.card-artesan{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.img-artesan{
+    object-fit: cover;
+    height: 67%;
+    width: 100%;
+}
+
+.cardet{
+    color: #fff;
+    font-size: 0.7rem;
+    width: 90%;
+    border-radius: 10px;
+    background: #703A31;
+}
+
+.container-text-artesan{
+    padding-left: 6px;
+}
+
+.edga{
+    margin: 17px 0 17px 6px;
+}
