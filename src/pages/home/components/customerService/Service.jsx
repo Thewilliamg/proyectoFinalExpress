@@ -8,7 +8,7 @@ export default function Service() {
   return (
 	<div className="box-Service">
 	  <div className="box-arrowLeft">
-		<Link to="/" classname="nombre-para-dar-Style">
+		<Link to="/home" classname="nombre-para-dar-Style">
 		  <GoBackArrow />
 		</Link>
 	  </div>
@@ -52,10 +52,12 @@ export default function Service() {
 		  ¿Necesitas atención personalizada? habla con nuestro equipo de soporte
 		</h4>
 		<div className="box-button-personalizedAttention">
-		  <button>
-			<img className="button-image" src={chatImage} alt="chatImage" />
-			Empieza un chat
-		  </button>
+		  <Link to="/customer_service/chat">
+			<button>
+				<img className="button-image" src={chatImage} alt="chatImage" />
+				Empieza un chat
+			</button>
+		  </Link>
 		  <button>
 			<img className="button-image" src={phoneImage} alt="phoneImage" />
 			Programa una llamada

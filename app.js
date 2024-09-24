@@ -1,7 +1,6 @@
 const express = require("express");
 const app = express();
 
-
 app.use(express.json());
 
 let config = {
@@ -10,5 +9,9 @@ let config = {
 };
 
 app.listen(config, () => {
-  console.log(`http://${config.host}:${config.port}`);
-});
+    console.log(`http://${config.host}:${config.port}`);
+  });
+
+app.get('/', function (req, res) {
+  res.send('Hello World')
+})

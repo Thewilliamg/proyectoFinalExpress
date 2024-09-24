@@ -9,7 +9,7 @@ export default function Register() {
     <div className="register-container"> 
         <img className="registerBackground" src={registerBackground} alt="" /> 
       <div className="register-header">
-        <Link to="/login/user" classname="nombre-para-dar-Style">
+        <Link to="/signup" className="nombre-para-dar-Style">
           <GoBackArrow />
         </Link>
       </div>
@@ -101,7 +101,7 @@ export default function Register() {
 
         <div className="from-link">
           <img src={arrow} alt="right-arrow" />
-          <Link to="/signup/register/policy" classname="nombre-para-dar-Style">
+          <Link to="/signup/register/policy" className="nombre-para-dar-Style">
             Continuar
           </Link>
         </div>
