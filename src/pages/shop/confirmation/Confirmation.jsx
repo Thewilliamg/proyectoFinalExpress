@@ -1,7 +1,7 @@
 import './Confirmation.css'
 import { Link } from "react-router-dom";
-import ConfirmationIcon from '/public/img/ConfirmationIcon.svg';
-import Separator from '/public/img/SeparatorIcon.svg';
+import ConfirmationIcon from '@/img/ConfirmationIcon.svg';
+import Separator from '@/img/SeparatorIcon.svg';
 
 export default function Confirmation(){
     return (

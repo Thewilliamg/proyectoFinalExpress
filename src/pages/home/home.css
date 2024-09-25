@@ -127,7 +127,7 @@
     align-items: end;
     width: 90%;
     height: 70%;
-    z-index: -100;
+    z-index: -5;
 }
 .courses-info-container {
     width: 100%;

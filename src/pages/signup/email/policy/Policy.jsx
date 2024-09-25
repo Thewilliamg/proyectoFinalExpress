@@ -5,7 +5,7 @@ import './policy.css';
 import { Link } from 'react-router-dom';
 import arrow from "@/img/right-arrow.svg";
 
-export default function Policy() {
+export default function EmailPolicy() {
     const [isChecked1, setIsChecked1] = useState(false); //checkbox 1
     const [isChecked2, setIsChecked2] = useState(false); //checkbox 2
     const [isChecked3, setIsChecked3] = useState(false); //checkbox 3
@@ -31,7 +31,7 @@ export default function Policy() {
 
     return (
         <div className="body-policy">
-            <Link className='back-arrow-policy' to='/signup/register'><GoBackArrow /></Link>
+            <Link className='back-arrow-policy' to='/signup/email'><GoBackArrow /></Link>
             <div className="background-img-2">
                 <img src={backgroundImage_middle} alt="img_background" />
             </div>
