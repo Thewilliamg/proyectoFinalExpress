@@ -17,42 +17,31 @@ import WorkshopsInfo from './pages/home/components/workshops/info/WorkshopsInfo.
 import Favorites from './pages/home/components/favorites/Favorites.jsx'
 import SignupEmail from "./pages/signup/email/Email.jsx";
 import Settings from "./pages/home/components/settings/Settings.jsx";
-import CustomerService from './pages/customerService/CustomerService.jsx'
 import Chat from './pages/customerService/chat/Chat.jsx'
-
-
+import Products from "./pages/markets/products/Products.jsx";
+import EmailPolicy from "./pages/signup/email/policy/Policy.jsx";
+import ProductDetails from "./pages/markets/products/details/details.jsx";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
 
-        <Route index element={<Home />} />
-        {/* //Rutas de descuentos */}
-        <Route path="/start" element={<Start/>}/>
-        <Route path="/discounts" element={<Discounts/>} />
-        {/* //Rutas de tiendas */}
-        <Route path="/markets" element={<Markets />} />
-        {/* //Rutas de comprar */}
-        <Route path="/shop" element={<Shop />} />
-        <Route path="/shop/confirmation" element={<Confirmation />} />
-        {/* //Rutas de perfil de usuario */}
-        <Route path='/user' element={<User />} />
-        {/* //Rutas de registro */}
-        <Route path='/signup' element={<SignUp />} />      
-        <Route path='/login' element={<Login />} />
-        <Route path='/login/user' element={<Login_User />} />                      
-        <Route path="/customer-service" element={<Service/> } />  //Ruta para pantalla 25
+      <Route index element= {<Start/>}/>
+        <Route path="/customer_service" element={<Service/> } />  //Ruta para pantalla 25
         <Route path="/workshops/info" element={<WorkshopsInfo/> } /> //Ruta para pantalla 28
         <Route path="/favorites" element={<Favorites/> } />
         <Route path="/settings" element={<Settings/> } />
         {/* //Rutas de descuentos */}
-        <Route path="/start" element={<Start/>}/>
+        <Route path="/home" element={<Home/>}/>
         <Route path="/discounts" element={<Home page={<Discounts/>}/>} />
         {/* Rutas de tiendas*/ }
         <Route path="/markets" element={<Home page={<Markets/>}/>} />
+        <Route path="/markets/products" element={<Products />} />
+        <Route path="/markets/products/details/:productId" element={<ProductDetails />} />
         {/* Rutas de comprar */}
         <Route path="/shop" element={<Home page={<Shop/>}/>} />
+        <Route path="/shop/confirmation" element={<Confirmation />} />
         {/* Rutas de perfil de usuario */}
         <Route path='/user' element={<Home page={<User/>}/>} />
         {/* Rutas de registro */}   
@@ -60,10 +49,10 @@ function App() {
         <Route path='/login/user' element={<Login_User />} />                      
         <Route path='/signup' element={<SignUp />} />                       // Pantalla 2
         <Route path='/signup/email' element={<SignupEmail />} />            // Pantalla 6
+        <Route path='/signup/email/policy' element={<EmailPolicy />} />
         <Route path='/signup/register' element={<Register />} /> 
         <Route path='/signup/register/policy' element={<Policy />} />      
-        <Route path='/customerService' element={<CustomerService />}/>
-        <Route path='/customerService/chat' element={<Chat/>} />
+        <Route path='/customer_service/chat' element={<Chat/>} />
       </Routes>
   </BrowserRouter>
   )

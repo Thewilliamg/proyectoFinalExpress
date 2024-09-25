@@ -1,25 +1,37 @@
-
-.startBack{
+.startBack {
   display: flex;
   height: 100vh;
   width: 100vw;
-  overflow-y: hidden; 
+  overflow-y: hidden;
   justify-content: center;
   align-items: center;
   background-size: cover;
   background-color: #2F0808;
+  animation: fadeIn 3s ease-in-out forwards;
 }
 
-.startLogo{
+.startBack.loading {
+  background-image: url('../public/img/start-background.svg');
+}
+
+.startLogo {
   display: flex;
-  /* border: 1px solid red; */
   justify-content: center;
   align-items: center;
   width: 70vw;
   height: 30vh;
 }
 
-.startLogo img{
+.startLogo img {
   height: 100%;
   width: 100%;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

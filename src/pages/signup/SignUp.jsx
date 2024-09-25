@@ -16,7 +16,7 @@ export default function SignUp() {
                     </h1>
                 </div>
                 <div className="signupButtons">
-                    <a className='signupA'>
+                    <Link className='signupA'>
                         <button className='signup_btn'>
                             <span className='signupBtnSpan'>
                                 <img src= {Linkedin} alt="Linkdein">
@@ -24,8 +24,8 @@ export default function SignUp() {
                             </span>
                             <p className='signup_p1'>Regístrate con <span className='signupBtnSpan2'>Linkedin</span></p>
                         </button>
-                    </a>
-                    <a className='signupA'>
+                    </Link>
+                    <Link className='signupA'>
                         <button className='signup_btn'>
                             <span className='signupBtnSpan'>
                                 <img src= {Discord} alt="Gmail">
@@ -33,8 +33,8 @@ export default function SignUp() {
                             </span>
                             <p className='signup_p2'>Regístrate con <span className='signupBtnSpan2'>Discord</span> </p>
                         </button>
-                    </a>
-                    <a className='signupA'>
+                    </Link>
+                    <Link className='signupA'>
                         <button className='signup_btn'>
                             <span className='signupBtnSpan'>
                                 <img src= {Gmail} alt="Gmail">
@@ -42,8 +42,8 @@ export default function SignUp() {
                             </span>
                             <p className='signup_p2'>Regístrate con <span className='signupBtnSpan2'>Gmail</span></p>
                         </button>
-                    </a>
-                    <a className='signupAll'>
+                    </Link>
+                    <Link className='signupAll' to="/signup/register">
                         <button className='signup_btn2'>
                             <span className='signupBtnSpan'>
                                 <img src= {Email} alt="User">
@@ -51,8 +51,8 @@ export default function SignUp() {
                             </span>
                             <p className='signup_p1'>Regístrate con tu <span className='signupBtnSpan2'>correo</span> </p>
                         </button>
-                    </a>
-                    <a className='signupAll'>
+                    </Link>
+                    <Link className='signupAll' to="/signup/email">
                         <button className='signup_btn2'>
                             <span className='signupBtnSpan'>
                                 <img src= {Phone} alt="User">
@@ -60,7 +60,7 @@ export default function SignUp() {
                             </span>
                             <p className='signup_p1'>Regístrate con tu <span className='signupBtnSpan2'>celular</span> </p>
                         </button>
-                    </a>
+                    </Link>
                 </div>
                 <div className="signupAccount">
                     <h1>

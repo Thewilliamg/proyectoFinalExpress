@@ -128,15 +128,3 @@
     color: #fff;
     font-size: 90%;
 }   
-
-.signupAccount_link{
-    display: flex;
-    font-size: 155%;
-    color: #F4A002;
-    text-decoration: underline;
-    height: auto;
-    width: auto;
-    justify-content: center;
-    align-items: center;
-    margin-top: -3%;
-}

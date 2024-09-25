@@ -70,7 +70,7 @@ export default function SignupEmail() {
                 <div className="form-groupEmail">
                     <label className="titule-email spaceLetter" htmlFor="sex">Sexo</label>
                     <select className="color-inputEmail igualDos" id="sex" value={formData.sex} onChange={handleChange}>
-                    <option value="">Selecciona</option>
+                    <option value=""></option>
                     <option value="male">Masculino</option>
                     <option value="female">Femenino</option>
                     <option value="other">Otro</option>
@@ -92,7 +92,7 @@ export default function SignupEmail() {
                 </div>
                 <div className="from-link">
                     <img src={arrow} alt="right-arrow" />
-                    <Link to="/signup/email/policy" classname="nombre-para-dar-Style">
+                    <Link to="/signup/email/policy" className="nombre-para-dar-Style">
                         Continuar
                     </Link>
                 </div>

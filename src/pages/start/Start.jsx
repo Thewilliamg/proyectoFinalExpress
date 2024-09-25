@@ -1,12 +1,26 @@
+import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import './Start.css';
-import ruraq_logo from '../../../public/img/ruraq-logo.svg'
-export default function User() {
-    
-    return (
-        <div className='startBack' style={{backgroundImage: `url('/public/img/start-background.svg')`}}>
-            <div className='startLogo'>
-                <img src= {ruraq_logo}></img>
-            </div>
-        </div>
-    )
+import ruraq_logo from '/public/img/ruraq-logo.svg';
+
+export default function Start() {
+  const [isLoading, setIsLoading] = useState(true);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+      navigate('/signup');
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, [navigate]);
+
+  return (
+    <div className={`startBack ${isLoading ? 'loading' : ''}`}>
+      <div className='startLogo'>
+        <img src={ruraq_logo} alt="Ruraq Logo" />
+      </div>
+    </div>
+  );
 }

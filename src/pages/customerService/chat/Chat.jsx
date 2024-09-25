@@ -7,7 +7,7 @@ export default function Chat(){
     return(
         <div className='chatAll'>
             <div className='chatUp'>
-                    <Link to="/customerService">
+                    <Link to="/customer_service">
                         <img src= {Back}></img>
                     </Link>
                     <div className='chatUp_Title'>

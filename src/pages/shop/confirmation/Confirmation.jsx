@@ -59,7 +59,7 @@ export default function Confirmation(){
             </div>
             <div className='confirmationReturn'>
                 <div className='confirmationReturn_A'>
-                    <Link to={'/'}>
+                    <Link to={'/home'}>
                         Regresar al inicio
                     </Link>
                 </div>

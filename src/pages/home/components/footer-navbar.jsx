@@ -16,7 +16,7 @@ export default function FooterNavbar() {
                 <NavLink className={({isActive}) => (isActive ? 'icons-home active' : 'icons-home')} to='/discounts' >
                     <img src={discountsicon} alt="dscountico" />
                 </NavLink>
-                <NavLink className={({isActive}) => (isActive ? 'icons-home active' : 'icons-home')} to='/'>
+                <NavLink className={({isActive}) => (isActive ? 'icons-home active' : 'icons-home')} to="/home">
                     <img src={homeicon} alt="homeico" />
                 </NavLink>
                 <NavLink className={({isActive}) => (isActive ? 'icons-home active' : 'icons-home')} to='/shop'>

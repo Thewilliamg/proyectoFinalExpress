@@ -21,7 +21,7 @@ export default function Settings() {
     return (
         <div className='container-Settings'>
             <div className='nav-Settings'>
-                <Link to="/"><BackArrow/></Link>
+                <Link to="/home"><BackArrow/></Link>
             </div>
             <div className='titule-Settings'>
                 <svg width="70" height="70" viewBox="0 0 236 236" fill="none" xmlns="http://www.w3.org/2000/svg">
