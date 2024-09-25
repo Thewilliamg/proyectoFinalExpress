@@ -1,12 +1,12 @@
 import "./details.css"
 import {Link} from 'react-router-dom'
 // import rectangulo from '/img/rectangle-96.png';
-import ShoppingCart from '/img/shopping-car.svg';
-import item1 from "/img/product-workshop1.png";
-import Heart from '/img/heart-empty-icon.svg';
+import ShoppingCart from '@/img/shopping-car.svg';
+import item1 from "@/img/product-workshop1.png";
+import Heart from '@/img/heart-empty-icon.svg';
 import GoBackArrow from '../../../components/backArrow';
-import Check from '/img/checked-square.svg';
-import triangle from '/img/square-brown-figure.svg';
+import Check from '@/img/checked-square.svg';
+import triangle from '@/img/square-brown-figure.svg';
 
 export default function ProductDetails() {
     return (

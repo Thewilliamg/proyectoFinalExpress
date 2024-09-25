@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from "react-router-dom";
-import checkBoxTrue from '/img/checkBoxTrue.svg';
-import checkBoxFalse from '/img/checkBoxFalse.svg';
+import checkBoxTrue from '@/img/checkBoxTrue.svg';
+import checkBoxFalse from '@/img/checkBoxFalse.svg';
 import './shop.css';
 
 export default function Shop() {

@@ -1,8 +1,8 @@
 import GoBackArrow from "../../../components/backArrow";
 import { Link } from "react-router-dom";
 import "./service.css";
-import phoneImage from "/img/phoneImage.svg";
-import chatImage from "/img/chatImage.svg";
+import phoneImage from "@/img/phoneImage.svg";
+import chatImage from "@/img/chatImage.svg";
 
 export default function Service() {
   return (

@@ -1,4 +1,4 @@
-import imagen from '/img/discountFigure.svg'
+import imagen from '@/img/discountFigure.svg'
 import './discountFigure1.css'
 
 export default function DiscountFigure1({text}) {

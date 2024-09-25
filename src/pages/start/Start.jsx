@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import './Start.css';
-import ruraq_logo from '/public/img/ruraq-logo.svg';
+import ruraq_logo from '@/img/ruraq-logo.svg';
 
 export default function Start() {
   const [isLoading, setIsLoading] = useState(true);
