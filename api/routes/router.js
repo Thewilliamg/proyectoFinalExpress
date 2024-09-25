@@ -1,6 +1,8 @@
-const express = require=('express');
+const express = require('express');
 const router = express.Router();
+
 const { getUser } = require('../controllers/userController');
+const {getAllMarkets} = require('../controllers/marketsController');
 
 const userValidator = require('../validators/userValidator');
 const productValidator = require('../validators/userValidator');
@@ -14,6 +16,7 @@ const workshopValidator = require('../validators/userValidator');
 const shoppingCartValidator = require('../validators/userValidator');
 
 
-router.get('/:id', getUser);
+// router.get('/:id', getUser);
+router.get('/markets',getAllMarkets);
 
 module.exports = router;

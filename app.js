@@ -13,10 +13,7 @@ let config = {
 
 app.use('/api', routes);
 
+
 app.listen(config, () => {
     console.log(`http://${config.host}:${config.port}`);
   });
-
-// app.get('/', function (req, res) {
-//   res.send('Hello World')
-// })
