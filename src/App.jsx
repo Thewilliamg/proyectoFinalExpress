@@ -17,6 +17,7 @@ import Favorites from './pages/home/components/favorites/Favorites.jsx'
 import SignupEmail from "./pages/signup/email/Email.jsx";
 import Settings from "./pages/home/components/settings/Settings.jsx";
 import Products from "./pages/markets/products/Products.jsx";
+import EmailPolicy from "./pages/signup/email/policy/Policy.jsx";
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
         <Route path='/login/user' element={<Login_User />} />                      
         <Route path='/signup' element={<SignUp />} />                       // Pantalla 2
         <Route path='/signup/email' element={<SignupEmail />} />            // Pantalla 6
+        <Route path='/signup/email/policy' element={<EmailPolicy />} />
         <Route path='/signup/register' element={<Register />} /> 
         <Route path='/signup/register/policy' element={<Policy />} />      
       </Routes>
