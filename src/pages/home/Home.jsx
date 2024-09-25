@@ -3,20 +3,20 @@ import SearchBar from "./components/search-bar";
 import FooterNavbar from "./components/footer-navbar";
 import { useState} from 'react';
 import Sidebar from "./components/sidebar/sidebar";
-import textil from "/img/textil-icon.svg";
-import leftTriangle from "/img/square-brown-figure.svg";
-import localizate from "/img/localization-icon.svg";
-import ceramic from "/img/ceramics-icon.svg";
-import goldsmith from "/img/goldsmith-icon.svg";
-import rockCarving from "/img/rock-carving-icon.svg";
-import woodCarving from "/img/wood-carving.svg";
-import embroidery from "/img/embroidery-icon.svg";
-import jewelry from "/img/jewelry-icon.svg";
-import tinsmith from "/img/tinsmith-icon.svg"
-import stamp from "/img/stamping-icon.svg";
-import paint from "/img/paint-icon.svg";
-import square from "/img/square.svg";
-import homeFigure from "/img/home-figure-bottom.svg";
+import textil from "@/img/textil-icon.svg";
+import leftTriangle from "@/img/square-brown-figure.svg";
+import localizate from "@/img/localization-icon.svg";
+import ceramic from "@/img/ceramics-icon.svg";
+import goldsmith from "@/img/goldsmith-icon.svg";
+import rockCarving from "@/img/rock-carving-icon.svg";
+import woodCarving from "@/img/wood-carving.svg";
+import embroidery from "@/img/embroidery-icon.svg";
+import jewelry from "@/img/jewelry-icon.svg";
+import tinsmith from "@/img/tinsmith-icon.svg"
+import stamp from "@/img/stamping-icon.svg";
+import paint from "@/img/paint-icon.svg";
+import square from "@/img/square.svg";
+import homeFigure from "@/img/home-figure-bottom.svg";
 
 export default function Home({page=HomePage()}) {
 

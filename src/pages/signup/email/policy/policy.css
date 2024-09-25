@@ -64,7 +64,7 @@
 }
 
 .body-policy input[type="checkbox"]:checked {
-    background-image: url('/img/input-check.svg');
+    background-image: url('@/img/input-check.svg');
     object-fit: cover;
 }
 

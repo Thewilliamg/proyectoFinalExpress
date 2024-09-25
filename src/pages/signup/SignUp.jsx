@@ -1,10 +1,10 @@
 import './SignUp.css'
 import { Link } from "react-router-dom";
-import Linkedin from '/public/img/LinkedinIcon.svg';
-import Gmail from '/public/img/gmailIcon.svg';
-import Discord from '/public/img/discordIcon.svg';
-import Email from '/public/img/EmailIcon.svg';
-import Phone from '/public/img/PhoneIcon.svg';
+import Linkedin from '@/img/LinkedinIcon.svg';
+import Gmail from '@/img/gmailIcon.svg';
+import Discord from '@/img/discordIcon.svg';
+import Email from '@/img/EmailIcon.svg';
+import Phone from '@/img/PhoneIcon.svg';
 
 export default function SignUp() {
     return (

@@ -1,8 +1,8 @@
 import './Chat.css'
 import { Link } from "react-router-dom";
-import Back from '/public/img/BackArrow.svg'
-import Chat2 from '/public/img/ChatIcon.svg'
-import Send from '/public/img/SendIcon.svg'
+import Back from '@/img/BackArrow.svg'
+import Chat2 from '@/img/ChatIcon.svg'
+import Send from '@/img/SendIcon.svg'
 export default function Chat(){
     return(
         <div className='chatAll'>

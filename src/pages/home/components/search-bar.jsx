@@ -1,6 +1,6 @@
 import "./search-bar.css";
-import burguericon from "/img/burguer-icon.svg";
-import lensicon from "/img/search-icon.svg"
+import burguericon from "@/img/burguer-icon.svg";
+import lensicon from "@/img/search-icon.svg"
 export default function SearchBar({ isOpen, clickedMenu }) {
 
     return(

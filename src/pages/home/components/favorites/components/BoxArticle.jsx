@@ -1,4 +1,4 @@
-import imagenPrueba from '/img/imagenPrueba.svg'
+import imagenPrueba from '@/img/imagenPrueba.svg'
 import './boxArticle.css'
 
 export default function BoxArticle({ objecto }) {

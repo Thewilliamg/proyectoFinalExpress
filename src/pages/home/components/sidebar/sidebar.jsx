@@ -1,14 +1,14 @@
 import './sidebar.css';
-import favoriteico from "/img/favorite-icon.svg";
-import shoppingico from "/img/shopping-icon.svg";
-import workscoursesico from "/img/workflows-icon.svg";
-import couponico from "/img/coupon-icon.svg";
-import settingsico from "/img/sett-icon.svg";
-import chatico from "/img/chat-icon.svg";
-import customerServico from "/img/customer-icon.svg";
-import santanderImg from "/img/Escudo_de_Santander.png";
-import squaredot from "/img/square.svg";
-import userprofile from "/img/user-profile.svg";
+import favoriteico from "@/img/favorite-icon.svg";
+import shoppingico from "@/img/shopping-icon.svg";
+import workscoursesico from "@/img/workflows-icon.svg";
+import couponico from "@/img/coupon-icon.svg";
+import settingsico from "@/img/sett-icon.svg";
+import chatico from "@/img/chat-icon.svg";
+import customerServico from "@/img/customer-icon.svg";
+import santanderImg from "@/img/Escudo_de_Santander.png";
+import squaredot from "@/img/square.svg";
+import userprofile from "@/img/user-profile.svg";
 
 export default function Sidebar({ isOpen}) {
 
