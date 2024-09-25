@@ -102,10 +102,15 @@
     height: 40%;
 }
 
-.register-button-pol a{
+.register-button-pol p{
     text-decoration-color: none;
     color: #9D1A1A;
+    text-decoration: underline;
+}
 
+.register-button-pol button {
+    background: none;
+    border: none;
 }
 
 .register-button-pol a:visited { 
@@ -115,4 +120,9 @@
     font-size: 1.2em;
     display: flex;
     align-items: center;
+}
+
+.error-message {
+    color: red;
+    font-weight: bold;
 }

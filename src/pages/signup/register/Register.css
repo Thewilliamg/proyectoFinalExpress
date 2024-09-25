@@ -99,7 +99,11 @@ input::placeholder {
     align-items: center;
     gap: 0.5rem;
     justify-content: end;
-    padding-top: 1rem;
+    padding-top: 1.5rem;
+    background: none;
+    border: none;
+    color: #9D1A1A;
+    font-size: 1em;
 }
 
 .from-link img {
