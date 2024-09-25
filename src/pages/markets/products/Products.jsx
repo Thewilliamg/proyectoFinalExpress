@@ -1,13 +1,13 @@
 import "./products.css";
-import imgWorkshop from "/img/Ruraq-maki-taller-product.png";
-import item1 from "/img/product-workshop1.png";
-import triangle from "/img/square-brown-figure.svg";
+import imgWorkshop from "@/img/Ruraq-maki-taller-product.png";
+import item1 from "@/img/product-workshop1.png";
+import triangle from "@/img/square-brown-figure.svg";
 import { Link } from 'react-router-dom';
 import GoBackArrow from "../../../pages/components/backArrow";
-import settingsbar from "/img/sett-searchbar-icon.svg";
-import chaticon from "/img/chat-info-icon.svg";
-import squareicon from "/img/square-beige-icon.svg";
-import lensicon from "/img/search-icon-white.svg"
+import settingsbar from "@/img/sett-searchbar-icon.svg";
+import chaticon from "@/img/chat-info-icon.svg";
+import squareicon from "@/img/square-beige-icon.svg";
+import lensicon from "@/img/search-icon-white.svg"
 
 export default function Products() {
 

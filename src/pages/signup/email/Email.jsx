@@ -1,7 +1,7 @@
 import GoBackArrow from "../../components/backArrow";
 // import arrow from "/img/right-arrow.svg";
 // import registerBackground from '/img/image_middle_fraction.png';
-import arrow from "/img/right-arrow.svg";
+import arrow from "@/img/right-arrow.svg";
 import { Link } from "react-router-dom";
 import React, { useState } from 'react';
 import './email.css'

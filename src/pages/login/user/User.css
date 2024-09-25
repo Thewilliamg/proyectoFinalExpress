@@ -4,7 +4,7 @@
     flex-direction: column;
     width: 100vw;
     height: 30vh;
-    background-image: url('/public/img/BackgroundRightTop.svg');
+    background-image: url('@/img/BackgroundRightTop.svg');
     background-size: 100vw 30vh;
     background-position: 17vw;
     background-repeat: no-repeat;
@@ -69,7 +69,7 @@
     /* border: 1px solid blue; */
     width: 100vw;
     height: 30vh;
-    background-image: url('/public/img/BackgroundLeftBottom.svg');
+    background-image: url('@/img/BackgroundLeftBottom.svg');
     background-size: 100vw 30vh;
     background-position: -17vw;
     background-repeat: no-repeat;

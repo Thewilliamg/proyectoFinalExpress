@@ -11,7 +11,7 @@
 }
 
 .startBack.loading {
-  background-image: url('../public/img/start-background.svg');
+  background-image: url('@/img/start-background.svg');
 }
 
 .startLogo {

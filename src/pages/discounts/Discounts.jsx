@@ -1,7 +1,7 @@
 import './discounts.css';
 import { useState} from 'react';
-import square from '/img/square-brown-figure.svg'
-import prueba from '/img/imagenPrueba.svg'
+import square from '@/img/square-brown-figure.svg'
+import prueba from '@/img/imagenPrueba.svg'
 import DiscountFigure1 from './components/DiscountFigure1';
 import DiscountFigure2 from './components/DiscountFigure2';
 

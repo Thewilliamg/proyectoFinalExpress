@@ -1,9 +1,9 @@
 import "./footer-navbar.css";
-import discountsicon from '/img/navbar-discounts.svg';
-import homeicon from '/img/navbar-home.icon.svg';
-import marketicon from '/img/navbar-market-icon.svg';
-import storeicon from '/img/navbar-store-icon.svg';
-import usericon from '/img/navbar-userprofile.svg';
+import discountsicon from '@/img/navbar-discounts.svg';
+import homeicon from '@/img/navbar-home.icon.svg';
+import marketicon from '@/img/navbar-market-icon.svg';
+import storeicon from '@/img/navbar-store-icon.svg';
+import usericon from '@/img/navbar-userprofile.svg';
 import { NavLink } from 'react-router-dom';
 
 export default function FooterNavbar() {
