@@ -190,8 +190,10 @@
   border-radius: 5% 5% 10% 10%;
   width: 88%;
   height: 95%;
+  text-decoration: none;
 }
-  
+
+
 .product-image {
   width: 90%;
   height: 55%;
