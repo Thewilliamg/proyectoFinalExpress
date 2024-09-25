@@ -4,9 +4,10 @@ import item1 from "/img/product-workshop1.png";
 import triangle from "/img/square-brown-figure.svg";
 import { Link } from 'react-router-dom';
 import GoBackArrow from "../../../pages/components/backArrow";
-import localizate from "/img/localization-icon.svg";
 import settingsbar from "/img/sett-searchbar-icon.svg";
 import chaticon from "/img/chat-info-icon.svg";
+import squareicon from "/img/square-beige-icon.svg";
+import lensicon from "/img/search-icon-white.svg"
 
 export default function Products() {
 
@@ -72,17 +73,21 @@ export default function Products() {
             <div className="content-description-craft">
 
                 <div className="searchbar-products">
+                    <div className="localizate-bar-left"></div>
                     <div className="title-and-input-products">
-                    <div className="cardTitle">
-                        Artesanias
+                        <div className="craftTitle">
+                            <img src={squareicon} alt="squaretitle" />
+                            <b>Artesanias</b>
+                        </div>
+                        <div className="localizate-bar">
+                            <img src={lensicon} alt="icon-localization" />
+                            <input type="text" placeholder="Buscar producto o palabra clave"/>
+                        </div>
                     </div>
-                    <div className="localizate-bar">
-                        <img src={localizate} alt="icon-localization" />
-                        <input type="text" placeholder="Ubicacion de energía actual"/>
-                        
+                    <div className="svg-icon-products">
+                        <a href="/customer_service/chat"><img href="/hot" src={chaticon} alt="chaticon" /></a>
+                        <a href="/settings"><img src={settingsbar} alt="setticon" /></a>
                     </div>
-                    </div>
-                    <div className="svg-icon-products"></div>
                 </div>
 
                 <div className="product-grid">
