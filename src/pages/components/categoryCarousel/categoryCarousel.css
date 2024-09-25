@@ -14,7 +14,6 @@
     height: 100%;
     gap: 1rem;
     margin-left: 1rem;
-    border-bottom: 4px solid black;
     justify-content: flex-end;
 }
 
@@ -56,4 +55,8 @@
 .box-carruselItems {
     -ms-overflow-style: none;
     scrollbar-width: none;
+}
+
+.borderBox-carruselItems {
+    border-bottom: 4px solid black;
 }

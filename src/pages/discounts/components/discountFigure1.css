@@ -1,0 +1,28 @@
+.container-discountFigure1 {
+    display: flex;
+    position: absolute;
+    bottom: 9rem;
+    right: 7.5rem;
+    width: 40%;
+    height: 40%;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    z-index: 1; 
+    transform: rotate(-40deg);
+}
+
+.container-discountFigure1 img {
+    width: 92%;
+    height: 92%;
+}
+
+.container-discountFigure1 p {
+    display: flex;
+    width: 50%;
+    height: 40%;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.9rem;
+}
