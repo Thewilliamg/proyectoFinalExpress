@@ -94,7 +94,7 @@ export default function Products() {
 
                     {dataWorkShopProducts.products.map((item, index) => {
                         return (
-                            <div className="product-card-craft">
+                            <a className="product-card-craft" href={`products/details/${item.id}`} >
                                 <img
                                     src={item.productImg} // Cambiar por tu imagen de producto
                                     alt={item.name}
@@ -105,7 +105,7 @@ export default function Products() {
                                     <p className="product-price">S/{item.price}</p>
                                     <p className="product-source">{dataWorkShopProducts.workshop.name}</p>
                                 </div>
-                            </div>
+                            </a>
 
                         )
                     })

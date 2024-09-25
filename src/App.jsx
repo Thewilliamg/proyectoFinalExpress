@@ -18,6 +18,7 @@ import SignupEmail from "./pages/signup/email/Email.jsx";
 import Settings from "./pages/home/components/settings/Settings.jsx";
 import Products from "./pages/markets/products/Products.jsx";
 import EmailPolicy from "./pages/signup/email/policy/Policy.jsx";
+import ProductDetails from "./pages/markets/products/details/details.jsx";
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
         {/* Rutas de tiendas*/ }
         <Route path="/markets" element={<Home page={<Markets/>}/>} />
         <Route path="/markets/products" element={<Products />} />
+        <Route path="/markets/products/details/:productId" element={<ProductDetails />} />
         {/* Rutas de comprar */}
         <Route path="/shop" element={<Home page={<Shop/>}/>} />
         {/* Rutas de perfil de usuario */}
