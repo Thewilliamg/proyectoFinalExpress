@@ -1,4 +1,4 @@
-const { body } = require('express-validator');
+const { body, check } = require('express-validator');
 
 const productValidator = [
     body('name')
@@ -53,10 +53,6 @@ const userValidator = [
         .optional()
         .isString().withMessage('La URL de la imagen debe ser una cadena de texto')
         .matches(/\.(jpg|jpeg|png|gif)$/i).withMessage('La imagen debe ser un archivo con una extensión válida (jpg, jpeg, png, gif)'),
-    body('address')
-        .optional()
-        .isString().withMessage('La dirección debe ser una cadena de texto')
-        .not().isEmpty().withMessage('La dirección es requerida'),
     body('numberPhone')
         .optional()
         .isString().withMessage('El número de teléfono debe ser una cadena de texto')

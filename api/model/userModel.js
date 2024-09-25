@@ -2,15 +2,14 @@ const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
     name: { type: String, required: true },
-    email: { type: String, required: true },
+    email: { type: String, required: false },
     password: { type: Number, required: true },
-    urlPicture: { type: String, required: true, unique: true },
-    address: { type: String, required: true, unique: true },
-    numberPhone: { type: String, required: true, unique: true },
-    favorites: { type: Array, required: true, unique: true },
-    coupon: { type: Array, required: true, unique: true },
-    gender: { type: String, required: true, unique: true },
-    birthDate: { type: Date, required: true, unique: true },
-});
+    urlPicture: { type: String, required: false },
+    numberPhone: { type: String, required: false },
+    gender: { type: String, required: true },
+    birthDate: { type: Date, required: true },
+    favorites: { type: Array, required: false },
+    coupon: { type: Array, required: false }
+}, { versionKey: false } );
 
 module.exports = mongoose.model('User', userSchema, "Users");
