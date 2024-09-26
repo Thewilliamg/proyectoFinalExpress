@@ -1,34 +1,34 @@
-const User = require("../model/userModel");
+const { UserSignModel, UserPhoneModel, UserEmailModel } = require("../model/userModel");
 
-exports.getUser = async (req, res) => {
-    try {
-        const user = await User.findById(req.params.id);
-        if (!user) {
-            return res.status(404).json({ message: 'Usuario no encontrado' });
-        }
-        res.status(200).json(user);
-    } catch (error) {
-        res.status(500).json({ message: 'Error al obtener el usuario', error });
-    }
-};
+// !! Method example
+
+// exports.getUser = async (req, res) => {
+//     try {
+//         const user = await User.findById(req.params.id);
+//         if (!user) {
+//             return res.status(404).json({ message: 'Usuario no encontrado' });
+//         }
+//         res.status(200).json(user);
+//     } catch (error) {
+//         res.status(500).json({ message: 'Error al obtener el usuario', error });
+//     }
+// };
 
 exports.registerUserNumber = async (req, res) => {
     try {
-        const { name, email, password, urlPicture, numberPhone, gender, birthDate } = req.body;
+        const { name, numberPhone, password, gender, birthDate } = req.body;
         
         // Verificar si el usuario ya existe
-        const existingUser = await User.findOne({ name: name });
+        const existingUser = await UserPhoneModel.findOne({ $or: [ { name: name }, { numberPhone: numberPhone } ] });
         if (existingUser) {
-            return res.status(400).json({ message: 'El nombre de usuario o contrasena ya está en uso' });
+            return res.status(400).json({ message: 'The username or number phone is already in use' });
         }
 
         // Crear nuevo usuario
-        const newUser = new User({
+        const newUser = new UserPhoneModel({
             name,
-            email,
-            password,  // Asegúrate de hashear la contraseña antes de guardarla
-            urlPicture,
             numberPhone,
+            password,  // Asegúrate de hashear la contraseña antes de guardarla
             gender,
             birthDate
         });
@@ -37,12 +37,41 @@ exports.registerUserNumber = async (req, res) => {
         const savedUser = await newUser.save();
 
         res.status(201).json({
-            message: 'Usuario creado exitosamente',
+            message: 'User created successfully',
             user: savedUser.name
         });
     } catch (error) {
-        res.status(500).json({ message: 'Error al crear el usuario', error: error });
-        console.log(error);
+        res.status(500).json({ message: 'Error creating user', error: error });
+    }
+};
+
+exports.registerUserEmail = async (req, res) => {
+    try {
+        const { name, email, password, gender, birthDate } = req.body;
+        // Verificar si el usuario ya existe
+        const existingUser = await UserEmailModel.findOne({ $or: [ { name: name }, { email: email } ] });
+        if (existingUser) {
+            return res.status(400).json({ message: 'The username or email is already in use' });
+        }
+        
+        // Crear nuevo usuario
+        const newUser = new UserEmailModel({
+            name,
+            email,
+            password,  // Asegúrate de hashear la contraseña antes de guardarla
+            gender,
+            birthDate
+        });
+
+        // Guardar el usuario en la base de datos
+        const savedUser = await newUser.save();
+
+        res.status(201).json({
+            message: 'User created successfully',
+            user: savedUser.name
+        });
+    } catch (error) {
+        res.status(500).json({ message: 'Error creating user', error: error });
     }
 };
 
@@ -50,7 +79,7 @@ exports.loginUser = async (req, res) => {
     try {
         const { name, email, password, numberPhone } = req.body;
 
-        const user = await User.findOne({
+        const user = await UserSignModel.findOne({
             $or: [
                 { name: name, password: password },
                 { email: email, password: password },
