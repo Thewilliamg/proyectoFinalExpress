@@ -21,6 +21,7 @@ import Chat from './pages/customerService/chat/Chat.jsx'
 import Products from "./pages/markets/products/Products.jsx";
 import EmailPolicy from "./pages/signup/email/policy/Policy.jsx";
 import ProductDetails from "./pages/markets/products/details/details.jsx";
+import Coupon from "./pages/home/components/coupon/coupon.jsx";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
       <Route index element= {<Start/>}/>
         <Route path="/customer_service" element={<Service/> } />  //Ruta para pantalla 25
         <Route path="/workshops/info" element={<WorkshopsInfo/> } /> //Ruta para pantalla 28
+        <Route path='/coupons' element={<Coupon />} />
         <Route path="/favorites" element={<Favorites/> } />
         <Route path="/settings" element={<Settings/> } />
         {/* //Rutas de descuentos */}
