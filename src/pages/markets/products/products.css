@@ -1,0 +1,225 @@
+.crafts-container {
+    display: flex;
+    flex-direction: column;
+    height: 100svh;
+    width: 100%;
+  }
+  
+.link-to-markets{
+    width: 12%;
+    height: 30%;
+    z-index: 20;
+    position: absolute;
+}
+
+.header-crafts {
+    position: relative;
+    width: 100%;
+    height: 35vh;
+}
+  
+.header-crafts .header-image-workshop {
+    width: 100%;
+    height: 95%;
+    object-fit: cover;
+    position: absolute;
+    z-index: -10;
+}
+  
+.header-overlay-crafts {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    z-index: 1;
+}
+  
+.header-title-crafts {
+    padding: 0.3em;
+    font-size: 1em;
+    font-weight: 500;
+    width: 50%;
+    text-align: center;
+    justify-self: center;
+    background-color: #703A31;
+}
+  
+  .header-overlay-crafts a{
+    text-decoration: none;
+    color: #f7fafc;
+    background-color: #2E1108;
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 0;
+    z-index: 5;
+  }
+  
+.left-triangle-craft .right-triangle-craft{
+  height: 20%;
+  width: 20%;
+}
+
+.right-triangle-craft{
+    transform: rotate(180deg);
+}
+
+.header-subtitle {
+  padding: 6px;
+  font-size: 0.9em;
+  color: #f7fafc;
+  width: 85%;
+  display: flex;
+  text-align: center;
+  text-justify: center;
+  justify-self: center;
+  align-content: center;
+}
+
+.content-description-craft{
+    width: 100%;
+    height: 65%;
+  }
+/* ----------- SEARCHBAR STYLE ---------------- */
+  
+.searchbar-products{
+  height: 30%;
+  width: 100%;
+  display: flex;
+}
+  
+.title-and-input-products{
+  width: 86%; /* with row 140*/
+  display: flex;
+  flex-direction: column;
+  height: 92%;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.localizate-bar-left{
+  width: 6%;
+  height: 100%;
+}
+
+.craftTitle{
+  position: relative;
+  height: 55%;
+  width: 30%;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.craftTitle img {
+  align-self: center;
+  width: 100%;
+  height: 100%;
+}
+
+.craftTitle b{
+  position: absolute;
+  font-size: 1.2em;
+  font-weight:bold;
+  color: #9D1A1A;
+}
+
+.localizate-bar{
+  width: 95%;
+  height: 28%;
+  margin: 0;
+  padding: 0;
+  font-size: 0.85em;
+}
+
+.svg-icon-products{
+  position: relative;
+  width: 8%;   
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+}
+.svg-icon-products a:first-child img{
+  position: absolute;
+  height: 35%;
+  right: 15%;
+  top: 20%;
+}
+
+.svg-icon-products a{
+  cursor:progress;
+  width: 100%;
+  height: 50%;
+  z-index: 5;
+}
+
+.svg-icon-products a:last-child img{
+  position: absolute;
+  height: 25%;
+  bottom: 5%;
+}
+  /* ----------- PRODUCT CARDS STYLE ---------------- */
+  
+.product-grid {
+  height: 70%;   /*with row 99 */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5em;
+  justify-items: center;
+  width: 100%;
+  overflow: scroll;
+}
+  
+.product-card-craft {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 5% 5% 10% 10%;
+  width: 88%;
+  height: 95%;
+  text-decoration: none;
+}
+
+
+.product-image {
+  width: 90%;
+  height: 55%;
+  object-fit: cover;
+}
+
+.description-craft{
+  width: 99%;
+  height: 45%;
+  background-color: #703A31;
+  color: #f7fafc;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.8em;
+  gap: 2%;
+  border-radius: 0 0 10% 10%;
+}
+
+.product-name {
+  font-weight: 600;
+  margin-top: 8px;
+  padding-left: 0.9em;
+}
+  
+.product-price {
+  font-weight: 300;
+  padding-left: 0.9em;
+}
+  
+.product-source {
+  font-weight: 300;
+  padding-left: 0.9em;
+}

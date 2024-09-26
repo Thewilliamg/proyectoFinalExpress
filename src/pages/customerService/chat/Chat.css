@@ -1,0 +1,197 @@
+.chatAll{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+}
+
+
+.chatUp{
+    display: flex;
+    flex-direction: row;
+    background-color: #703A31;
+    width: 100vw;
+    height: 10vh;
+    overflow-x: hidden;
+}
+
+.chatUp a{
+    display: flex;
+    width: auto;
+    height: 100%;
+}
+
+.chatUp_Title{
+    display: flex;
+    width: 80vw;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 4%;
+    margin-left: 5%;
+}
+
+.chatUp_Title img{
+    width: 9vw;
+    height: auto;
+}
+
+.chatUp_Title h1{
+    color: #fff;
+    font-size: 120%;
+}
+
+.chatMiddle{
+    display: flex;
+    flex-direction: column;
+    width: 99vw;
+    height: 78vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.chatMiddle_boxes{
+    display: flex;
+    flex-direction: column;
+    width: 85vw;
+    height: 95%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-bottom: 5%;
+    scrollbar-width: none;
+}
+
+.chatMiddle_Unique{
+    display: flex;
+    flex-direction: column;
+    max-width: 90%;
+    width: auto;
+    height: auto;
+}
+
+.chatMiddle_textBoxes{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #9D1A1A;
+    padding: 2%;
+    max-width: 90%;
+    width: auto;
+    height: auto;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+}
+
+.chatMiddle_textBoxes h1{
+    font-size: 140%;
+    width: 90%;
+    height: auto;
+    text-align: justify;
+    color: #fff;
+}
+
+.chatMiddle_textDown {
+    display: flex;
+    margin-top: -1%;
+    margin-left: -0.2%;
+    margin-bottom: 5%;
+    width: 30px;
+    height: 30px;
+    background-color: #9D1A1A;
+    clip-path: polygon(0% 0%, 0% 100%, 100% 0%);
+    border-bottom-left-radius: 2px;
+}
+
+
+.chatMiddle_Unique2{
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+}
+
+.chatMiddle_textBoxes2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 30%;
+    background-color: #703A31;
+    max-width: 90%;
+    width: auto;
+    height: auto;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+    padding: 2%;
+}
+
+.chatMiddle_textBoxes2 h1{
+    font-size: 140%;
+    width: 90%;
+    height: auto;
+    text-align: justify;
+    color: #fff;
+}
+
+.chatMiddle_textDown2 {
+    display: flex;
+    margin-top: -1%;
+    margin-bottom: 5%;
+    margin-left: 92%;
+    width: 30px;
+    height: 30px;
+    background-color: #703A31;
+    clip-path: polygon(0% 0%, 100% 100%, 100% 0%);
+    border-bottom-left-radius: 2px;
+}
+
+.chatDown{
+    display: flex;
+    width: 100%;
+    height: 14vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.chatDown_Response {
+    display: flex;
+    background-color: #703A31;
+    height: 30%;
+    width: 85%;
+    border-radius: 10px;
+    padding: 1%;
+    justify-content: space-between;
+}
+
+.chatDown_Response input{
+    width: 80%;
+    height: 90%;
+    background: transparent;
+    border: none;
+    margin-left: 4%;
+    color: #ffff;
+}
+
+.chatDown_Response input:focus{
+    border: none;
+    outline: none;
+    color: #fff;
+}
+
+.chatDown_Response input::placeholder{
+    color: #ffffff72;
+}
+
+.chatDown_Response input::after{
+    border: none;
+}
+
+.chatDown_Response img{
+    height: 100%;
+    width: 6vw;
+    margin-right: 8px;
+}

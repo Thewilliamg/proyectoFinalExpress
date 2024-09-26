@@ -1,0 +1,76 @@
+
+.userBackground{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 30vh;
+    background-image: url('@/img/BackgroundRightTop.svg');
+    background-size: 100vw 30vh;
+    background-position: 17vw;
+    background-repeat: no-repeat;
+}
+
+.userTop{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 30vh;
+}
+
+.userForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    height: 40vh;
+}
+
+.userForm-centre{
+    display: flex;
+    flex-direction: column;
+    width: 83%;
+    height: auto;
+    gap: 1%;
+    margin-top: 3%;
+}
+
+.userForm-centre h1{
+    font-size: 105%;
+    color: #231108;
+}
+
+.userForm-centre input{
+    border: none;
+    background-color:#703A31;
+    width: 99%;
+    height: 5vh;
+    border-radius: 5px;
+}
+
+.userForm-middle{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: auto;
+    margin-top: 10%;
+    gap: 10px;
+}
+
+.userForm-middle a{
+    color: #9D1A1A;
+    font-size: 110%;
+    text-decoration: underline;
+}
+
+.userBottom{
+    display: flex;
+    /* border: 1px solid blue; */
+    width: 100vw;
+    height: 30vh;
+    background-image: url('@/img/BackgroundLeftBottom.svg');
+    background-size: 100vw 30vh;
+    background-position: -17vw;
+    background-repeat: no-repeat;
+}

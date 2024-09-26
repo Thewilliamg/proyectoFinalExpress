@@ -1,0 +1,242 @@
+
+.confirmationAll{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    padding-bottom: 5%;  
+}
+
+.confirmationTop{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 36vh;
+}
+
+.confirmationTop_img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 85%;
+    height: 85%;
+    align-items: center;
+    border-radius: 10px;
+
+}
+
+.confirmationTop_img img{
+    width: 100%;
+    height: 100%;
+}
+
+.confirmationTitle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-items: center;
+    width: 100%;
+    height: 5vh;
+    margin-top: 0%;
+}
+
+.confirmationTitle_h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: 100%;
+}
+
+.confirmationTitle_h1 h1{
+    color: #9D1A1A;
+    font-size: 150%;
+}
+
+.Separation{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; 
+    height: 5vh;
+    margin-top: 2%;
+}
+
+.SeparationImg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60vw;
+    height: 100%;
+}
+
+.SeparationImg img{
+    width: 100%;
+    height: auto;
+}
+
+.confirmationContent {
+    display: flex;
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3%;
+}
+
+.confirmationContent_h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: auto;
+    height: 100%;
+}
+
+.confirmationContent_h1 h1{
+    font-size: 125%;
+    color: #2E1108;
+}
+
+.confirmationCompras{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 4vh;
+    margin-top: 5%;
+}
+
+.confirmationCompras a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: #703A31;
+    color: #fff;
+    font-size: 130%;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.confirmationCompras_button{
+    display: flex;
+    width: 30vw;
+    height: 100%;
+}
+
+.Separation2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; 
+    height: 5vh;
+    margin-top: 2%;
+}
+
+.SeparationImg2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60vw;
+    height: 100%;
+}
+
+.SeparationImg2 img{
+    width: 100%;
+    height: auto;
+}
+
+.confirmationText2{
+    display: flex;
+    width: 100%;
+    height: 10vh;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1%;
+}
+
+.confirmationText2_content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: auto;
+    height: 100%;
+}
+
+.confirmationText2_content h1{
+    font-size: 125%;
+    color: #2E1108;
+}
+
+.confirmationIn_box{
+    display: flex;
+    width: 100%;
+    height: 4vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.confirmationInput{
+    display: flex;
+    border: none;
+    width: 75%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: #703A31;
+    border-radius: 5px;
+}
+
+.confirmationInput input{
+    background-color: #703A31;
+    border: none;
+    width: 100%;
+    height: 100%;
+    margin-left: 5%;
+    border-radius: 5px;
+    font-size: 80%;
+    color: #fff;
+}
+
+.confirmationInput input::placeholder{
+    color: #ffffff4a;
+    font-size: 120%;
+}
+
+.confirmationInput input:focus{
+    border: none;
+    outline: none;
+    font-size: 80%;
+    color: #fff;
+}
+
+.confirmationReturn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 4vh;
+    margin-top: 10%;
+}
+
+.confirmationReturn_A{
+    display: flex;
+    height: 100%;
+    width: auto;
+    justify-content: center;
+    align-items: center;
+    padding-left: 3%;
+    padding-right: 3%;
+    border-radius: 5px; 
+    background-color: #703A31;
+}
+
+.confirmationReturn_A a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 125%;
+}

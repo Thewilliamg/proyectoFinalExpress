@@ -1,0 +1,132 @@
+.sidebar {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 14rem;
+    background-color: #2e1108;
+    color: white;
+    padding-left: 1rem;
+    transition: transform 0.3s ease-in-out;
+    z-index: 20;
+}
+  
+.sidebar.closed {
+transform: translateX(-100%);
+}
+  
+.sidebar.open {
+transform: translateX(0);
+}
+  
+.sidebar-profile{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 15%;
+    gap: 5%;
+    padding-left: 3%;
+}
+
+.sidebar-profile img{
+    height: 50%;
+}
+.nav-sidebar {
+    width: 95%;
+    height: 70%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+  
+.nav-list-sidebar {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 5%;
+    height: 40%;
+    padding-left: 4%;
+}
+
+.nav-list-sidebar li{
+    display: flex;
+    gap: 6%;
+}
+  
+.nav-item-sidebar {
+    display: block;
+    padding: 0.5rem 0; /* Adjust for spacing */
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1em;
+}
+
+.nav-item-sidebar:hover {
+    color: #e2e8f0;
+}
+
+
+.squares-sidebar{
+    width: 95%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.squares-sidebar img{
+    width: 7%;
+}
+
+.nav-list-sidebar img{
+    width: 17%;
+}
+
+.sidebar-footer{
+    height: 15%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly ;
+}
+
+.stamp-footer{
+    display: flex;
+    justify-content: start;
+    width: 80%;
+    height: 25%;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+.stamp-footer img{
+    background-color: white;
+    border: none;
+    height: 100%;
+}
+
+.footer-title{
+    opacity: 60%;
+}
+.sidebar-footer-text{
+    display: flex;
+    font-size: 0.5em;
+    align-items: center;
+}
+
+.city-footer{
+    background-color: green;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0em 0.6em;
+    font-weight: 900;
+}
+
+.minister-footer{
+    background-color: gray;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    margin-left: 0.5em;
+    padding: 0 0.6em;
+
+}

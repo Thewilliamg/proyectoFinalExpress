@@ -1,0 +1,62 @@
+.box-carruselItems {
+    display: flex;
+    max-width: 364px;
+    height: 10%;
+    overflow-x: scroll;
+    padding-top: 1rem;
+    gap: 0.8rem;
+    padding-left: 1.5rem;
+    border-bottom: 2px solid black;
+}
+
+.subBox-carruselItems {
+    display: flex;
+    height: 100%;
+    gap: 1rem;
+    margin-left: 1rem;
+    justify-content: flex-end;
+}
+
+.icon-carruselItems {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 0.2rem;
+}
+
+.image-carruselItems {
+    width: 50px;
+    height: 50px;
+    background-color: #703A31;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.image-carruselItems img {
+    width: 50%;
+    height: 50%;
+    filter: invert(1);
+}
+
+.text-carruselItems {
+    font-size: 14px;
+    color: #333;
+}
+
+.box-carruselItems::-webkit-scrollbar {
+    border: 1px solid red;
+    display: none;
+}
+
+.box-carruselItems {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.borderBox-carruselItems {
+    border-bottom: 4px solid black;
+}
