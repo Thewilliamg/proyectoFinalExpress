@@ -9,6 +9,7 @@ import Shop from './pages/shop/Shop.jsx';
 import Workshop from './pages/home/components/workShop.jsx'
 import Parrafito from './pages/discounts/components/beforeShop.jsx';
 import Order from './pages/home/components/order.jsx';
+import Business from './pages/home/components/business-presentation.jsx'
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/shop" element={<Shop />} />
         <Route path='/user' element={<User />} />
         <Route path="/orders" element={<Order />}/> 
+        <Route path='/business-presentation' element={<Business />}/>
       </Routes>
   </BrowserRouter>
   )

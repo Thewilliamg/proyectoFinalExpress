@@ -67,7 +67,7 @@ export default function Workshop() {
               </div>
 
               <button className="button-item" onClick="submit">
-                <Link to="buseiness-presentation" className="text-button">
+                <Link to="/business-presentation" className="text-button">
                   Entérate más sobre el taller aquí
                 </Link>
               </button>

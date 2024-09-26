@@ -243,3 +243,95 @@
 .edga{
     margin: 17px 0 17px 6px;
 }
+
+/* business-presentation ----------------------------------------- */
+
+.business-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    gap: 10%
+}
+
+.pinchitos{
+    width: 70%;
+    height: 100%;
+}
+
+.arribita-container{
+    position: absolute;
+    top: 7%;
+    left: 10%;
+    width: 100%;
+    height: 20%;
+}
+.arribita-chiquito{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 10%;
+    height: 80%;
+    right: 10%;
+    width: 100%;
+    font-size: 0.9rem;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.mitad-container{
+    display: flex;
+    flex-direction: column;
+    height: 50%;
+    width: 100%;
+    gap: 0.5rem;
+}
+
+.mitad-container p{
+    font-size: 1rem;
+    padding-left: 3%;
+}
+
+.img-mitad{
+    object-fit: cover;
+    height: 90%;
+    width: 90%;
+    border-radius: 10px;
+}
+
+.mitad-chiquito{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background: #703a31;
+}
+
+.abajito-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 40%;
+    width: 100%;
+    gap: 3%;
+}
+
+.abajito-container p{
+    font-size: 1rem;
+    padding-left: 3%;
+}
+
+.abajito-chiquito{
+    display: flex;
+    align-items: center;    justify-content: center;
+    width: 100%;
+    height: 70%;
+}
+.card-grande{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+    width: 100%;
+}
