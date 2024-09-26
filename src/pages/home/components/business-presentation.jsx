@@ -2,6 +2,7 @@ import QRCode from "react-qr-code";
 import Pinchitos from "../storage/img/pinchito-business.svg";
 import GoBackArrow from "../../components/backArrow";
 import Video from "../storage/img/video-business.svg";
+import './business-presentation.css'
 
 export default function Business() {
   const business = {

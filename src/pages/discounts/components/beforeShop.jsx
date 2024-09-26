@@ -1,3 +1,4 @@
+import '../discounts-product.css'
 import rectangulo from '../storage/img/rectangle-96.png'
 import ShoppingCart from '../storage/img/Group-7.svg'
 import Vector from '../storage/img/Vector-Stroke.svg'
