@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { getUser, registerUserNumber } = require('../controllers/userController');
+const { getUser, registerUserNumber, loginUser } = require('../controllers/userController');
 
 const userValidator = require('../validators/userValidator');
 // const productValidator = require('../validators/userValidator');
@@ -16,5 +16,6 @@ const userValidator = require('../validators/userValidator');
 router.get('/:id', getUser);
 
 router.post('/signup/phoneNumber', userValidator, registerUserNumber)
+router.post('/login/user', userValidator, loginUser)
 
 module.exports = router;

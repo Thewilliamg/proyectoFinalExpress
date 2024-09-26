@@ -45,3 +45,29 @@ exports.registerUserNumber = async (req, res) => {
         console.log(error);
     }
 };
+
+exports.loginUser = async (req, res) => {
+    try {
+        const { name, email, password, numberPhone } = req.body;
+
+        const user = await User.findOne({
+            $or: [
+                { name: name, password: password },
+                { email: email, password: password },
+                { numberPhone: numberPhone, password: password }
+            ]
+        });
+
+        if (user) {
+            res.status(200).json({
+                message: 'Usuario autenticado exitosamente',
+                user: user.name
+            });
+        } else {
+            res.status(401).json({ message: 'Credenciales inválidas' });
+        }
+    } catch (error) {
+        res.status(500).json({ message: 'Error al autenticar el usuario', error: error });
+        console.log(error);
+    }
+}
