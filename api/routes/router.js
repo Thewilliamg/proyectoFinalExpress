@@ -3,6 +3,7 @@ const router = express.Router();
 
 const {getAllMarkets} = require('../controllers/marketsController');
 const { registerUserNumber, registerUserEmail, loginUser } = require('../controllers/userController');
+const {getAllproductsByMarket,getProduct,getAllproducts} = require('../controllers/productsController');
 
 const userValidator = require('../validators/userValidator');
 // const productValidator = require('../validators/userValidator');
@@ -24,5 +25,8 @@ router.get('/markets',getAllMarkets);
 router.post('/signup/phoneNumber', userValidator, registerUserNumber)
 router.post('/signup/email', userValidator, registerUserEmail)
 router.post('/login/user', userValidator, loginUser)
+router.get('/markets/:marketId/products',getAllproductsByMarket);
+router.get('/product/details/:id',getProduct);
+router.get('/products',getAllproducts);
 
 module.exports = router;
