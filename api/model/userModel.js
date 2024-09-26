@@ -3,13 +3,13 @@ const mongoose = require('mongoose');
 const userSchema = new mongoose.Schema({
     name: { type: String, required: false },
     email: { type: String, required: false },
-    password: { type: Number, required: true },
+    password: { type: String, required: true },
     numberPhone: { type: Number, required: false },
 }, { versionKey: false } );
 
 const userSchemaPhone = new mongoose.Schema({
     name: { type: String, required: true, unique: true},
-    password: { type: Number, required: true },
+    password: { type: String, required: true },
     numberPhone: { type: Number, required: true, unique: true },
     gender: { type: String, required: true },
     birthDate: { type: Date, required: true },
@@ -21,7 +21,7 @@ const userSchemaPhone = new mongoose.Schema({
 const userSchemaEmail = new mongoose.Schema({
     name: { type: String, required: true, unique: true },
     email: { type: String, required: true, unique: true },
-    password: { type: Number, required: true },
+    password: { type: String, required: true },
     gender: { type: String, required: true },
     birthDate: { type: Date, required: true },
     urlPicture: { type: String, required: false },

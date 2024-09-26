@@ -1,4 +1,5 @@
 const { UserSignModel, UserPhoneModel, UserEmailModel } = require("../model/userModel");
+const bcrypt = require('bcrypt');
 
 // !! Method example
 
@@ -24,11 +25,13 @@ exports.registerUserNumber = async (req, res) => {
             return res.status(400).json({ message: 'The username or number phone is already in use' });
         }
 
+        const hashedPassword = await bcrypt.hash(password, 10);
+
         // Crear nuevo usuario
         const newUser = new UserPhoneModel({
             name,
             numberPhone,
-            password,  // Asegúrate de hashear la contraseña antes de guardarla
+            password: hashedPassword,
             gender,
             birthDate
         });
@@ -53,12 +56,14 @@ exports.registerUserEmail = async (req, res) => {
         if (existingUser) {
             return res.status(400).json({ message: 'The username or email is already in use' });
         }
+
+        const hashedPassword = await bcrypt.hash(password, 10);
         
         // Crear nuevo usuario
         const newUser = new UserEmailModel({
             name,
             email,
-            password,  // Asegúrate de hashear la contraseña antes de guardarla
+            password: hashedPassword,
             gender,
             birthDate
         });
@@ -81,22 +86,28 @@ exports.loginUser = async (req, res) => {
 
         const user = await UserSignModel.findOne({
             $or: [
-                { name: name, password: password },
-                { email: email, password: password },
-                { numberPhone: numberPhone, password: password }
+                { name: name },
+                { email: email },
+                { numberPhone: numberPhone }
             ]
         });
 
-        if (user) {
+        if (!user) {
+            return res.status(401).json({ message: 'User not found' });
+        }
+
+        const isPasswordValid = await bcrypt.compare(password, user.password);
+
+        if (isPasswordValid) {
             res.status(200).json({
-                message: 'Usuario autenticado exitosamente',
+                message: 'User authenticated successfully',
                 user: user.name
             });
         } else {
-            res.status(401).json({ message: 'Credenciales inválidas' });
+            res.status(401).json({ message: 'Invalid credentials' });
         }
+        
     } catch (error) {
-        res.status(500).json({ message: 'Error al autenticar el usuario', error: error });
-        console.log(error);
+        res.status(500).json({ message: 'Error authenticating user', error: error.message });
     }
 }
