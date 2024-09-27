@@ -7,15 +7,8 @@ import trash from '@/img/trash-icon.svg';
 
 export default function Shop() {
     const [showPopup, setShowPopup] = useState(false);
-
-    const handleShowPopup = () => {
-        setShowPopup(true);
-    };
-    function handleHidePopUp(data) {
-        setShowPopup(data)
-    }
-
     const objectResponse = [{
+        'productId':1234534,
         'name': 'Vasija',
         'price': 50,
         'size': '13x10',
@@ -24,6 +17,7 @@ export default function Shop() {
         'image': image1,
         'quantity':1
     }, {
+        'productId':123005134,
         'name': 'Vasija2 pequeña con diseño de flor',
         'price': 90,
         'size': '13x200',
@@ -32,7 +26,8 @@ export default function Shop() {
         'image': image1,
         'quantity':1
     },
-    {
+    {   
+        'productId':31206542,
         'name': 'Vasija3 pequeña con diseño de flor flor flor',
         'price': 90,
         'size': '13x200',
@@ -42,6 +37,7 @@ export default function Shop() {
         'quantity':1
     }, 
     {
+        'productId':1205642,
         'name': 'Vasija4 pequeña con diseño de flor',
         'price': 90,
         'size': '13x200',
@@ -50,18 +46,28 @@ export default function Shop() {
         'image': image1,
         'quantity':1
     }]
-
-    function dismiss() {
-        /*Esta funccion es para modificar el valor de quantity*/
+    const shippingCost = 20;
+    const [items, setItems] = useState(objectResponse)
+    
+    function updateQuantity(id,change){
+        setItems(items.map((item)=>
+        (item.productId===id? {...item,quantity:Math.max(0,item.quantity + change)}:item)))
+    } 
+    
+    function deleteCard(id) {
+        setItems(items.filter(item=>item.productId!==id))
     }
-    function sum() {
-        /*Esta funccion es para modificar el valor de quantity*/
+    
+    const subtotal = items.reduce((acum,item)=>acum+item.quantity*item.price,0);
+    const totalSum = subtotal+shippingCost;
+    
+    const handleShowPopup = () => {
+        setShowPopup(true);
+    };
+    function handleHidePopUp(data) {
+        setShowPopup(data)
     }
-
-    function deleteCard() {
-
-    }
-
+    
     return (
         <div className='shop-container'>
             {showPopup && <PopUp ShowPopup={handleHidePopUp} />}
@@ -76,7 +82,7 @@ export default function Shop() {
             </div>
 
             <div className="container-cards-shop">
-                {objectResponse.map((item) => {
+                {items.map((item,index) => {
                     return (
                         <div className="cardItem" key={item.name}>
                             <div className="trulycontainer">
@@ -89,19 +95,17 @@ export default function Shop() {
                                     <p>{item.size}, {item.weight}</p>
                                     <b className='market-name-card'>{item.marketName}</b>
                                     <div className='addOrdropItems'>
-                                        <button onClick={dismiss}>-</button>
-                                        <input id={item.name} type="button" value="1" />
-                                        <button onClick={sum}>+</button>
+                                        <button onClick={()=>updateQuantity(item.productId,-1)}>-</button>
+                                        <div className={item.productId}>{item.quantity}</div>
+                                        <button onClick={()=>updateQuantity(item.productId,1)}>+</button>
                                     </div>
                                 </div>
-                                <div className='trash-icon-car'>
-                                    <img onClick={deleteCard} src={trash} alt="trash-ico" />
-                                </div>
+                                <button className='trash-icon-car' onClick={()=>deleteCard(item.productId)}>
+                                    <img type='button' className='img-trash' src={trash} alt="trash-ico" />
+                                </button>
                             </div>
                         </div>
-                    )
-                })
-                }
+                    )})}
             </div>
 
             <div className="container-other-info-car">
@@ -110,7 +114,20 @@ export default function Shop() {
                         Añadir cupón de descuento
                     </a>
                 </div>
-                <div>Sub total</div>
+                <div className="subtotal-shop-car">
+                    <div className="fieldsubtotal">
+                        <label className='subtotal-label'>Sub total</label>
+                        <label className='subtotal-label'>S/.{subtotal}</label>
+                    </div>
+                    <div className="fieldTotalSum">
+                        <label className='delivery-label'>Gastos de envio</label>
+                        <label className='delivery-label'>S/.{shippingCost}</label>
+                    </div>
+                </div>
+                <div className="total-shop-car">
+                    <label className='total-label-shop'>Total</label>
+                    <label className='delivery-label'>S/.{totalSum}</label>
+                </div>
                 <button onClick={handleShowPopup} className="shop-button">Realizar Compra</button>
             </div>
 
