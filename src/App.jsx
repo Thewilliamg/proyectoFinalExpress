@@ -31,26 +31,30 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/workshops" element={<Workshop />} />
-        <Route path="discounts/product" element={<Parrafito />} />
-        <Route path="/orders" element={<Order />}/> 
-        <Route path='/workshops/business-presentation' element={<Business />}/>
+        
+        
+        
+        
 
       <Route index element= {<Start/>}/>
         <Route path="/customer_service" element={<Service/> } />  //Ruta para pantalla 25
+        <Route path="/workshops" element={<Workshop />} />
         <Route path="/workshops/info" element={<WorkshopsInfo/> } /> //Ruta para pantalla 28
+        <Route path='/workshops/business-presentation' element={<Business />}/>
         <Route path='/coupons' element={<Coupon />} />
         <Route path="/favorites" element={<Favorites/> } />
         <Route path="/settings" element={<Settings/> } />
         {/* //Rutas de descuentos */}
         <Route path="/home" element={<Home/>}/>
         <Route path="/discounts" element={<Home page={<Discounts/>}/>} />
+        <Route path="discounts/product" element={<Parrafito />} />
         {/* Rutas de tiendas*/ }
         <Route path="/markets" element={<Home page={<Markets/>}/>} />
         <Route path="/markets/products" element={<Products />} />
         <Route path="/markets/products/details/:productId" element={<ProductDetails />} />
         {/* Rutas de comprar */}
         <Route path="/shop" element={<Home page={<Shop/>}/>} />
+        <Route path="/orders" element={<Order />}/> 
         <Route path="/shop/confirmation" element={<Confirmation />} />
         {/* Rutas de perfil de usuario */}
         <Route path='/user' element={<Home page={<User/>}/>} />
