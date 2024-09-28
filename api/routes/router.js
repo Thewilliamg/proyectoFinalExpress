@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const { registerUserNumber, registerUserEmail, loginUser } = require('../controllers/userController');
+const { getProduct, getProductId } = require('../controllers/productController');
+const { getCategory } = require('../controllers/categoryController');
 
 const userValidator = require('../validators/userValidator');
 // const productValidator = require('../validators/userValidator');
@@ -20,5 +22,9 @@ const userValidator = require('../validators/userValidator');
 router.post('/signup/phoneNumber', userValidator, registerUserNumber)
 router.post('/signup/email', userValidator, registerUserEmail)
 router.post('/login/user', userValidator, loginUser)
+
+router.get('/discounts', getProduct)
+router.get('/discounts/category', getCategory)
+router.get('/discounts/product/:id', getProductId)
 
 module.exports = router;
