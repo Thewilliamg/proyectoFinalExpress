@@ -1,0 +1,124 @@
+.community-container{
+    height: 100vh;
+    width: 100%;
+}
+
+.header-community {
+    display: flex;
+    width: 100%;
+    height: 15%;
+    justify-content: center;
+  }
+  
+  .img-header-community {
+    width: 100%;
+    height: 80%;
+  }
+  
+  .header-text-community {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    top: 20%;
+    right: 32%;
+    font-size: 0.8rem;
+    width: 100%;
+    color: #9D1A1A;
+  }
+
+  .container-asks{
+    height: 85%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .ppppp{
+    position: relative;
+    right:15%;
+    color: #9D1A1A;
+  }
+
+  .card-question{
+    height: 70%;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .card-question div{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    background: #703a31;
+    height: 15%;
+    border-radius: 10px;
+    color: #ffff;
+  }
+  
+  .question-community{
+    background: #703a31;
+    height: 100%;
+    width: 100%;
+    border-style: none;
+    border-radius: 10px;
+    text-align: start;
+  }
+
+  .oto{
+    height: 70%;
+    width: 90%;
+  }
+
+  .anothe-question{
+    display: flex;
+    width: 100%;
+    height: 30%;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .anothe-question h2{
+    position: relative;
+    right: 38%;
+    color: #9D1A1A;
+  }
+
+  .utu{
+    display: flex;
+    width: 100%;
+    height: 50%;
+    align-items: center;
+    justify-content: space-around;
+    gap: 7rem;
+  }
+  .utu button{
+    color: #ffff;
+    background: #2e1108;
+    height: 45%;
+    width: 15%;
+  }
+
+  .hidden-input {
+    display: none; /* Oculta el input real */
+  }
+  
+  .custom-button {
+    background-color: #2e1108; /* Cambia el color de fondo del botón */
+    color: white;
+    height: 45%;
+    width: 35%;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    font-size: 16px;
+  }
+  
+  .custom-button:hover {
+    background-color: #2e1108; /* Color de fondo cuando se pasa el mouse */
+  }

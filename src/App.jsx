@@ -27,6 +27,7 @@ import EmailPolicy from "./pages/signup/email/policy/Policy.jsx";
 import ProductDetails from "./pages/markets/products/details/details.jsx";
 import Coupon from "./pages/home/components/coupon/coupon.jsx";
 import Categories from './pages/home/components/categories/categorie.jsx'
+import Community from "./pages/home/community/community.jsx";
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
         <Route path="/workshops/info" element={<WorkshopsInfo/> } /> //Ruta para pantalla 28
         <Route path='/workshops/business-presentation' element={<Business />}/>
         <Route path='/categories' element={<Categories />}/>
+        <Route path='/community' element={<Community />} />
         <Route path='/coupons' element={<Coupon />} />
         <Route path="/favorites" element={<Favorites/> } />
         <Route path="/settings" element={<Settings/> } />
