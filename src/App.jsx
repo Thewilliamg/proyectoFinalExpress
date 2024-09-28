@@ -26,6 +26,7 @@ import Products from "./pages/markets/products/Products.jsx";
 import EmailPolicy from "./pages/signup/email/policy/Policy.jsx";
 import ProductDetails from "./pages/markets/products/details/details.jsx";
 import Coupon from "./pages/home/components/coupon/coupon.jsx";
+import Categories from './pages/home/components/categories/categorie.jsx'
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
         <Route path="/workshops" element={<Workshop />} />
         <Route path="/workshops/info" element={<WorkshopsInfo/> } /> //Ruta para pantalla 28
         <Route path='/workshops/business-presentation' element={<Business />}/>
+        <Route path='/categories' element={<Categories />}/>
         <Route path='/coupons' element={<Coupon />} />
         <Route path="/favorites" element={<Favorites/> } />
         <Route path="/settings" element={<Settings/> } />
