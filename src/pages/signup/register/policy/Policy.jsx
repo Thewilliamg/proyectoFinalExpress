@@ -68,7 +68,6 @@ export default function Policy() {
             }
 
             const data = await response.json();
-            console.log("dataUser: ", data);
             localStorage.removeItem('data');
             navigate('/login'); // Redirige al usuario después del registro exitoso
         } catch (error) {
