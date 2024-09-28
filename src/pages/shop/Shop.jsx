@@ -1,5 +1,5 @@
 import './shop.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import square from '@/img/square.svg';
 import image1 from '@/img/product-workshop1.png';
 import PopUp from './components/popUp';
@@ -7,67 +7,96 @@ import trash from '@/img/trash-icon.svg';
 
 export default function Shop() {
     const [showPopup, setShowPopup] = useState(false);
-    const objectResponse = [{
-        'productId':1234534,
+    const [isLoading, setIsLoading] = useState(true);
+    const [responseObject, setResponseObject] = useState({});
+    const userId = '64d2c84a8a39f00001e4c1ec';
+    const shippingCost = 20;
+    const [items, setItems] = useState([]);
+
+    const responseObject2 = [{
+        'productId': 1234534,
         'name': 'Vasija',
         'price': 50,
         'size': '13x10',
         'weight': '2 KG',
         'marketName': 'Asociacion de productos de Chazuta',
-        'image': image1,
-        'quantity':1
+        'picture': image1,
+        'quantity': 1
     }, {
-        'productId':123005134,
+        'productId': 123005134,
         'name': 'Vasija2 pequeña con diseño de flor',
         'price': 90,
         'size': '13x200',
         'weight': '2 KG',
         'marketName': 'Asociacion de productos de Chazuta',
-        'image': image1,
-        'quantity':1
+        'picture': image1,
+        'quantity': 1
     },
-    {   
-        'productId':31206542,
+    {
+        'productId': 31206542,
         'name': 'Vasija3 pequeña con diseño de flor flor flor',
         'price': 90,
         'size': '13x200',
         'weight': '2 KG',
         'marketName': 'Asociacion de productos de Chazuta',
-        'image': image1,
-        'quantity':1
-    }, 
+        'picture': image1,
+        'quantity': 1
+    },
     {
-        'productId':1205642,
+        'productId': 1205642,
         'name': 'Vasija4 pequeña con diseño de flor',
         'price': 90,
         'size': '13x200',
         'weight': '2 KG',
         'marketName': 'Asociacion de productos de Chazutaaaaaaaaaaaaaaa',
-        'image': image1,
-        'quantity':1
+        'picture': image1,
+        'quantity': 1
     }]
-    const shippingCost = 20;
-    const [items, setItems] = useState(objectResponse)
-    
-    function updateQuantity(id,change){
-        setItems(items.map((item)=>
-        (item.productId===id? {...item,quantity:Math.max(0,item.quantity + change)}:item)))
-    } 
-    
-    function deleteCard(id) {
-        setItems(items.filter(item=>item.productId!==id))
+
+    useEffect(() => {
+        fetch(`http://localhost:5001/api/shop/${userId}`,
+            {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            }
+        )
+            .then(res => res.json())
+            .then(items => setItems(items)
+            )
+            .finally(setIsLoading(false))
+            .catch((error) => {
+                console.error('Hubo un error:' + error.message)
+            });
+    }, []);
+
+    function Loading() {
+        if (isLoading) {
+            return (<h2>Cargando...</h2>)
+        }
+        return;
     }
-    
-    const subtotal = items.reduce((acum,item)=>acum+item.quantity*item.price,0);
-    const totalSum = subtotal+shippingCost;
-    
+
+    function updateQuantity(id, change) {
+        setItems(items.map((item) =>
+            (item.productId === id ? { ...item, quantity: Math.max(0, item.quantity + change) } : item)))
+    }
+
+    function deleteCard(id) {
+        setItems(items?.filter(item => item.productId !== id))
+    }
+
+    const subtotal = items.reduce((acum, item) => acum + item.quantity * item.price, 0);
+    const totalSum = subtotal + shippingCost;
+
     const handleShowPopup = () => {
         setShowPopup(true);
     };
     function handleHidePopUp(data) {
         setShowPopup(data)
     }
-    
+
     return (
         <div className='shop-container'>
             {showPopup && <PopUp ShowPopup={handleHidePopUp} />}
@@ -82,30 +111,32 @@ export default function Shop() {
             </div>
 
             <div className="container-cards-shop">
-                {items.map((item,index) => {
+                <Loading />
+                {(items.length>0) ? (items.map((item, index) => {
                     return (
-                        <div className="cardItem" key={item.name}>
+                        <div className="cardItem" key={item?.name}>
                             <div className="trulycontainer">
                                 <div className="img-card-shop">
-                                    <img src={item.image} alt={item.name} />
+                                    <img src={item?.picture} alt={item?.name} />
                                 </div>
                                 <div className="text-card-car">
-                                    <p>{item.name}</p>
-                                    <p>S/.{item.price}</p>
-                                    <p>{item.size}, {item.weight}</p>
-                                    <b className='market-name-card'>{item.marketName}</b>
+                                    <p>{item?.name}</p>
+                                    <p>S/.{item?.price}</p>
+                                    <p>{item?.size}, {item.weight}</p>
+                                    <b className='market-name-card'>{item?.marketName}</b>
                                     <div className='addOrdropItems'>
-                                        <button onClick={()=>updateQuantity(item.productId,-1)}>-</button>
-                                        <div className={item.productId}>{item.quantity}</div>
-                                        <button onClick={()=>updateQuantity(item.productId,1)}>+</button>
+                                        <button onClick={() => updateQuantity(item?.productId, -1)}>-</button>
+                                        <div className={item?.productId}>{item.quantity}</div>
+                                        <button onClick={() => updateQuantity(item?.productId, 1)}>+</button>
                                     </div>
                                 </div>
-                                <button className='trash-icon-car' onClick={()=>deleteCard(item.productId)}>
+                                <button className='trash-icon-car' onClick={() => deleteCard(item?.productId)}>
                                     <img type='button' className='img-trash' src={trash} alt="trash-ico" />
                                 </button>
                             </div>
                         </div>
-                    )})}
+                    )
+                })) : 'El carrito está vacío :('}
             </div>
 
             <div className="container-other-info-car">
