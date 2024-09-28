@@ -82,14 +82,22 @@ exports.registerUserEmail = async (req, res) => {
 
 exports.loginUser = async (req, res) => {
     try {
-        const { name, email, password, numberPhone } = req.body;
+        const { identifier, password } = req.body;
+
+        // Crear un array de condiciones para la búsqueda
+        const searchConditions = [
+            { name: identifier },
+            { email: identifier }
+        ];
+
+        // Intentar convertir el identifier a número si es posible
+        const numberIdentifier = Number(identifier);
+        if (!isNaN(numberIdentifier)) {
+            searchConditions.push({ numberPhone: numberIdentifier });
+        }
 
         const user = await UserSignModel.findOne({
-            $or: [
-                { name: name },
-                { email: email },
-                { numberPhone: numberPhone }
-            ]
+            $or: searchConditions
         });
 
         if (!user) {

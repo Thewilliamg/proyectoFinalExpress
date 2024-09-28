@@ -30,7 +30,7 @@
     flex-direction: column;
     width: 83%;
     height: auto;
-    gap: 1%;
+    gap: 1rem;
     margin-top: 3%;
 }
 
@@ -45,6 +45,14 @@
     width: 99%;
     height: 5vh;
     border-radius: 5px;
+    color: #ffff;
+    font-size: 1em;
+}
+
+.userForm-centre div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
 .userForm-middle{
@@ -56,6 +64,17 @@
     height: auto;
     margin-top: 10%;
     gap: 10px;
+}
+
+.userForm-middle button {
+    border: none;
+    background: none;
+}
+
+.userForm-middle p {
+    color: #9D1A1A;
+    text-decoration: underline;
+    font-size: 1.2em;
 }
 
 .userForm-middle a{

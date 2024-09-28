@@ -63,7 +63,6 @@ export default function EmailPolicy() {
     setError(null); // Resetear errores previos
 
     const dataUsuario = JSON.parse(localStorage.getItem("userData"));
-    console.log(dataUsuario);
 
     // Asegúrate de que dataUsuario tenga la estructura correcta
     if (!dataUsuario) {
