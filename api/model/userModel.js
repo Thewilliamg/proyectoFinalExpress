@@ -29,12 +29,20 @@ const userSchemaEmail = new mongoose.Schema({
     coupon: { type: Array, required: false }
 }, { versionKey: false } );
 
+const userCouponSchema = new mongoose.Schema({
+    name: { type: String, required: true },
+    email: { type: String, required: true },
+    userCoupons: {type: Array, required: true}
+})
+
 const UserPhoneModel = mongoose.model('UserPhoneModel', userSchemaPhone, "Users"); 
 const UserEmailModel = mongoose.model('UserEmailModel', userSchemaEmail, "Users");
 const UserSignModel = mongoose.model('UserSignModel', userSchema, "Users");
+const UserCouponModel = mongoose.model('UserCouponModel', userCouponSchema, "Users")
 
 module.exports = {
     UserSignModel,
     UserPhoneModel,
-    UserEmailModel
+    UserEmailModel,
+    UserCouponModel
 }
