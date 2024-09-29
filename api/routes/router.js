@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const {getAllMarkets} = require('../controllers/marketsController');
-const { registerUserNumber, registerUserEmail, loginUser } = require('../controllers/userController');
+const { registerUserNumber, registerUserEmail, loginUser, getCoupoonUser } = require('../controllers/userController');
 const {getAllproductsByMarket,getProduct,getAllproducts} = require('../controllers/productsController');
 const {getAllItemsShopCar, saveOrder} = require('../controllers/shopCarController');
 
@@ -22,7 +22,7 @@ const userValidator = require('../validators/userValidator');
 // router.get('/:id', getUser);
 
 router.get('/markets',getAllMarkets);
-
+router.get('/coupon/:userid', getCoupoonUser)
 router.post('/signup/phoneNumber', userValidator, registerUserNumber)
 router.post('/signup/email', userValidator, registerUserEmail)
 router.post('/login/user', userValidator, loginUser)

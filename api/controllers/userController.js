@@ -1,5 +1,6 @@
-const { UserSignModel, UserPhoneModel, UserEmailModel } = require("../model/userModel");
+const { UserSignModel, UserPhoneModel, UserEmailModel,UserCouponModel } = require("../model/userModel");
 const bcrypt = require('bcrypt');
+const ObjectId = require('mongoose').Types.ObjectId;
 
 // !! Method example
 
@@ -117,5 +118,43 @@ exports.loginUser = async (req, res) => {
         
     } catch (error) {
         res.status(500).json({ message: 'Error authenticating user', error: error.message });
+    }
+}
+
+exports.getCoupoonUser = async (req, res) => {
+    const userid = req.params.userid;
+    const objectId = new ObjectId(userid);
+    
+    try {
+        const userCoupon = await UserCouponModel.aggregate([
+            {
+              $match: {
+                _id: objectId
+              }
+            },
+            {
+              $lookup: {
+                from: "Coupons",
+                localField: "coupon",
+                foreignField: "_id",
+                as: "userCoupons"
+              }
+            },
+            {
+              $project: {
+                _id: 0,
+                name: 1,
+                email:1,
+                userCoupons: 1
+              }
+            }
+          ]);
+          
+        if (!userCoupon) {
+            return res.status(400).json({ message: 'Error de solicitud' })
+        }
+        res.status(200).json(userCoupon);
+    } catch (error) {
+        res.status(500).json({ message: 'Error al obtener los cupones del usuario.' })
     }
 }
