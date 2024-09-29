@@ -144,3 +144,15 @@ exports.getAllproducts = async (req, res) => {
         res.status(500).json({ message: 'Error al obtener la lista de todos los productos.', error });
     }
 };
+
+exports.addToCar = async (req,res) => {
+    const userId = localStorage.getItem('')
+    try{
+        const objectToAdd = {
+            userId: userId,
+            productId: req.params.productId,
+        }
+    }catch (error) {
+        res.status(500).json({ message: 'Error al añadir el producto. '+error})
+      }
+}
