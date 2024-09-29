@@ -60,7 +60,8 @@ export default function Discounts() {
     };
 
     const handleProductClick = (productId) => {
-        navigate(`/discounts/product/${productId}`);
+        localStorage.setItem('productId', productId)
+        navigate('/discounts/product');
     };
 
     return (

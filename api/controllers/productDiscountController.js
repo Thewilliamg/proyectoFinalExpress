@@ -1,6 +1,7 @@
-const ProductModel = require("../model/productModel");
+const ProductModel = require("../model/productDiscountModel");
+const { ObjectId } = require('mongodb');
 
-exports.getProduct = async (req, res) => {
+exports.getProductDiscount = async (req, res) => {
     try {
         const products = await ProductModel.aggregate([
             {
@@ -61,11 +62,46 @@ exports.getProduct = async (req, res) => {
     }
 }
 
-exports.getProductId = async (req, res) => {
-    try {
-        const product = await ProductModel.findById(req.params.id)
+exports.getProductIdDiscount = async (req, res) => {  
 
-        if (!product) {
+    try {
+        const product = await ProductModel.aggregate([
+          {
+            $match: {
+              _id: new ObjectId(req.params.id)
+            }
+          },
+          {
+            $lookup: {
+              from: "Category",
+              localField: "categoryId",
+              foreignField: "_id",
+              as: "categoryData"
+            }
+          },
+          {
+            $unwind: "$categoryData"
+          },
+          {
+            $lookup: {
+              from: "Markets",
+              localField: "marketId",
+              foreignField: "_id",
+              as: "marketData"
+            }
+          },
+          {
+            $unwind: "$marketData"
+          },
+          {
+            $project: {
+              marketId: 0,
+              categoryId: 0
+            }
+          }
+        ])
+
+        if (product.length === 0) {
             return res.status(404).json({
                 message: "No product found",
                 status: 404
@@ -75,7 +111,7 @@ exports.getProductId = async (req, res) => {
         return res.status(200).json({
             message: "Product received correctly",
             status: 200,
-            data: product
+            data: product[0]
         });
 
     } catch (error) {

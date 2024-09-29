@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const { getProduct, getProductId } = require('../controllers/productController');
+const { getProductDiscount, getProductIdDiscount } = require('../controllers/productDiscountController');
 const { getCategory } = require('../controllers/categoryController');
 
 const {getAllMarkets} = require('../controllers/marketsController');
@@ -24,9 +24,9 @@ const userValidator = require('../validators/userValidator');
 
 // router.get('/:id', getUser);
 
-router.get('/discounts', getProduct)
+router.get('/discounts', getProductDiscount)
 router.get('/discounts/category', getCategory)
-router.get('/discounts/product/:id', getProductId)
+router.get('/discounts/product/:id', getProductIdDiscount)
 router.get('/markets',getAllMarkets);
 
 router.post('/signup/phoneNumber', userValidator, registerUserNumber)

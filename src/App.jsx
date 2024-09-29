@@ -51,7 +51,7 @@ function App() {
         {/* //Rutas de descuentos */}
         <Route path="/home" element={<Home/>}/>
         <Route path="/discounts" element={<Home page={<Discounts/>}/>} />
-        <Route path="discounts/product" element={<Parrafito />} />
+        <Route path="/discounts/product" element={<Parrafito />} />
         {/* Rutas de tiendas*/ }
         <Route path="/markets" element={<Home page={<Markets/>}/>} />
         <Route path="/markets/products" element={<Products />} />
