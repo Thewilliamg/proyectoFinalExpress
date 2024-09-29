@@ -28,6 +28,8 @@ const allProductsSchema = new mongoose.Schema({
     cost: { type: Number, required: true },
     stock: { type: Number, required: true },
 });
-module.exports = mongoose.model('AllProductsByMarketModel', productsSchema, "Products");
-module.exports = mongoose.model('productModel', productSchema, "Products");
-module.exports = mongoose.model('allProductsModel', allProductsSchema, "Products");
+const AllProductsByMarketModel = mongoose.model('AllProductsByMarketModel', productsSchema, "Products");
+const productModel = mongoose.model('productModel', productSchema, "Products");
+const allProductsModel = mongoose.model('allProductsModel', allProductsSchema, "Products");
+
+module.exports = { AllProductsByMarketModel, productModel, allProductsModel }

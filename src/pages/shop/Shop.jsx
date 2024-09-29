@@ -1,57 +1,16 @@
 import './shop.css';
 import { useState, useEffect } from 'react';
 import square from '@/img/square.svg';
-import image1 from '@/img/product-workshop1.png';
 import PopUp from './components/popUp';
 import trash from '@/img/trash-icon.svg';
 
 export default function Shop() {
     const [showPopup, setShowPopup] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
-    const [responseObject, setResponseObject] = useState({});
+    //TODO: Encontrar al usuario que inicia sesion
     const userId = '64d2c84a8a39f00001e4c1ec';
     const shippingCost = 20;
     const [items, setItems] = useState([]);
-
-    const responseObject2 = [{
-        'productId': 1234534,
-        'name': 'Vasija',
-        'price': 50,
-        'size': '13x10',
-        'weight': '2 KG',
-        'marketName': 'Asociacion de productos de Chazuta',
-        'picture': image1,
-        'quantity': 1
-    }, {
-        'productId': 123005134,
-        'name': 'Vasija2 pequeña con diseño de flor',
-        'price': 90,
-        'size': '13x200',
-        'weight': '2 KG',
-        'marketName': 'Asociacion de productos de Chazuta',
-        'picture': image1,
-        'quantity': 1
-    },
-    {
-        'productId': 31206542,
-        'name': 'Vasija3 pequeña con diseño de flor flor flor',
-        'price': 90,
-        'size': '13x200',
-        'weight': '2 KG',
-        'marketName': 'Asociacion de productos de Chazuta',
-        'picture': image1,
-        'quantity': 1
-    },
-    {
-        'productId': 1205642,
-        'name': 'Vasija4 pequeña con diseño de flor',
-        'price': 90,
-        'size': '13x200',
-        'weight': '2 KG',
-        'marketName': 'Asociacion de productos de Chazutaaaaaaaaaaaaaaa',
-        'picture': image1,
-        'quantity': 1
-    }]
 
     useEffect(() => {
         fetch(`http://localhost:5001/api/shop/${userId}`,
@@ -82,7 +41,7 @@ export default function Shop() {
         setItems(items.map((item) =>
             (item.productId === id ? { ...item, quantity: Math.max(0, item.quantity + change) } : item)))
     }
-
+    
     function deleteCard(id) {
         setItems(items?.filter(item => item.productId !== id))
     }
@@ -99,7 +58,7 @@ export default function Shop() {
 
     return (
         <div className='shop-container'>
-            {showPopup && <PopUp ShowPopup={handleHidePopUp} />}
+            {showPopup && <PopUp ShowPopup={handleHidePopUp} items={items} userId={userId} totalSum={totalSum} />}
             <div className="header-shop-car">
                 <div className="figure-square-car">
                     <img src={square} alt="square" />

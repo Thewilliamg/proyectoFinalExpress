@@ -4,7 +4,7 @@ const router = express.Router();
 const {getAllMarkets} = require('../controllers/marketsController');
 const { registerUserNumber, registerUserEmail, loginUser } = require('../controllers/userController');
 const {getAllproductsByMarket,getProduct,getAllproducts} = require('../controllers/productsController');
-const {getAllItemsShopCar} = require('../controllers/shopCarController');
+const {getAllItemsShopCar, saveOrder} = require('../controllers/shopCarController');
 
 const userValidator = require('../validators/userValidator');
 // const productValidator = require('../validators/userValidator');
@@ -30,5 +30,6 @@ router.get('/markets/:marketId/products',getAllproductsByMarket);
 router.get('/product/details/:id',getProduct);
 router.get('/products',getAllproducts);
 router.get('/shop/:userId',getAllItemsShopCar);
+router.post('/new-shop',/*shoppingCartValidator*/saveOrder);
 
 module.exports = router;

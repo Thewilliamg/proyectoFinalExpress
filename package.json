@@ -8,7 +8,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "start": "node --watch --env-file .env app.js"
+    "start": "node --trace-warnings --env-file .env app.js"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
