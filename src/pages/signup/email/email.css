@@ -75,3 +75,7 @@
     cursor: pointer;
     float: right;
 }
+
+.from-link p {
+    text-decoration: underline;
+}

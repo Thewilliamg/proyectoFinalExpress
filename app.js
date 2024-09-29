@@ -1,10 +1,15 @@
 const express = require("express");
 const app = express();
+const cors = require('cors');
 const routes = require('./api/routes/router');
 const connectDB = require("./api/db/connect");
-var cors = require('cors');
 
-app.use(cors());
+const corsOptions = {
+  origin: 'http://localhost:5173', // Reemplaza esto con la URL de tu frontend
+  optionsSuccessStatus: 200 // Algunos navegadores legacy (IE11, varios SmartTVs) fallan en 204
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 connectDB()
 
