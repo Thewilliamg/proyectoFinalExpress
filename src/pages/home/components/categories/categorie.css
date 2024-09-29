@@ -1,0 +1,162 @@
+.categorie-container {
+  height: 100vh;
+  width: 100%;
+}
+
+.header-categorie {
+  display: flex;
+  width: 100%;
+  height: 15%;
+  justify-content: center;
+}
+
+.img-header {
+  width: 100%;
+  height: 80%;
+}
+
+.header-text-categorie {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  top: 25%;
+  right: 36%;
+  font-size: 1rem;
+  width: 100%;
+  color: #9D1A1A;
+}
+
+.category-container {
+  height: 17%;
+  display: flex;
+  width: 100%;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  gap: 2rem;
+  border-bottom: #482e27 1px solid;
+}
+
+.box-category-home {
+  width: 17%;
+  height: 100%;
+  display: flex;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+  flex-direction: column;
+  text-align: center;
+  justify-content: space-evenly;
+  text-decoration-style: none;
+  text-decoration: none;
+  font-weight: 800;
+  color: black;
+}
+
+.box-category-home.active {
+  border-bottom: 5rem solid #2e1108; /* Borde inferior negro cuando está activo */
+}
+
+.grid {
+  display: grid;
+  overflow-y: scroll !important;
+  min-height: 100%;
+  width: 100%;
+}
+
+.grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  overflow-y: auto;
+}
+
+.gap-4 {
+  gap: 1rem;
+  overflow-y: auto;
+}
+.p-22 {
+  display: flex;
+  flex-direction: column;
+  padding-left: 7px;
+}
+
+.bg-white {
+  background-color: #703a31;
+}
+
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+
+.shadow-md {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.w-full {
+  width: 100%;
+}
+
+.h-24 {
+  height: 69%;
+}
+
+.object-cover {
+  object-fit: cover;
+}
+
+.text-\[\#6B3E26\] {
+  color: #ffff;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.text-xs {
+  font-size: 0.875rem;
+  line-height: 1rem;
+}
+
+.x {
+  position: relative;
+  top: -90%;
+  height: 10%;
+  width: 10%;
+  left: 91%;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  height: 13%;
+  width: 100%;
+}
+
+.searchers-container {
+  height: 50%;
+  width:100%;
+  background-color: #703a31;
+  display: flex;
+  align-items: center;
+  border-radius: 0.4em 0.4em;
+  overflow: hidden;
+}
+
+.filter-container{
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  width: 30%;
+}
+
+.filter-categorie{
+  height: 100%;
+  width: 30%;
+}
