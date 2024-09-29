@@ -6,17 +6,19 @@ import Heart from '../storage/img/Vector-17.svg'
 import GoBackArrow from '../../components/backArrow'
 import Check from '../storage/img/Group-22.svg'
 import triangle from '../storage/img/Rectangle-95.svg'
+import { Link } from 'react-router-dom'
+
 
 export default function ProductCard() {
   return (
     <div className="card-discounts">
       <div className="card-header">
-
-        <GoBackArrow className="button-icon" />
+      <Link to='/discounts'><GoBackArrow className="button-icon" /></Link>
+        
         <img
           src={rectangulo}
           alt="Chalina beige con flecos"
-          className="product-image"
+          className="product-images"
         />
         <div className='container-vector'>
           <img src={Vector} className="img-vector" />

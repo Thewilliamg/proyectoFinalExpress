@@ -1,6 +1,7 @@
 import Cristo from "@/img/papitoCristo.svg";
 import Filter from "@/img/filter-market.svg";
 import square from "@/img/square-brown-figure.svg";
+import { Link } from "react-router-dom";
 import "./markets.css";
 
 export default function Markets() {
@@ -13,7 +14,7 @@ export default function Markets() {
     {
       name: "Asoc. de artesanos Tinihuy",
       location: "Huánuco",
-      image:Cristo,
+      image: Cristo,
     },
     {
       name: "Retablos Jesús Urbano",
@@ -25,7 +26,7 @@ export default function Markets() {
       location: "Ayacucho",
       image: Cristo,
     },
-    
+
     {
       name: "Taller Sanabria Nuñez",
       location: "Junín",
@@ -67,17 +68,28 @@ export default function Markets() {
         </div>
         <img src={Filter} className="filter-market" />
       </div>
-      <div className="grid grid-cols-2 gap-4">
-          {workshops.map((workshop, index) => (
-            <div key={index} className="bg-white rounded-lg overflow-hidden shadow-md">
+      <div className="grids grid-cols-2 gap-4">
+        {workshops.map((workshop, index) => (
+          <Link to='/markets/products'>
+            <div
+              key={index}
+              className="bg-white rounded-lg overflow-hidden shadow-md"
+            >
               <div className="p-2">
-                <h3 className="text-[#6B3E26] font-semibold text-sm">{workshop.name}</h3>
+                <h3 className="text-[#6B3E26] font-semibold text-sm">
+                  {workshop.name}
+                </h3>
                 <p className="text-[#6B3E26] text-xs">{workshop.location}</p>
               </div>
-              <img src={workshop.image} alt={workshop.name} className="w-full h-24 object-cover" />
+              <img
+                src={workshop.image}
+                alt={workshop.name}
+                className="w-full h-24 object-cover"
+              />
             </div>
-          ))}
-        </div>
+          </Link>
+        ))}
+      </div>
     </article>
   );
 }

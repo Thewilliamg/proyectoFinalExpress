@@ -23,7 +23,10 @@ export default function Order() {
   return (
     <article className="orders-container">
       <div className="container-arrow">
-        <GoBackArrow />
+        <Link to='/home'>
+          <GoBackArrow className='arrow'/>
+        </Link>
+
         <img src={Title} className="img-title" />
         <div className="p-arrow">
           <p>Compras</p>

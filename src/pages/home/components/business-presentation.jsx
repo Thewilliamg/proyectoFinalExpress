@@ -1,8 +1,9 @@
 import QRCode from "react-qr-code";
 import Pinchitos from "../storage/img/pinchito-business.svg";
 import GoBackArrow from "../../components/backArrow";
+import { Link } from "react-router-dom";
 import Video from "../storage/img/video-business.svg";
-import './business-presentation.css'
+import "./business-presentation.css";
 
 export default function Business() {
   const business = {
@@ -14,12 +15,15 @@ export default function Business() {
 
   const documental = {
     titulo: "Taller de Arte Awaq Ayllus",
-    contenido: 'https://www.youtube.com/embed/y2CF5dFbij0?si=CDvadilrCKWdr30V',
+    contenido: "https://www.youtube.com/embed/y2CF5dFbij0?si=CDvadilrCKWdr30V",
   };
 
   return (
     <article className="business-container">
-      <GoBackArrow className="button-icon" />
+      <Link to='/workshops'>
+        <GoBackArrow className="button-icon" />
+      </Link>
+
       <div className="arribita-container">
         <img src={Pinchitos} className="pinchitos" />
         <div className="arribita-chiquito">
@@ -33,7 +37,17 @@ export default function Business() {
         <div className="mitad-container">
           <p>{documental.titulo}</p>
           <div className="mitad-chiquito">
-            <iframe width="560" height="315" src={documental.contenido} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen className="img-mitad" />
+            <iframe
+              width="560"
+              height="315"
+              src={documental.contenido}
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+              className="img-mitad"
+            />
           </div>
         </div>
 

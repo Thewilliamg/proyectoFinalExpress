@@ -14,6 +14,7 @@ import Square from "@/img/square-beige-icon.svg";
 import Cristo from "@/img/product-workshop1.png";
 import lensicon from "@/img/search-icon.svg";
 import filter from "@/img/filter-market.svg";
+import { Link } from "react-router-dom";
 import "./categorie.css";
 
 export default function categories() {
@@ -94,7 +95,10 @@ export default function categories() {
   return (
     <article className="categorie-container">
       <div className="header-categorie">
-        <GoBackArrow />
+        <Link to='/home'>
+          <GoBackArrow />
+        </Link>
+
         <img src={Square} className="img-header" />
         <div className="header-text-categorie">
           <h2>Categorias</h2>

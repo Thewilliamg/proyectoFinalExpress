@@ -27,7 +27,10 @@ export default function Workshop() {
   return (
     <article className="main-container">
       <div className="container-arrow">
-        <GoBackArrow />
+        <Link to='/home' className="arrow">
+          <GoBackArrow  />
+        </Link>
+
         <img src={Title} className="img-title" />
         <div className="p-arrow">
           <p>Talleres </p>
@@ -57,7 +60,7 @@ export default function Workshop() {
                 <strong>
                   <p>{infoTaller.titulo}</p>
                 </strong>
-                <Link to="workshops/info" className="underline">
+                <Link to="info" className="underline">
                   {infoTaller.link}
                 </Link>
                 <p>{infoTaller.contenido1}</p>
@@ -67,7 +70,10 @@ export default function Workshop() {
               </div>
 
               <button className="button-item" onClick="submit">
-                <Link to="workshops/business-presentation" className="text-button">
+                <Link
+                  to="business-presentation"
+                  className="text-button"
+                >
                   Entérate más sobre el taller aquí
                 </Link>
               </button>
@@ -84,7 +90,7 @@ export default function Workshop() {
                 <strong>
                   <p>{infoTaller.titulo}</p>
                 </strong>
-                <Link to="workshops/info" className="underline">
+                <Link to="info" className="underline">
                   {infoTaller.link}
                 </Link>
                 <p>{infoTaller.contenido1}</p>
@@ -94,7 +100,10 @@ export default function Workshop() {
               </div>
 
               <button className="button-item" onClick="submit">
-                <Link to="workshops/business-presentation" className="text-button">
+                <Link
+                  to="business-presentation"
+                  className="text-button"
+                >
                   Entérate más sobre el taller aquí
                 </Link>
               </button>
@@ -111,7 +120,7 @@ export default function Workshop() {
                 <strong>
                   <p>{infoTaller.titulo}</p>
                 </strong>
-                <Link to="workshops/info" className="underline">
+                <Link to="info" className="underline">
                   {infoTaller.link}
                 </Link>
                 <p>{infoTaller.contenido1}</p>
@@ -121,7 +130,10 @@ export default function Workshop() {
               </div>
 
               <button className="button-item" onClick="submit">
-                <Link to="workshops/business-presentation" className="text-button">
+                <Link
+                  to="business-presentation"
+                  className="text-button"
+                >
                   Entérate más sobre el taller aquí
                 </Link>
               </button>
@@ -138,7 +150,7 @@ export default function Workshop() {
                 <strong>
                   <p>{infoTaller.titulo}</p>
                 </strong>
-                <Link to="workshops/info" className="underline">
+                <Link to="info" className="underline">
                   {infoTaller.link}
                 </Link>
                 <p>{infoTaller.contenido1}</p>
@@ -148,7 +160,10 @@ export default function Workshop() {
               </div>
 
               <button className="button-item" onClick="submit">
-                <Link to="workshops/business-presentation" className="text-button">
+                <Link
+                  to="business-presentation"
+                  className="text-button"
+                >
                   Entérate más sobre el taller aquí
                 </Link>
               </button>
@@ -165,7 +180,7 @@ export default function Workshop() {
                 <strong>
                   <p>{infoTaller.titulo}</p>
                 </strong>
-                <Link to="workshops/info" className="underline">
+                <Link to="info" className="underline">
                   {infoTaller.link}
                 </Link>
                 <p>{infoTaller.contenido1}</p>
@@ -175,7 +190,10 @@ export default function Workshop() {
               </div>
 
               <button className="button-item" onClick="submit">
-                <Link to="workshops/business-presentation" className="text-button">
+                <Link
+                  to="business-presentation"
+                  className="text-button"
+                >
                   Entérate más sobre el taller aquí
                 </Link>
               </button>
@@ -192,7 +210,7 @@ export default function Workshop() {
                 <strong>
                   <p>{infoTaller.titulo}</p>
                 </strong>
-                <Link to="workshops/info" className="underline">
+                <Link to="info" className="underline">
                   {infoTaller.link}
                 </Link>
                 <p>{infoTaller.contenido1}</p>
@@ -202,7 +220,10 @@ export default function Workshop() {
               </div>
 
               <button className="button-item" onClick="submit">
-                <Link to="workshops/business-presentation" className="text-button">
+                <Link
+                  to="business-presentation"
+                  className="text-button"
+                >
                   Entérate más sobre el taller aquí
                 </Link>
               </button>
@@ -219,7 +240,7 @@ export default function Workshop() {
                 <strong>
                   <p>{infoTaller.titulo}</p>
                 </strong>
-                <Link to="workshops/info" className="underline">
+                <Link to="info" className="underline">
                   {infoTaller.link}
                 </Link>
                 <p>{infoTaller.contenido1}</p>
@@ -229,7 +250,10 @@ export default function Workshop() {
               </div>
 
               <button className="button-item" onClick="submit">
-                <Link to="workshops/business-presentation" className="text-button">
+                <Link
+                  to="business-presentation"
+                  className="text-button"
+                >
                   Entérate más sobre el taller aquí
                 </Link>
               </button>

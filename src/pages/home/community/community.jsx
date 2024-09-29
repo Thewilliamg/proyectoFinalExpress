@@ -1,12 +1,16 @@
 import GoBackArrow from "../../components/backArrow";
 import Square from "@/img/square-beige-icon.svg";
+import { Link } from "react-router-dom";
 import "./community.css";
 
 export default function Community() {
   return (
     <article className="community-container">
       <div className="header-community">
-        <GoBackArrow />
+        <Link to='/home'>
+          <GoBackArrow />
+        </Link>
+
         <img src={Square} className="img-header-community" />
         <div className="header-text-community">
           <h2>Comentarios</h2>

@@ -6,20 +6,29 @@
     gap: 1rem;
 }
 
+.arrow{
+    width: 40%;
+}
+
 .container-arrow{
     height: 15%;
     width: 100%;
     display: flex;
 }
 
+.container-arrow a{
+    width: 40%;
+}
+
 .p-arrow{
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: absolute;
-    left: 38%;
-    top: 3%;
-    color: red
+    position: relative;
+    top: 20%;
+    right: 22%;
+    color: red;
+    font-size: 1.2rem;
 }
 .img-title{
     height: 5rem;

@@ -21,10 +21,10 @@
   flex-direction: column;
   align-items: center;
   top: 25%;
-  right: 32%;
+  right: 36%;
   font-size: 1rem;
   width: 100%;
-  color: #9d1a1a8b;
+  color: #9D1A1A;
 }
 
 .category-container {
@@ -34,7 +34,7 @@
   overflow-x: auto !important;
   overflow-y: hidden !important;
   gap: 2rem;
-  border-bottom: rgb(66, 1, 1) 1px solid;
+  border-bottom: #482e27 1px solid;
 }
 
 .box-category-home {
@@ -53,7 +53,7 @@
 }
 
 .box-category-home.active {
-  border-bottom: 5rem solid rgb(66, 6, 6); /* Borde inferior negro cuando está activo */
+  border-bottom: 5rem solid #2e1108; /* Borde inferior negro cuando está activo */
 }
 
 .grid {
