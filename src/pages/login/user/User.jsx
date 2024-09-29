@@ -35,6 +35,8 @@ export default function Login_User() {
                     }),
                 });
         
+                const data = await response.json();
+        
                 if (response.ok) {
                     navigate('/home');
                 } else {

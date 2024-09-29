@@ -109,8 +109,8 @@ exports.loginUser = async (req, res) => {
         if (isPasswordValid) {
             res.status(200).json({
                 message: 'User authenticated successfully',
-                user: user.name
-            });
+                user: user
+        });
         } else {
             res.status(401).json({ message: 'Invalid credentials' });
         }

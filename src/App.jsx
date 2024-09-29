@@ -30,7 +30,7 @@ function App() {
       <Route index element= {<Start/>}/>
         <Route path="/customer_service" element={<Service/> } />  //Ruta para pantalla 25
         <Route path="/workshops/info" element={<WorkshopsInfo/> } /> //Ruta para pantalla 28
-        <Route path="/favorites" element={<Favorites/> } />
+        <Route path="/favorites/:id" element={<Favorites/> } />
         <Route path="/settings" element={<Settings/> } />
         <Route path="/customer-service" element={<Service/> } />  //Ruta para pantalla 25
         <Route path="/workshops/info" element={<WorkshopsInfo/> } /> //Ruta para pantalla 28
