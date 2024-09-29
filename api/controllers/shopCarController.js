@@ -1,5 +1,5 @@
 const ObjectId = require('mongoose').Types.ObjectId;
-const allproductsInCarModelByUserModel = require("../model/shopCarModel");
+const {allproductsInCarModelByUserModel,saveOrderModel} = require("../model/shopCarModel");
 
 exports.getAllItemsShopCar = async (req, res) => {
     const userId = req.params.userId;
@@ -62,7 +62,6 @@ exports.getAllItemsShopCar = async (req, res) => {
                 }
               }
         ]);
-        console.log(itemsShopCar)
         if (!itemsShopCar) {
             return res.status(400).json({ message: 'Error de solicitud' })
         }
@@ -70,4 +69,27 @@ exports.getAllItemsShopCar = async (req, res) => {
     } catch (error) {
         res.status(500).json({ message: 'Error al obtener los productos del carrito de compras.' })
     }
+}
+
+exports.saveOrder = async (req, res) => {
+  // Convert UTC to local time
+  function getLocalDate() {
+    const now = new Date();
+    const localTime = new Date(now.getTime() - now.getTimezoneOffset() * 60000);
+    return localTime;
+  }
+  //Add the order
+  try{
+    const itemsObject = new saveOrderModel({
+      userId:req.body.userId,
+      products:req.body.products,
+      total:req.body.total,
+      orderDate:getLocalDate(),
+      status: 'completada'
+    })
+    const purchaseOrder = await itemsObject.save();
+        res.status(201).json({message:'Orden de compra generada',purchaseOrder:purchaseOrder.status});
+  } catch (error) {
+    res.status(500).json({ message: 'Error al comprar el producto. '+error})
+  }
 }
