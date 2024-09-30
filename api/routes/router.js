@@ -8,10 +8,11 @@ const { getWorkshopId } = require('../controllers/workshopsIdController');
 
 const {getAllMarkets} = require('../controllers/marketsController');
 const {getAllWorkshops} = require('../controllers/workshopsController');
-const { registerUserNumber, registerUserEmail, loginUser, getCoupoonUser, getUserById } = require('../controllers/userController');
+const { registerUserNumber, registerUserEmail, loginUser, getCoupoonUser, getUserById, getuserProfileSidebar } = require('../controllers/userController');
 const {getAllproductsByMarket,getProduct,getAllproducts} = require('../controllers/productsController');
 const {getAllItemsShopCar, saveOrder, addToCar} = require('../controllers/shopCarController');
 const {getAllPurchaseOrderByUser} = require('../controllers/ordersController');
+
 
 const userValidator = require('../validators/userValidator');
 // const productValidator = require('../validators/userValidator');
@@ -43,5 +44,6 @@ router.get('/shop/:userId',getAllItemsShopCar);
 router.post('/new-shop',shoppingCartValidator,saveOrder);
 router.post('/items/car/:productId',addToCar)
 router.get('/orders/user/:userId',getAllPurchaseOrderByUser);
+router.get('/sidebar/:userId',getuserProfileSidebar);
 
 module.exports = router;

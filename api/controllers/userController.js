@@ -1,20 +1,6 @@
-const { UserSignModel, UserPhoneModel, UserEmailModel,UserCouponModel, UserModel } = require("../model/userModel");
+const { UserSignModel, UserPhoneModel, UserEmailModel,UserCouponModel, UserModel, getUserProfileSidebarModel } = require("../model/userModel");
 const bcrypt = require('bcrypt');
 const ObjectId = require('mongoose').Types.ObjectId;
-
-// !! Method example
-
-// exports.getUser = async (req, res) => {
-//     try {
-//         const user = await User.findById(req.params.id);
-//         if (!user) {
-//             return res.status(404).json({ message: 'Usuario no encontrado' });
-//         }
-//         res.status(200).json(user);
-//     } catch (error) {
-//         res.status(500).json({ message: 'Error al obtener el usuario', error });
-//     }
-// };
 
 exports.registerUserNumber = async (req, res) => {
     try {
@@ -196,5 +182,28 @@ exports.getUserById = async (req, res) => {
         res.status(200).json(user);
     } catch (error) {
         res.status(500).json({ message: 'Error retrieving user', error: error.message });
+    }
+}
+
+exports.getuserProfileSidebar = async (req, res) => {
+    const userId = req.params.userId;
+    const objectUserId = new ObjectId(userId);
+    try {
+        const userinfoSidebar = await getUserProfileSidebarModel.aggregate([
+            {$match:{"_id":objectUserId}},
+            {$project:{
+                _id:0,
+                nickName:"$name",
+                img: "$urlPicture"
+            }}
+        ]);
+
+        if (!userinfoSidebar) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+        res.status(200).json(userinfoSidebar[0]);
+        
+    } catch (error) {
+        res.status(500).json({ message: 'Error authenticating user', error: error.message });
     }
 }
