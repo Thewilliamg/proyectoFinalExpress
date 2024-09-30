@@ -6,7 +6,7 @@ const { getCategory } = require('../controllers/categoryController');
 
 const {getAllMarkets} = require('../controllers/marketsController');
 const {getAllWorkshops} = require('../controllers/workshopsController');
-const { registerUserNumber, registerUserEmail, loginUser, getCoupoonUser } = require('../controllers/userController');
+const { registerUserNumber, registerUserEmail, loginUser, getCoupoonUser, getUserById } = require('../controllers/userController');
 const {getAllproductsByMarket,getProduct,getAllproducts} = require('../controllers/productsController');
 const {getAllItemsShopCar, saveOrder, addToCar} = require('../controllers/shopCarController');
 const {getAllPurchaseOrderByUser} = require('../controllers/ordersController');
@@ -28,6 +28,7 @@ router.get('/discounts/product/:id', getProductIdDiscount)
 router.get('/markets',getAllMarkets);
 router.get('/workshops', getAllWorkshops)
 router.get('/coupon/:userid', getCoupoonUser)
+router.get('/user/:id', getUserById);
 router.post('/signup/phoneNumber', userValidator, registerUserNumber)
 router.post('/signup/email', userValidator, registerUserEmail)
 router.post('/login/user', userValidator, loginUser)

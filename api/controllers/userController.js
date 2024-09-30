@@ -1,4 +1,4 @@
-const { UserSignModel, UserPhoneModel, UserEmailModel,UserCouponModel } = require("../model/userModel");
+const { UserSignModel, UserPhoneModel, UserEmailModel,UserCouponModel, UserModel } = require("../model/userModel");
 const bcrypt = require('bcrypt');
 const ObjectId = require('mongoose').Types.ObjectId;
 
@@ -156,5 +156,20 @@ exports.getCoupoonUser = async (req, res) => {
         res.status(200).json(userCoupon);
     } catch (error) {
         res.status(500).json({ message: 'Error al obtener los cupones del usuario.' })
+    }
+}
+
+
+exports.getUserById = async (req, res) => {
+    const userid = req.params.id;
+    const objectId = new ObjectId(userid);
+    try {
+        const user = await UserModel.findById(objectId, 'name email password numberPhone gender birthDate');
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+        res.status(200).json(user);
+    } catch (error) {
+        res.status(500).json({ message: 'Error retrieving user', error: error.message });
     }
 }
