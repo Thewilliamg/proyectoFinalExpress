@@ -46,7 +46,7 @@
     padding: 1%;
 }
 
-.userProfile img{
+.img-profile{
     width: 89.7%;
     height: 99.6%;
     border-radius: 100px;
@@ -57,6 +57,7 @@
     height: auto;
     cursor: pointer;
     border-radius: 5px;
+    top: -4%;
     transform: translate(0%, 12rem);
     position: absolute;
     filter: 
