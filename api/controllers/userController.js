@@ -1,5 +1,6 @@
-const { UserSignModel, UserPhoneModel, UserEmailModel } = require("../model/userModel");
+const { UserSignModel, UserPhoneModel, UserEmailModel,UserCouponModel, UserModel } = require("../model/userModel");
 const bcrypt = require('bcrypt');
+const ObjectId = require('mongoose').Types.ObjectId;
 
 // !! Method example
 
@@ -76,7 +77,7 @@ exports.registerUserEmail = async (req, res) => {
             user: savedUser.name
         });
     } catch (error) {
-        res.status(500).json({ message: 'Error creating user', error: error });
+        res.status(500).json({ message: 'Error creating email user', error: error });
     }
 };
 
@@ -106,16 +107,69 @@ exports.loginUser = async (req, res) => {
 
         const isPasswordValid = await bcrypt.compare(password, user.password);
 
-        if (isPasswordValid) {
-            res.status(200).json({
-                message: 'User authenticated successfully',
-                user: user
+        if (!isPasswordValid) {
+        res.status(401).json({ message: 'Invalid credentials' });
+        };
+        
+        res.status(200).json({
+            message: 'User authenticated successfully',
+            user: user
         });
-        } else {
-            res.status(401).json({ message: 'Invalid credentials' });
-        }
         
     } catch (error) {
         res.status(500).json({ message: 'Error authenticating user', error: error.message });
+    }
+}
+
+exports.getCoupoonUser = async (req, res) => {
+    const userid = req.params.userid;
+    const objectId = new ObjectId(userid);
+    
+    try {
+        const userCoupon = await UserCouponModel.aggregate([
+            {
+              $match: {
+                _id: objectId
+              }
+            },
+            {
+              $lookup: {
+                from: "Coupons",
+                localField: "coupon",
+                foreignField: "_id",
+                as: "userCoupons"
+              }
+            },
+            {
+              $project: {
+                _id: 0,
+                name: 1,
+                email:1,
+                userCoupons: 1
+              }
+            }
+          ]);
+          
+        if (!userCoupon) {
+            return res.status(400).json({ message: 'Error de solicitud' })
+        }
+        res.status(200).json(userCoupon);
+    } catch (error) {
+        res.status(500).json({ message: 'Error al obtener los cupones del usuario.' })
+    }
+}
+
+
+exports.getUserById = async (req, res) => {
+    const userid = req.params.id;
+    const objectId = new ObjectId(userid);
+    try {
+        const user = await UserModel.findById(objectId, 'name email password numberPhone gender birthDate');
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+        res.status(200).json(user);
+    } catch (error) {
+        res.status(500).json({ message: 'Error retrieving user', error: error.message });
     }
 }
