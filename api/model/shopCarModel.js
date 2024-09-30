@@ -25,7 +25,7 @@ const saveOrderSchema = new mongoose.Schema({
 }, { versionKey: false });
 
 const addToCarSchema = new mongoose.Schema({
-        userId: { type: mongoose.Schema.Types.ObjectId, required: true },
+        userId: { type: mongoose.ObjectId, required: true },
         productId: { type: mongoose.Schema.Types.ObjectId, required: true },
         quantity: { type: Number, default: 1 }
 }, { versionKey: false });

@@ -1,6 +1,6 @@
 import "./details.css"
-import {Link} from 'react-router-dom'
-// import rectangulo from '/img/rectangle-96.png';
+import {Link,useParams} from 'react-router-dom';
+import {useState} from 'react';
 import ShoppingCart from '@/img/shopping-car.svg';
 import item1 from "@/img/product-workshop1.png";
 import Heart from '@/img/heart-empty-icon.svg';
@@ -9,6 +9,30 @@ import Check from '@/img/checked-square.svg';
 import triangle from '@/img/square-brown-figure.svg';
 
 export default function ProductDetails() {
+    const [items, setItems] = useState();
+    const { productId } = useParams();
+    
+    function handleShopAddProductToCar(){
+        const userId = localStorage.getItem('userId');
+
+        fetch(`http://localhost:5001/api/items/car/${productId}`,
+        {
+            method: 'POST',
+            headers: {
+                userId:userId,
+                'Content-Type': 'application/json',
+            }
+        }
+    )
+        .then(res => res.json())
+        .then(data => setItems(data)
+        )
+        .catch((error) => {
+            console.error('Hubo un error:' + error.message)
+        });
+    }
+
+    console.log(items);
     return (
         <div className="product-details-container">
             <div className="product-card-header-p">
@@ -45,7 +69,7 @@ export default function ProductDetails() {
                     </div>
                 </div>
                 <div className='shp-container-car-p'>
-                    <button className="add-to-cart-button-product">
+                    <button className="add-to-cart-button-product" onClick={handleShopAddProductToCar}>
                         <img src={ShoppingCart} className="button-icon-p" /> Añadir a mi carrito de compras
                     </button>
                 </div>

@@ -5,10 +5,11 @@ const { getProductDiscount, getProductIdDiscount } = require('../controllers/pro
 const { getCategory } = require('../controllers/categoryController');
 
 const {getAllMarkets} = require('../controllers/marketsController');
-const { registerUserNumber, registerUserEmail, loginUser } = require('../controllers/userController');
+const { registerUserNumber, registerUserEmail, loginUser, getuserProfileSidebar } = require('../controllers/userController');
 const {getAllproductsByMarket,getProduct,getAllproducts} = require('../controllers/productsController');
 const {getAllItemsShopCar, saveOrder, addToCar} = require('../controllers/shopCarController');
 const {getAllPurchaseOrderByUser} = require('../controllers/ordersController');
+
 
 const userValidator = require('../validators/userValidator');
 // const productValidator = require('../validators/userValidator');
@@ -35,5 +36,6 @@ router.get('/shop/:userId',getAllItemsShopCar);
 router.post('/new-shop',shoppingCartValidator,saveOrder);
 router.post('/items/car/:productId',addToCar)
 router.get('/orders/user/:userId',getAllPurchaseOrderByUser);
+router.get('/sidebar/:userId',getuserProfileSidebar);
 
 module.exports = router;

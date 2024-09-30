@@ -29,12 +29,19 @@ const userSchemaEmail = new mongoose.Schema({
     coupon: { type: Array, required: false }
 }, { versionKey: false } );
 
+const getUserSideBarProfileSchema = new mongoose.Schema({
+    nickName: String,
+    img:String
+})
+
 const UserPhoneModel = mongoose.model('UserPhoneModel', userSchemaPhone, "Users"); 
 const UserEmailModel = mongoose.model('UserEmailModel', userSchemaEmail, "Users");
 const UserSignModel = mongoose.model('UserSignModel', userSchema, "Users");
+const getUserProfileSidebarModel = mongoose.model('getUserProfileModel', getUserSideBarProfileSchema, "Users");
 
 module.exports = {
     UserSignModel,
     UserPhoneModel,
-    UserEmailModel
+    UserEmailModel,
+    getUserProfileSidebarModel
 }
