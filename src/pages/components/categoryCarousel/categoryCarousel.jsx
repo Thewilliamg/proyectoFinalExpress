@@ -1,26 +1,30 @@
 import './categoryCarousel.css'
-import { useState} from 'react';
+import { useEffect, useState } from 'react';
 
-export default function CategoryCarosel({ data, image }) {
+export default function CategoryCarosel({ data, onCategoryClick, selectedCategory }) {
   const [activeBorder, setActiveBorder] = useState(null);
 
-  const handleItemClick = (index) => {
+  useEffect(() => {
+    if (selectedCategory && data.length > 0) {
+      const index = data.findIndex(cat => cat._id === selectedCategory);
+      setActiveBorder(index);
+    }
+  }, [selectedCategory, data]);
+
+  const handleItemClick = (index, categoryId) => {
     setActiveBorder(index);
+    onCategoryClick(categoryId);
   };
 
   return (
     <div className="box-carruselItems" >
-      {data.map((name, index) => (
-        <div
-          key={index}
-          className={`subBox-carruselItems ${activeBorder === index ? 'borderBox-carruselItems' : ''}`}
-          onClick={() => handleItemClick(index)}
-        >
+      {data.map((category, index) => (
+        <div key={category._id} className={`subBox-carruselItems ${activeBorder === index ? 'borderBox-carruselItems' : ''}`} onClick={() => handleItemClick(index, category._id)}>
           <div className="icon-carruselItems">
             <div className="image-carruselItems">
-              <img src={image} alt={name} />
-            </div>
-            <span className="text-carruselItems">{name}</span>
+                <img src={category.picture} alt={category} />
+              </div>
+            <span className="text-carruselItems">{category.name}</span>
           </div>
         </div>
       ))}

@@ -11,7 +11,7 @@ const workshopsSchema = new mongoose.Schema({
   materialsProvided: [String],
   requiredMaterials: [String],
   registeredUsers: [mongoose.Schema.Types.ObjectId],
-  marketId: mongoose.Schema.Types.ObjectId,
+  markets: { type: Object },
 })
 
 const workshopModel = mongoose.model('workshopModel', workshopsSchema, "Workshops")
