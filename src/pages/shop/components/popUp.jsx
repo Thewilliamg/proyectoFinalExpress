@@ -2,7 +2,6 @@ import './popUp.css'
 import { Link } from "react-router-dom";
 import checkBoxTrue from '@/img/checkBoxTrue.svg';
 import checkBoxFalse from '@/img/checkBoxFalse.svg';
-// import { useState } from 'react';
 
 export default function PopUp({ ShowPopup, items, userId, totalSum }) {
     const show = false;

@@ -76,7 +76,7 @@ exports.registerUserEmail = async (req, res) => {
             user: savedUser.name
         });
     } catch (error) {
-        res.status(500).json({ message: 'Error creating user', error: error });
+        res.status(500).json({ message: 'Error creating email user', error: error });
     }
 };
 
@@ -106,14 +106,14 @@ exports.loginUser = async (req, res) => {
 
         const isPasswordValid = await bcrypt.compare(password, user.password);
 
-        if (isPasswordValid) {
-            res.status(200).json({
-                message: 'User authenticated successfully',
-                user: user
+        if (!isPasswordValid) {
+        res.status(401).json({ message: 'Invalid credentials' });
+        };
+        
+        res.status(200).json({
+            message: 'User authenticated successfully',
+            user: user
         });
-        } else {
-            res.status(401).json({ message: 'Invalid credentials' });
-        }
         
     } catch (error) {
         res.status(500).json({ message: 'Error authenticating user', error: error.message });
