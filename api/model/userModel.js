@@ -30,9 +30,9 @@ const userSchemaEmail = new mongoose.Schema({
 }, { versionKey: false } );
 
 const userCouponSchema = new mongoose.Schema({
-    name: { type: String, required: true },
-    email: { type: String, required: true },
-    userCoupons: {type: Array, required: true}
+    productImg: { type: String, required: true },
+    productDiscount: { type: Number, required: true },
+    marketName: {type: String, required: true}
 })
 
 const userSchemaGet = new mongoose.Schema({
