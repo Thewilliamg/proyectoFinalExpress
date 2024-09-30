@@ -141,11 +141,36 @@ exports.getCoupoonUser = async (req, res) => {
               }
             },
             {
+              $unwind: "$userCoupons"
+            },
+            {
+              $lookup: {
+                from: "Products",
+                localField: "userCoupons.productId",
+                foreignField: "_id",
+                as: "product"
+              }
+            },
+            {
+              $unwind: '$product'
+            },
+            {
+              $lookup: {
+                from: 'Markets',
+                localField: 'product.marketId',
+                foreignField: '_id',
+                as: 'market'
+              }
+            },
+            {
+              $unwind:'$market'
+            },
+            {
               $project: {
-                _id: 0,
-                name: 1,
-                email:1,
-                userCoupons: 1
+                _id:0,
+                productImg:'$product.picture',
+                productDiscount:'$userCoupons.discount',
+                marketName:'$market.name'
               }
             }
           ]);
