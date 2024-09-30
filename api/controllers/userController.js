@@ -164,7 +164,7 @@ exports.getUserById = async (req, res) => {
     const userid = req.params.id;
     const objectId = new ObjectId(userid);
     try {
-        const user = await UserModel.findById(objectId, 'name email password numberPhone gender birthDate');
+        const user = await UserModel.findById(objectId, '-_id name email numberPhone gender birthDate urlPicture');
         if (!user) {
             return res.status(404).json({ message: 'User not found' });
         }

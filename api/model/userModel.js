@@ -37,8 +37,8 @@ const userCouponSchema = new mongoose.Schema({
 
 const userSchemaGet = new mongoose.Schema({
     name: { type: String, required: false },
+    urlPicture: {type: String, required:false},
     email: { type: String, required: false },
-    password: { type: String, required: true },
     numberPhone: { type: Number, required: false },
     gender: { type: String, required: false},
     birthDate: { type: Date, required: false },
