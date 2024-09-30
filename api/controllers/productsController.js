@@ -1,6 +1,4 @@
-const AllProductsByMarketModel = require("../model/productsModel");
-const productModel = require("../model/productsModel");
-const allProductsModel = require("../model/productsModel");
+const {AllProductsByMarketModel,allProductsModel,productModel} = require("../model/productsModel");
 const ObjectId = require('mongoose').Types.ObjectId;
 
 exports.getAllproductsByMarket = async (req, res) => {
@@ -38,12 +36,14 @@ exports.getAllproductsByMarket = async (req, res) => {
                 }
             }
         ]);
+        
         if (!allproductsByMarket) {
             return res.status(404).json({ message: 'Tienda no tiene productos' });
         }
         res.status(200).json(allproductsByMarket);
     } catch (error) {
-        res.status(500).json({ message: 'Error al obtener la lista de productos por tienda', error });
+        res.status(500).json({ message: 'Error al obtener la lista de productos por tienda' });
+        console.error(error)
     }
 };
 
