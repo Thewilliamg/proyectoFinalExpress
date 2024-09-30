@@ -20,14 +20,7 @@ export default function Workshop() {
         throw new Error("Error en la solicitud");
       }
       const data = await response.json();
-      console.log(data); // Verifica la estructura de la respuesta
-
-      // Asignar el array de talleres directamente
-      if (Array.isArray(data)) {
-        setWorkshops(data);
-      } else {
-        console.error("La respuesta no tiene la estructura esperada");
-      }
+      setWorkshops(data);
     } catch (error) {
       console.error(error); // Manejo de errores
     }
@@ -45,7 +38,7 @@ export default function Workshop() {
   return (
     <article className="main-container">
       <div className="container-arrow">
-        <Link to='/home' className="arrow">
+        <Link to="/home" className="arrow">
           <GoBackArrow />
         </Link>
 
@@ -73,18 +66,29 @@ export default function Workshop() {
             <div className="card-items" key={index}>
               <div className="container-items">
                 <div className="card-img">
-                  <img src={worshop.picture} className="img-item" alt={worshop.name} />
+                  <img
+                    src={worshop.picture}
+                    className="img-item"
+                    alt={worshop.name}
+                  />
                 </div>
                 <div className="item-container">
                   <div className="text-item-container">
                     <strong>
                       <p>{worshop.name}</p>
                     </strong>
-                    <p>{worshop.modality}</p>
+                    <Link to='/workshop/info' className="workshop-letterp">
+                      <p>Para el publico en general</p>
+                    </Link>
                     <p>{worshop.description}</p>
+                    <p>{worshop.markets.name}</p>
                   </div>
                   <button className="button-item">
-                    <Link to="business-presentation" className="text-button">
+                    <Link
+                      // state={{ workshopId: worshop.markets }}
+                      to={`business-presentation/${worshop.markets._id}`}
+                      className="text-button"
+                    >
                       Entérate más sobre el taller aquí
                     </Link>
                   </button>

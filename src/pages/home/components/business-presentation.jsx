@@ -1,38 +1,39 @@
 import QRCode from "react-qr-code";
 import Pinchitos from "../storage/img/pinchito-business.svg";
 import GoBackArrow from "../../components/backArrow";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import Video from "../storage/img/video-business.svg";
 import "./business-presentation.css";
 import { useEffect, useState } from "react";
 
 export default function Business() {
-
   const [workShop, setWorkshop] = useState([]);
+  const { id } = useParams();
+  // const location = useLocation();
+  // const workshopId = location.state?.workshopId;
 
   useEffect(() => {
     fetchWorkshopId();
   }, []);
 
-  const fetchWorkshopId = async() => {
+  const fetchWorkshopId = async () => {
     try {
-      // const response = await fetch(`http://localhost:5001/api/workshop/${id}`)
-      const response = await fetch(`http://localhost:5001/api/workshop/64d2c84a8a39f00001e4c1e8`)
+      const response = await fetch(
+        `http://localhost:5001/api/workshop/${id}`
+      );
       if (!response.ok) {
         throw new Error("Error en la solicitud");
       }
       const data = await response.json();
-      console.log(data);
       setWorkshop(data.data);
-
     } catch (error) {
-      
+      console.error(error);
     }
-  }
+  };
 
   return (
     <article className="business-container">
-      <Link to='/workshops'>
+      <Link to="/workshops">
         <GoBackArrow className="button-icon" />
       </Link>
 

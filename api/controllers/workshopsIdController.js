@@ -5,7 +5,6 @@ exports.getWorkshopId = async(req, res) => {
     try {
         const id = new ObjectId(req.params.id)
         const workshop = await WorShopId.findById(id)
-
         if(!workshop) {
             return res.status(404).json({
                 message: "No workshop found",
