@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import GoBackArrow from "../../components/backArrow";
 import Title from "../storage/img/Rectangle-86.svg";
@@ -7,13 +7,30 @@ import Flower from "../storage/img/Rectangle-51.png";
 
 export default function Workshop() {
   const [busqueda, setBusqueda] = useState("");
+  const [workShops, setWorkshops] = useState([]);
 
-  const infoTaller = {
-    titulo: "Taller de bordado ayacuchano",
-    img: Flower,
-    link: "Para el público en general",
-    contenido1: "Taller dado por los artesanos de",
-    contenido2: "Taller Awaq Ayllus",
+  useEffect(() => {
+    fetchWorkshops();
+  }, []);
+
+  const fetchWorkshops = async () => {
+    try {
+      const response = await fetch(`http://localhost:5001/api/workshops`);
+      if (!response.ok) {
+        throw new Error("Error en la solicitud");
+      }
+      const data = await response.json();
+      console.log(data); // Verifica la estructura de la respuesta
+
+      // Asignar el array de talleres directamente
+      if (Array.isArray(data)) {
+        setWorkshops(data);
+      } else {
+        console.error("La respuesta no tiene la estructura esperada");
+      }
+    } catch (error) {
+      console.error(error); // Manejo de errores
+    }
   };
 
   const manejarCambio = (e) => {
@@ -24,14 +41,15 @@ export default function Workshop() {
     e.preventDefault();
     alert(`Buscaste: ${busqueda}`);
   };
+
   return (
     <article className="main-container">
       <div className="container-arrow">
         <Link to='/home' className="arrow">
-          <GoBackArrow  />
+          <GoBackArrow />
         </Link>
 
-        <img src={Title} className="img-title" />
+        <img src={Title} className="img-title" alt="Title" />
         <div className="p-arrow">
           <p>Talleres </p>
           <p>educativos</p>
@@ -39,7 +57,7 @@ export default function Workshop() {
       </div>
       <form className="container-search" onSubmit={manejarSubmit}>
         <div className="search">
-          <img src={Search} className="img-search" />
+          <img src={Search} className="img-search" alt="Search" />
           <input
             type="text"
             className="work-input"
@@ -50,216 +68,33 @@ export default function Workshop() {
         </div>
       </form>
       <div className="container-cards">
-        <div className="card-items">
-          <div className="container-items">
-            <div className="card-img">
-              <img src={infoTaller.img} className="img-item" />
-            </div>
-            <div className="item-container">
-              <div className="text-item-container">
-                <strong>
-                  <p>{infoTaller.titulo}</p>
-                </strong>
-                <Link to="info" className="underline">
-                  {infoTaller.link}
-                </Link>
-                <p>{infoTaller.contenido1}</p>
-                <strong>
-                  <p>{infoTaller.contenido2}</p>
-                </strong>
+        {workShops.length > 0 ? (
+          workShops.map((worshop, index) => (
+            <div className="card-items" key={index}>
+              <div className="container-items">
+                <div className="card-img">
+                  <img src={worshop.picture} className="img-item" alt={worshop.name} />
+                </div>
+                <div className="item-container">
+                  <div className="text-item-container">
+                    <strong>
+                      <p>{worshop.name}</p>
+                    </strong>
+                    <p>{worshop.modality}</p>
+                    <p>{worshop.description}</p>
+                  </div>
+                  <button className="button-item">
+                    <Link to="business-presentation" className="text-button">
+                      Entérate más sobre el taller aquí
+                    </Link>
+                  </button>
+                </div>
               </div>
-
-              <button className="button-item" onClick="submit">
-                <Link
-                  to="business-presentation"
-                  className="text-button"
-                >
-                  Entérate más sobre el taller aquí
-                </Link>
-              </button>
             </div>
-          </div>
-        </div>
-        <div className="card-items">
-          <div className="container-items">
-            <div className="card-img">
-              <img src={infoTaller.img} className="img-item" />
-            </div>
-            <div className="item-container">
-              <div className="text-item-container">
-                <strong>
-                  <p>{infoTaller.titulo}</p>
-                </strong>
-                <Link to="info" className="underline">
-                  {infoTaller.link}
-                </Link>
-                <p>{infoTaller.contenido1}</p>
-                <strong>
-                  <p>{infoTaller.contenido2}</p>
-                </strong>
-              </div>
-
-              <button className="button-item" onClick="submit">
-                <Link
-                  to="business-presentation"
-                  className="text-button"
-                >
-                  Entérate más sobre el taller aquí
-                </Link>
-              </button>
-            </div>
-          </div>
-        </div>
-        <div className="card-items">
-          <div className="container-items">
-            <div className="card-img">
-              <img src={infoTaller.img} className="img-item" />
-            </div>
-            <div className="item-container">
-              <div className="text-item-container">
-                <strong>
-                  <p>{infoTaller.titulo}</p>
-                </strong>
-                <Link to="info" className="underline">
-                  {infoTaller.link}
-                </Link>
-                <p>{infoTaller.contenido1}</p>
-                <strong>
-                  <p>{infoTaller.contenido2}</p>
-                </strong>
-              </div>
-
-              <button className="button-item" onClick="submit">
-                <Link
-                  to="business-presentation"
-                  className="text-button"
-                >
-                  Entérate más sobre el taller aquí
-                </Link>
-              </button>
-            </div>
-          </div>
-        </div>
-        <div className="card-items">
-          <div className="container-items">
-            <div className="card-img">
-              <img src={infoTaller.img} className="img-item" />
-            </div>
-            <div className="item-container">
-              <div className="text-item-container">
-                <strong>
-                  <p>{infoTaller.titulo}</p>
-                </strong>
-                <Link to="info" className="underline">
-                  {infoTaller.link}
-                </Link>
-                <p>{infoTaller.contenido1}</p>
-                <strong>
-                  <p>{infoTaller.contenido2}</p>
-                </strong>
-              </div>
-
-              <button className="button-item" onClick="submit">
-                <Link
-                  to="business-presentation"
-                  className="text-button"
-                >
-                  Entérate más sobre el taller aquí
-                </Link>
-              </button>
-            </div>
-          </div>
-        </div>
-        <div className="card-items">
-          <div className="container-items">
-            <div className="card-img">
-              <img src={infoTaller.img} className="img-item" />
-            </div>
-            <div className="item-container">
-              <div className="text-item-container">
-                <strong>
-                  <p>{infoTaller.titulo}</p>
-                </strong>
-                <Link to="info" className="underline">
-                  {infoTaller.link}
-                </Link>
-                <p>{infoTaller.contenido1}</p>
-                <strong>
-                  <p>{infoTaller.contenido2}</p>
-                </strong>
-              </div>
-
-              <button className="button-item" onClick="submit">
-                <Link
-                  to="business-presentation"
-                  className="text-button"
-                >
-                  Entérate más sobre el taller aquí
-                </Link>
-              </button>
-            </div>
-          </div>
-        </div>
-        <div className="card-items">
-          <div className="container-items">
-            <div className="card-img">
-              <img src={infoTaller.img} className="img-item" />
-            </div>
-            <div className="item-container">
-              <div className="text-item-container">
-                <strong>
-                  <p>{infoTaller.titulo}</p>
-                </strong>
-                <Link to="info" className="underline">
-                  {infoTaller.link}
-                </Link>
-                <p>{infoTaller.contenido1}</p>
-                <strong>
-                  <p>{infoTaller.contenido2}</p>
-                </strong>
-              </div>
-
-              <button className="button-item" onClick="submit">
-                <Link
-                  to="business-presentation"
-                  className="text-button"
-                >
-                  Entérate más sobre el taller aquí
-                </Link>
-              </button>
-            </div>
-          </div>
-        </div>
-        <div className="card-items">
-          <div className="container-items">
-            <div className="card-img">
-              <img src={infoTaller.img} className="img-item" />
-            </div>
-            <div className="item-container">
-              <div className="text-item-container">
-                <strong>
-                  <p>{infoTaller.titulo}</p>
-                </strong>
-                <Link to="info" className="underline">
-                  {infoTaller.link}
-                </Link>
-                <p>{infoTaller.contenido1}</p>
-                <strong>
-                  <p>{infoTaller.contenido2}</p>
-                </strong>
-              </div>
-
-              <button className="button-item" onClick="submit">
-                <Link
-                  to="business-presentation"
-                  className="text-button"
-                >
-                  Entérate más sobre el taller aquí
-                </Link>
-              </button>
-            </div>
-          </div>
-        </div>
+          ))
+        ) : (
+          <p>No se encontraron talleres.</p>
+        )}
       </div>
     </article>
   );
