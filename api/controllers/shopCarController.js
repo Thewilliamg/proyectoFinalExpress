@@ -99,6 +99,12 @@ exports.addToCar = async (req, res) => {
   const objectProductId = new ObjectId(req.params.productId);
 
   try {
+    const existingItem = await addToCarModel.findOne({ userId: new ObjectId(userId), productId: new ObjectId(objectProductId) });
+    
+    if (existingItem) {
+      return res.status(409).json({ message: 'El producto ya está en el carrito.' });
+    }
+
     const objectToAdd = new addToCarModel({
       userId: new ObjectId(userId),
       productId: objectProductId,

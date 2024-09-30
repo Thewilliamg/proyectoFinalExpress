@@ -33,12 +33,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        
-        
-        
-        
-
-      <Route index element= {<Start/>}/>
+        <Route index element= {<Start/>}/>
         <Route path="/customer_service" element={<Service/> } />  //Ruta para pantalla 25
         <Route path="/workshops" element={<Workshop />} />
         <Route path="/workshops/info" element={<WorkshopsInfo/> } /> //Ruta para pantalla 28
