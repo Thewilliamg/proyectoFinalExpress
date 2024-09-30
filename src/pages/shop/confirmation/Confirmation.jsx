@@ -34,7 +34,7 @@ export default function Confirmation(){
             </div>
             <div className='confirmationCompras'>
                 <div className='confirmationCompras_button'>
-                    <Link to={'/shop'}>
+                    <Link to={'/orders'}>
                         Compras
                     </Link>
                 </div>

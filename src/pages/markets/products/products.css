@@ -1,10 +1,6 @@
 .crafts-container {
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
-    /* background-color: #f7fafc; */
-    /* background-color: #f725fc; */
-
     height: 100svh;
     width: 100%;
   }
