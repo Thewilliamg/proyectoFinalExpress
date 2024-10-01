@@ -1,5 +1,5 @@
 import "./details.css"
-import {Link,useParams} from 'react-router-dom';
+import {Link,useParams,useLocation} from 'react-router-dom';
 import {useState} from 'react';
 import ShoppingCart from '@/img/shopping-car.svg';
 import item1 from "@/img/product-workshop1.png";
@@ -11,6 +11,9 @@ import triangle from '@/img/square-brown-figure.svg';
 export default function ProductDetails() {
     const [items, setItems] = useState();
     const { productId } = useParams();
+    const location = useLocation();
+    const pathBack = location.pathname.replace(`/details/${productId}`,'');
+    console.log(items)
     
     function handleShopAddProductToCar(){
         const userId = localStorage.getItem('userId');
@@ -35,7 +38,7 @@ export default function ProductDetails() {
     return (
         <div className="product-details-container">
             <div className="product-card-header-p">
-                <Link to="/markets/products">
+                <Link to={pathBack}>
                     <GoBackArrow />    
                 </Link>
                 <img
