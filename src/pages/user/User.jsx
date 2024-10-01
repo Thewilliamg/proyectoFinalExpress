@@ -6,32 +6,33 @@ import Edit2 from "@/img/userEditIcon2.svg";
 
 export default function User() {
   const [profileImage, setProfileImage] = useState(Profile);
-  const [userName, setUserName] = useState();
-  const id = "64d2c84a8a39f00001e4c1ed";
+  const [data, setData] = useState();
+  const id = localStorage.getItem('userId');
 
   useEffect(() => {
     fetch(`http://localhost:5001/api/user/${id}`)
       .then((res) => res.json())
-      .then((userName) => setUserName(userName))
+      .then((data) => setData(data))
       .catch((error) => {
         console.error("Hubo un error:" + error.message);
       });
-  });
-
+  }, []);
+  console.log(data);
 
   const formatDateForInput = (isoDate) => {
     if (!isoDate) return '';
     const date = new Date(isoDate);
-    return date.toISOString().split('T')[0]; // This will return yyyy-mm-dd
-};
+    const formatedDate = date.toISOString().split('T')[0]; // This will return yyyy-mm-dd
+    return formatedDate
+  };
 
-const getGenderValue = (gender) => {
-  if (!gender) return 'otro';
-  const lowerGender = gender.toLowerCase();
-  if (lowerGender.startsWith('m')) return 'masculino';
-  if (lowerGender.startsWith('f')) return 'femenino';
-  return 'otro';
-};
+  const getGenderValue = (gender) => {
+    if (!gender) return 'otro';
+    const lowerGender = gender.toLowerCase();
+    if (lowerGender.startsWith('m')) return 'masculino';
+    if (lowerGender.startsWith('f')) return 'femenino';
+    return 'otro';
+  };
 
   const handleImageChange = (event) => {
     const file = event.target.files[0];
@@ -77,7 +78,9 @@ const getGenderValue = (gender) => {
       <div className="userHeader">
         <h1>Foto de perfil</h1>
         <div className="userProfile">
-          <img src={profileImage} alt="user" className="img-profile" />
+          <div className="container-img-userprof">
+            <img src={profileImage} alt="user" className="img-profile" />
+          </div>
           <img
             src={Edit}
             alt="Subir imagen"
@@ -85,13 +88,13 @@ const getGenderValue = (gender) => {
             onClick={handleImageClick}
           />
         </div>
-        <input
-          type="file"
-          id="fileInput"
-          style={{ display: "none" }}
-          accept="image/*"
-          onChange={handleImageChange}
-        />
+          <input
+            type="file"
+            id="fileInput"
+            style={{ display: "none" }}
+            accept="image/*"
+            onChange={handleImageChange}
+          />
       </div>
       <form className="userMiddle">
         <div className="userMiddle_Container">
@@ -100,7 +103,7 @@ const getGenderValue = (gender) => {
             <input
               type="text"
               id="userInput"
-              value={userName?.name}
+              value={data?.name}
               readOnly={true}
             />
             <a className="userMiddle_A" onClick={handleEditClick}>
@@ -112,7 +115,7 @@ const getGenderValue = (gender) => {
             <input
               type="text"
               id="userInput2"
-              value={userName?.email}
+              value={data?.email}
               readOnly={true}
               x
             />
@@ -122,7 +125,7 @@ const getGenderValue = (gender) => {
           </div>
           <div className="userMiddle_Input3">
             <h1>Celular: </h1>
-            <select id="options" name="celular">
+            <select id="options" name="celular" defaultValue={'+57'}>
               <option value="opcion1">+1</option>
               <option value="opcion2">+20</option>
               <option value="opcion3">+27</option>
@@ -293,7 +296,7 @@ const getGenderValue = (gender) => {
               <option value="opcion168">+690</option>
               <option value="opcion169">+691</option>
             </select>
-            <input type="text" id="userInput3" value={userName?.numberPhone} />
+            <input type="text" id="userInput3" value={data?.numberPhone} />
             <a className="userMiddle_A3" onClick={handleEditClick3}>
               <img src={Edit2} alt="Edit2" />
             </a>
@@ -301,11 +304,11 @@ const getGenderValue = (gender) => {
           <div className="userMiddle_Input4">
             <h1>Sexo: </h1>
             <select id="sexOptions" name="sexo"
-            value={getGenderValue(userName?.gender)}
-            onChange={(e) => {
+              value={getGenderValue(data?.gender)}
+              onChange={(e) => {
                 // Here you would typically update the gender in your state and/or send it to your backend
                 console.log('Gender changed to:', e.target.value);
-            }}>
+              }}>
               <option value="femenino"> F</option>
               <option value="masculino"> M</option>
               <option value="otro"> Otro</option>
@@ -317,7 +320,7 @@ const getGenderValue = (gender) => {
             <input
               type="date"
               id="userInput4"
-              value={formatDateForInput(userName?.birthDate)}
+              value={formatDateForInput(data?.birthDate)}
               readOnly={true}
             />
             <a className="userMiddle_A4" onClick={triggerDatePicker}>
