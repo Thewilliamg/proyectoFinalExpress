@@ -1,4 +1,4 @@
-import imagenPrueba from '@/img/imagenPrueba.svg'
+// import imagenPrueba from '@/img/imagenPrueba.svg'
 import './boxArticle.css'
 
 export default function BoxArticle({ objecto }) {
@@ -8,11 +8,11 @@ export default function BoxArticle({ objecto }) {
                 Object.values(objecto).map((item, index) => (
                     <div className="box-containerArticle" key={index}>
                         <div className="box-imagenArticle">
-                            <img src={imagenPrueba} alt="" />
+                            <img src={item.imagen} alt="" />
                         </div>
                         <div className="box-textArticle">
                             <p>{item.texto1}</p>
-                            <p>{item.texto2}</p>
+                            <p>S/ {item.texto2}</p>
                             <p>{item.texto3}</p>
                         </div>
                         <div className='buttonX'>X</div>

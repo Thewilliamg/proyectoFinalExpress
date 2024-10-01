@@ -1,4 +1,4 @@
-const { UserSignModel, UserPhoneModel, UserEmailModel, getUserProfileSidebarModel } = require("../model/userModel");
+const { UserSignModel, UserPhoneModel, UserEmailModel,UserCouponModel, UserModel, getUserProfileSidebarModel } = require("../model/userModel");
 const bcrypt = require('bcrypt');
 const ObjectId = require('mongoose').Types.ObjectId;
 
@@ -104,6 +104,85 @@ exports.loginUser = async (req, res) => {
         
     } catch (error) {
         res.status(500).json({ message: 'Error authenticating user', error: error.message });
+    }
+}
+
+exports.getCoupoonUser = async (req, res) => {
+    const userid = req.params.userid;
+    const objectId = new ObjectId(userid);
+    
+    try {
+        const userCoupon = await UserCouponModel.aggregate([
+            {
+              $match: {
+                _id: objectId
+              }
+            },
+            {
+              $lookup: {
+                from: "Coupons",
+                localField: "coupon",
+                foreignField: "_id",
+                as: "userCoupons"
+              }
+            },
+            {
+              $unwind: "$userCoupons"
+            },
+            {
+              $lookup: {
+                from: "Products",
+                localField: "userCoupons.productId",
+                foreignField: "_id",
+                as: "product"
+              }
+            },
+            {
+              $unwind: '$product'
+            },
+            {
+              $lookup: {
+                from: 'Markets',
+                localField: 'product.marketId',
+                foreignField: '_id',
+                as: 'market'
+              }
+            },
+            {
+              $unwind:'$market'
+            },
+            {
+              $project: {
+                _id:0,
+                productImg:'$product.picture',
+                productDiscount:'$userCoupons.description',
+                marketName:'$market.name',
+                date_end:'$userCoupons.dateExpiration'
+              }
+            }
+          ]);
+          
+        if (!userCoupon) {
+            return res.status(400).json({ message: 'Error de solicitud' })
+        }
+        res.status(200).json(userCoupon);
+    } catch (error) {
+        res.status(500).json({ message: 'Error al obtener los cupones del usuario.' })
+    }
+}
+
+
+exports.getUserById = async (req, res) => {
+    const userid = req.params.id;
+    const objectId = new ObjectId(userid);
+    try {
+        const user = await UserModel.findById(objectId, '-_id name email numberPhone gender birthDate urlPicture');
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+        res.status(200).json(user);
+    } catch (error) {
+        res.status(500).json({ message: 'Error retrieving user', error: error.message });
     }
 }
 

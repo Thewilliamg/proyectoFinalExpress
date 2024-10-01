@@ -69,6 +69,7 @@ export default function ProductDetails() {
                 </div>
                 <div className='shp-container-car-p'>
                     <button className="add-to-cart-button-product" onClick={handleShopAddProductToCar}>
+                    <button className="add-to-cart-button-product" onClick={handleShopAddProductToCar}>
                         <img src={ShoppingCart} className="button-icon-p" /> Añadir a mi carrito de compras
                     </button>
                 </div>
