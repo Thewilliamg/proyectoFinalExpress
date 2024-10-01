@@ -10,6 +10,10 @@ export default function Login() {
         window.location.href = 'http://localhost:5001/auth/discord';
     };
 
+    const handleGoogleLogin = () => {
+        window.location.href = 'http://localhost:5001/auth/google';
+    };
+
     return (
         <div className="signupBack">
             <div className="signupTitle">
@@ -36,7 +40,7 @@ export default function Login() {
                     </button>
                 </a>
                 <a className='signupA'>
-                    <button className='signup_btn'>
+                    <button className='signup_btn' onClick={handleGoogleLogin}>
                         <span className='signupBtnSpan'>
                             <img src={Gmail} alt="Gmail" />
                         </span>

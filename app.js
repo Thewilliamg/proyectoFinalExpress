@@ -9,6 +9,7 @@ const routes = require('./api/routes/router');
 const connectDB = require("./api/db/connect");
 const passportSetup = require('./passportSetup');
 const passport = require('passport');
+const session = require('express-session');
 
 dotenv.config();
 
@@ -20,6 +21,22 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 app.use(express.json());
+
+// Configuración de sesiones
+app.use(session({
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    secure: false, // Cambiar a true si se usa HTTPS
+    httpOnly: true,
+    maxAge: 24 * 60 * 60 * 1000 // 24 horas
+  }
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
 connectDB();
 
 passportSetup(app);
@@ -32,16 +49,36 @@ let config = {
 app.use('/api', routes);
 
 // Rutas para la autenticación de Discord
-app.get('/auth/discord', passport.authenticate('discord'));
-app.get('/auth/discord/callback', 
-  passport.authenticate('discord', { 
+app.get('/auth/discord', (req, res, next) => {
+  console.log('Iniciando autenticación con Discord');
+  passport.authenticate('discord')(req, res, next);
+});
+
+app.get('/auth/discord/callback', (req, res, next) => {
+  console.log('Callback de Discord recibido');
+  passport.authenticate('discord', {
     failureRedirect: 'http://localhost:5173/signup',
     successRedirect: 'http://localhost:5173/home'
-  })
-);
+  })(req, res, next);
+});
+
+// Rutas para la autenticación de Google
+app.get('/auth/google', (req, res, next) => {
+  console.log('Iniciando autenticación con Google');
+  passport.authenticate('google', { scope: ['profile', 'email'] })(req, res, next);
+});
+
+app.get('/auth/google/callback', (req, res, next) => {
+  console.log('Callback de Google recibido');
+  passport.authenticate('google', { 
+    failureRedirect: 'http://localhost:5173/signup',
+    successRedirect: 'http://localhost:5173/home'
+  })(req, res, next);
+});
 
 // Ruta para manejar la cancelación
-app.get('/auth/discord/cancel', (req, res) => {
+app.get('/auth/cancel', (req, res) => {
+  console.log('Autenticación cancelada');
   res.redirect('http://localhost:5173/signup');
 });
 
