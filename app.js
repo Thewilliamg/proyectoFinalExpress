@@ -34,11 +34,16 @@ app.use('/api', routes);
 // Rutas para la autenticación de Discord
 app.get('/auth/discord', passport.authenticate('discord'));
 app.get('/auth/discord/callback', 
-  passport.authenticate('discord', { failureRedirect: '/login' }),
-  (req, res) => {
-    res.redirect('http://localhost:5173/home');
-  }
+  passport.authenticate('discord', { 
+    failureRedirect: 'http://localhost:5173/signup',
+    successRedirect: 'http://localhost:5173/home'
+  })
 );
+
+// Ruta para manejar la cancelación
+app.get('/auth/discord/cancel', (req, res) => {
+  res.redirect('http://localhost:5173/signup');
+});
 
 const server = http.createServer(app);
 const io = socketIo(server, {
