@@ -37,15 +37,14 @@ export default function Markets() {
         </div>
         <img src={Filter} className="filter-market" />
       </div>
-      <div className="grids grid-cols-2 gap-4">
+      <div className="container-markets-m">
         {workshops?.map((workshop, index) => (
           <Link key={workshop.name} to={`/markets/${workshop._id}/products`}>
             <div
-              // key={index}
               className="bg-white rounded-lg overflow-hidden shadow-md"
             >
               <div className="p-2">
-                <h3 className="text-[#6B3E26] font-semibold text-sm">
+                <h3 className="textTitleh3">
                   {workshop.name}
                 </h3>
                 <p className="text-[#6B3E26] text-xs">{workshop.location}</p>
