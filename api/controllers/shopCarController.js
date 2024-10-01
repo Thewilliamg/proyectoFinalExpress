@@ -1,6 +1,11 @@
 const ObjectId = require('mongoose').Types.ObjectId;
 const { allproductsInCarModelByUserModel, saveOrderModel, addToCarModel } = require("../model/shopCarModel");
 
+/**
+ * Obtiene todos los items del carrito de compras de un usuario
+ * @param {Object} req - Objeto de solicitud Express
+ * @param {Object} res - Objeto de respuesta Express
+ */
 exports.getAllItemsShopCar = async (req, res) => {
   const userId = req.params.userId;
   const objectId = new ObjectId(userId);
@@ -71,14 +76,19 @@ exports.getAllItemsShopCar = async (req, res) => {
   }
 }
 
+/**
+ * Guarda una orden de compra
+ * @param {Object} req - Objeto de solicitud Express
+ * @param {Object} res - Objeto de respuesta Express
+ */
 exports.saveOrder = async (req, res) => {
-  // Convert UTC to local time
+  // Convierte UTC a hora local
   function getLocalDate() {
     const now = new Date();
     const localTime = new Date(now.getTime() - now.getTimezoneOffset() * 60000);
     return localTime;
   }
-  //Add the order
+  //Añade la orden
   try {
     const itemsObject = new saveOrderModel({
       userId: req.body.userId,
@@ -94,6 +104,12 @@ exports.saveOrder = async (req, res) => {
   }
 }
 
+
+/**
+ * Añade un producto al carrito de compras
+ * @param {Object} req - Objeto de solicitud Express
+ * @param {Object} res - Objeto de respuesta Express
+ */
 exports.addToCar = async (req, res) => {
   const userId = req.headers.userid;
   const objectProductId = new ObjectId(req.params.productId);

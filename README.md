@@ -1,3 +1,12 @@
+# Estudiantes
+
+```js
+- Camilo Andres Franco Duran
+- Jhon Sebastian Gutierrez Garnica
+- Juan Sebastian Reyes Loaiza
+- William David Rodriguez Guerrero
+```
+
 # Proyecto - Aplicación de Compra y Venta de Artesanías
 
 Esta aplicación tiene como objetivo conectar a artesanos de **Bucaramanga** con compradores interesados en productos artesanales únicos y auténticos. 
@@ -40,6 +49,16 @@ Este proyecto sigue una estructura típica de aplicación React con algunos dire
 └── vite.config.js
 
 ```
+
+
+## Ramas trabajadas para cada persona
+
+- camilo
+- jhon
+- sebastian
+- william
+- dev ()
+- main
 
 ## Características Principales
 
@@ -101,7 +120,7 @@ Consulta el componente `<Routes>` en el código del frontend para una lista comp
 4. Para el backend, navega al directorio de la API y ejecuta:
     
     ```
-    npm start // Abre el puerto "localhost:5001"
+    npm run start // Abre el puerto "localhost:5001"
     ```
     
 

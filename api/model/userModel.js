@@ -50,12 +50,17 @@ const getUserSideBarProfileSchema = new mongoose.Schema({
     img:String
 })
 
+const newUserSearcherSchema = new mongoose.Schema({
+    userId : mongoose.ObjectId
+})
+
 const UserPhoneModel = mongoose.model('UserPhoneModel', userSchemaPhone, "Users"); 
 const UserEmailModel = mongoose.model('UserEmailModel', userSchemaEmail, "Users");
 const UserSignModel = mongoose.model('UserSignModel', userSchema, "Users");
 const UserCouponModel = mongoose.model('UserCouponModel', userCouponSchema, "Users")
 const UserModel = mongoose.model('UserModel', userSchemaGet, "Users")
 const getUserProfileSidebarModel = mongoose.model('getUserProfileModel', getUserSideBarProfileSchema, "Users");
+const newUserSearcherModel = mongoose.model('newUserSearcher', newUserSearcherSchema, 'Users');
 
 module.exports = {
     UserSignModel,
@@ -63,5 +68,6 @@ module.exports = {
     UserEmailModel,
     UserCouponModel,
     UserModel,
-    getUserProfileSidebarModel
+    getUserProfileSidebarModel,
+    newUserSearcherModel
 }

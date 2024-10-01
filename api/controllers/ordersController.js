@@ -1,6 +1,11 @@
 const {getAllOrdersPurchaseByUserModel} = require("../model/ordersByUserModel");
 const ObjectId = require('mongoose').Types.ObjectId;
 
+/**
+ * Controlador para obtener todas las órdenes de compra de un usuario
+ * @param {Object} req - Objeto de solicitud Express
+ * @param {Object} res - Objeto de respuesta Express
+ */
 exports.getAllPurchaseOrderByUser = async (req, res) => {
     const userId = req.params.userId;
     const objectUserId = new ObjectId(userId);
@@ -15,7 +20,6 @@ exports.getAllPurchaseOrderByUser = async (req, res) => {
             {
                 $unwind: "$products"
             },
-
             {
                 $lookup: {
                     from: "Products",
