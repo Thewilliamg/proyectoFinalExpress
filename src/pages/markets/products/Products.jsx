@@ -14,7 +14,6 @@ import { useParams } from "react-router-dom";
 export default function Products() {
     const [dataWorkShopProducts, setDataWorkShopProducts] = useState([]);
     const { marketId } = useParams();
-    console.log(marketId);
 
     useEffect(() => {
         fetch(`http://localhost:5001/api/markets/${marketId}/products`, {
@@ -25,9 +24,8 @@ export default function Products() {
             }
             )
             .then(res => res.json())
-            .then(item => {
-                setDataWorkShopProducts(item);
-                console.log(item)}
+            .then(item => 
+                setDataWorkShopProducts(item)
             )
             .catch((error) => {
                 console.error('Hubo un error:' + error.message   );
