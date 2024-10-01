@@ -31,7 +31,7 @@ export default function ProductDetails() {
             console.error('Hubo un error:' + error.message)
         });
     }
-
+    
     return (
         <div className="product-details-container">
             <div className="product-card-header-p">

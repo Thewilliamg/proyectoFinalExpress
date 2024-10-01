@@ -8,39 +8,59 @@ import settingsbar from "@/img/sett-searchbar-icon.svg";
 import chaticon from "@/img/chat-info-icon.svg";
 import squareicon from "@/img/square-beige-icon.svg";
 import lensicon from "@/img/search-icon-white.svg"
+import {useEffect, useState} from 'react';
 
 export default function Products() {
-
-    //TODO: Este es un objeto de ejemplo: 
-    const dataWorkShopProducts = {
-        workshop: { name: 'Taller Awaq Ayllus', imgWorkshop: imgWorkshop },
-        products: [{
-            productImg: item1,
-            price: 600,
-            name: 'Tapiz Chumpi Andino III',
-            id: 123456
-        }, {
-            productImg: item1,
-            price: 30,
-            name: 'Cartuchera Flores',
-            id: 3216457
-        }, {
-            productImg: item1,
-            price: 30,
-            name: 'Nada aqui nada alla',
-            id: 456123
-        }, {
-            productImg: item1,
-            price: 30,
-            name: 'Cartuchera Flores',
-            id: 3312456
-        }, {
-            productImg: item1,
-            price: 30,
-            name: 'Cartuchera Capsta',
-            id: 465789
-        }]
-    };
+    const [dataWorkShopProducts,setDataWorkShopProducts]= useState();
+    const marketId = use
+    useEffect(()=>{
+        fetch(`http://localhost:5001/api/market/${marketId}/products`,
+            {
+                method: 'GET',
+                headers: {
+                    userId:userId,
+                    'Content-Type': 'application/json',
+                }
+            }
+        )
+            .then(res => res.json())
+            .then(data => setDataWorkShopProducts(data)
+            )
+            .catch((error) => {
+                console.error('Hubo un error:' + error.message)
+            });
+    },[])
+    console.log(dataWorkShopProducts);
+    // //TODO: Este es un objeto de ejemplo: 
+    // const dataWorkShopProducts = {
+    //     workshop: { name: 'Taller Awaq Ayllus', imgWorkshop: imgWorkshop },
+    //     products: [{
+    //         productImg: item1,
+    //         price: 600,
+    //         name: 'Tapiz Chumpi Andino III',
+    //         id: 123456
+    //     }, {
+    //         productImg: item1,
+    //         price: 30,
+    //         name: 'Cartuchera Flores',
+    //         id: 3216457
+    //     }, {
+    //         productImg: item1,
+    //         price: 30,
+    //         name: 'Nada aqui nada alla',
+    //         id: 456123
+    //     }, {
+    //         productImg: item1,
+    //         price: 30,
+    //         name: 'Cartuchera Flores',
+    //         id: 3312456
+    //     }, {
+    //         productImg: item1,
+    //         price: 30,
+    //         name: 'Cartuchera Capsta',
+    //         id: 465789
+    //     }]
+    // };
 
     return (
         <>
