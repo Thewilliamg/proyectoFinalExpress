@@ -1,8 +1,6 @@
 import "./details.css"
 import {Link,useParams} from 'react-router-dom';
 import {useState} from 'react';
-import {Link,useParams} from 'react-router-dom';
-import {useState} from 'react';
 import ShoppingCart from '@/img/shopping-car.svg';
 import item1 from "@/img/product-workshop1.png";
 import Heart from '@/img/heart-empty-icon.svg';
