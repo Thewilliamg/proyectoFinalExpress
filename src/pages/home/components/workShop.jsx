@@ -77,7 +77,7 @@ export default function Workshop() {
                     <strong>
                       <p>{worshop.name}</p>
                     </strong>
-                    <Link to='/workshop/info' className="workshop-letterp">
+                    <Link to={`/workshops/info/${worshop._id}`} className="workshop-letterp">
                       <p>Para el publico en general</p>
                     </Link>
                     <p>{worshop.description}</p>

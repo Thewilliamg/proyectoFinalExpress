@@ -36,7 +36,7 @@ function App() {
         <Route index element= {<Start/>}/>
           <Route path="/customer_service" element={<Service/> } />  //Ruta para pantalla 25
           <Route path="/workshops" element={<Workshop />} />
-          <Route path="/workshops/info" element={<WorkshopsInfo/> } /> //Ruta para pantalla 28
+          <Route path="/workshops/info/:id" element={<WorkshopsInfo/> } /> //Ruta para pantalla 28
           <Route path='/workshops/business-presentation/:id' element={<Business />}/>
           <Route path='/categories' element={<Categories />}/>
           <Route path='/community' element={<Community />} />
