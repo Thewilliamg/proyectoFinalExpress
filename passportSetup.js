@@ -3,20 +3,36 @@ const DiscordStrategy = require('passport-discord').Strategy;
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const User = require('./api/model/userDiscordModel');
 
+/**
+ * Configuración de Passport para autenticación con Discord y Google
+ * @param {Object} app - Instancia de la aplicación Express
+ */
 module.exports = (app) => {
+  // Configuración de express-session
   app.use(require('express-session')({
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false
   }));
 
+  // Inicialización de Passport
   app.use(passport.initialize());
   app.use(passport.session());
 
+  /**
+   * Serialización del usuario para almacenarlo en la sesión
+   * @param {Object} user - Usuario a serializar
+   * @param {Function} done - Callback de finalización
+   */
   passport.serializeUser((user, done) => {
     done(null, user.id);
   });
 
+  /**
+   * Deserialización del usuario a partir del ID almacenado en la sesión
+   * @param {string} id - ID del usuario
+   * @param {Function} done - Callback de finalización
+   */
   passport.deserializeUser(async (id, done) => {
     try {
       const user = await User.findById(id);
@@ -26,6 +42,9 @@ module.exports = (app) => {
     }
   });
 
+  /**
+   * Estrategia de autenticación con Discord
+   */
   passport.use(new DiscordStrategy({
     clientID: process.env.DISCORD_CLIENT_ID,
     clientSecret: process.env.DISCORD_CLIENT_SECRET,
@@ -49,6 +68,9 @@ module.exports = (app) => {
     }
   }));
   
+  /**
+   * Estrategia de autenticación con Google
+   */
   passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,

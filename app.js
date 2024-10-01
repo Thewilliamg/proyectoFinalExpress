@@ -1,3 +1,8 @@
+/**
+ * @file Configuración principal del servidor Express
+ * @description Este archivo configura y arranca el servidor Express con autenticación, WebSockets y rutas API.
+ */
+
 const dotenv = require('dotenv');
 const express = require("express");
 const app = express();
@@ -13,6 +18,10 @@ const session = require('express-session');
 
 dotenv.config();
 
+/**
+ * @constant {Object} corsOptions
+ * @description Opciones de configuración para CORS
+ */
 const corsOptions = {
   origin: 'http://localhost:5173',
   methods: ["GET", "POST"],
@@ -22,7 +31,9 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(express.json());
 
-// Configuración de sesiones
+/**
+ * @description Configuración de sesiones de Express
+ */
 app.use(session({
   secret: process.env.SESSION_SECRET,
   resave: false,
@@ -41,6 +52,10 @@ connectDB();
 
 passportSetup(app);
 
+/**
+ * @constant {Object} config
+ * @description Configuración del servidor
+ */
 let config = {
   host: process.env.EXPRESS_HOST || 'localhost',
   port: process.env.EXPRESS_PORT || 3000
@@ -48,12 +63,17 @@ let config = {
 
 app.use('/api', routes);
 
-// Rutas para la autenticación de Discord
+/**
+ * @description Ruta para iniciar la autenticación con Discord
+ */
 app.get('/auth/discord', (req, res, next) => {
   console.log('Iniciando autenticación con Discord');
   passport.authenticate('discord')(req, res, next);
 });
 
+/**
+ * @description Ruta de callback para la autenticación con Discord
+ */
 app.get('/auth/discord/callback', (req, res, next) => {
   console.log('Callback de Discord recibido');
   passport.authenticate('discord', {
@@ -62,12 +82,17 @@ app.get('/auth/discord/callback', (req, res, next) => {
   })(req, res, next);
 });
 
-// Rutas para la autenticación de Google
+/**
+ * @description Ruta para iniciar la autenticación con Google
+ */
 app.get('/auth/google', (req, res, next) => {
   console.log('Iniciando autenticación con Google');
   passport.authenticate('google', { scope: ['profile', 'email'] })(req, res, next);
 });
 
+/**
+ * @description Ruta de callback para la autenticación con Google
+ */
 app.get('/auth/google/callback', (req, res, next) => {
   console.log('Callback de Google recibido');
   passport.authenticate('google', { 
@@ -76,7 +101,9 @@ app.get('/auth/google/callback', (req, res, next) => {
   })(req, res, next);
 });
 
-// Ruta para manejar la cancelación
+/**
+ * @description Ruta para manejar la cancelación de la autenticación
+ */
 app.get('/auth/cancel', (req, res) => {
   console.log('Autenticación cancelada');
   res.redirect('http://localhost:5173/signup');
@@ -87,6 +114,9 @@ const io = socketIo(server, {
   cors: corsOptions
 });
 
+/**
+ * @description Configuración de eventos para Socket.IO
+ */
 io.on('connection', (socket) => {
   console.log('Un cliente se ha conectado');
 
@@ -104,6 +134,10 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
+/**
+ * @function promptMessage
+ * @description Función para solicitar mensajes del servidor y enviarlos a los clientes
+ */
 function promptMessage() {
   rl.question('Escribe un mensaje para enviar al cliente (o "salir" para terminar): ', (answer) => {
     if (answer.toLowerCase() === 'salir') {
@@ -117,6 +151,9 @@ function promptMessage() {
   });
 }
 
+/**
+ * @description Inicia el servidor y comienza a solicitar mensajes
+ */
 server.listen(config.port, config.host, () => {
   console.log(`Servidor corriendo en http://${config.host}:${config.port}`);
   promptMessage();
