@@ -59,7 +59,7 @@ export default function Products() {
                         className="header-image-workshop"
                     />
                     <h1 className="header-title-crafts">{dataWorkShopProducts.workshop.name}</h1>
-                    <a href="/workshop/business-presentation">
+                    <a href="/workshops/business-presentation">
                         <img className="left-triangle-craft" src={triangle} alt="left-triangle" />
                         <p className="header-subtitle">
                             Conoce la historia detrás de este taller artesanal y conoce cómo producen sus textiles

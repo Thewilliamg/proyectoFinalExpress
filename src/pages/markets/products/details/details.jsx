@@ -1,6 +1,8 @@
 import "./details.css"
 import {Link,useParams} from 'react-router-dom';
 import {useState} from 'react';
+import {Link,useParams} from 'react-router-dom';
+import {useState} from 'react';
 import ShoppingCart from '@/img/shopping-car.svg';
 import item1 from "@/img/product-workshop1.png";
 import Heart from '@/img/heart-empty-icon.svg';
@@ -14,7 +16,7 @@ export default function ProductDetails() {
     
     function handleShopAddProductToCar(){
         const userId = localStorage.getItem('userId');
-
+        
         fetch(`http://localhost:5001/api/items/car/${productId}`,
         {
             method: 'POST',
@@ -32,7 +34,6 @@ export default function ProductDetails() {
         });
     }
 
-    console.log(items);
     return (
         <div className="product-details-container">
             <div className="product-card-header-p">
