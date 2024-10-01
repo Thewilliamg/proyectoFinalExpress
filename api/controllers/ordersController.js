@@ -4,7 +4,7 @@ const ObjectId = require('mongoose').Types.ObjectId;
 exports.getAllPurchaseOrderByUser = async (req, res) => {
     const userId = req.params.userId;
     const objectUserId = new ObjectId(userId);
-    console.log(objectUserId)
+
     try {
         const orderByUserId = await getAllOrdersPurchaseByUserModel.aggregate([
             {
@@ -63,7 +63,7 @@ exports.getAllPurchaseOrderByUser = async (req, res) => {
                 }
             }
         ]);
-        console.log(orderByUserId);
+
         if (!orderByUserId) {
             return res.status(404).json({ message: 'Pedidos no encontrados, revise la búsqueda' });
         }

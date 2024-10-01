@@ -1,6 +1,7 @@
 const { UserSignModel, UserPhoneModel, UserEmailModel,UserCouponModel, UserModel, getUserProfileSidebarModel } = require("../model/userModel");
 const bcrypt = require('bcrypt');
 const ObjectId = require('mongoose').Types.ObjectId;
+const defaultAvatar = 'https://media.istockphoto.com/id/1337144146/vector/default-avatar-profile-icon-vector.jpg?s=612x612&w=0&k=20&c=BIbFwuv7FxTWvh5S3vB6bkT0Qv8Vn8N5Ffseq84ClGI='
 
 exports.registerUserNumber = async (req, res) => {
     try {
@@ -20,7 +21,8 @@ exports.registerUserNumber = async (req, res) => {
             numberPhone,
             password: hashedPassword,
             gender,
-            birthDate
+            birthDate,
+            urlPicture: defaultAvatar
         });
 
         // Guardar el usuario en la base de datos
@@ -52,7 +54,8 @@ exports.registerUserEmail = async (req, res) => {
             email,
             password: hashedPassword,
             gender,
-            birthDate
+            birthDate,
+            urlPicture: defaultAvatar
         });
 
         // Guardar el usuario en la base de datos
