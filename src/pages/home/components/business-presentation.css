@@ -194,6 +194,7 @@
     object-fit: contain;
     height: 100%;
     width: 27%;
+    max-height: 5.6em;
 }
 
 .img-message{
