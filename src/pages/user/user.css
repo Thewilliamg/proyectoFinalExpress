@@ -15,18 +15,12 @@
 .userHeader{
     display: flex;
     flex-direction: column;
-    margin-top: 5%;
-    width: 48vw;
-    height: auto;
-    font-size: 75%;
+    margin-top: 3%;
+    width: 45vw;
+    height: 45%;
+    font-size: 0.7em;
     align-items: center;
-    padding: 2%;
     color: #9D1A1A;
-}
-
-.userHeader img{
-    display: flex;
-
 }
 
 .userProfile{
@@ -35,21 +29,24 @@
     align-items: center;
     width: 100%;
     height: 20vh;
-    margin-top: 5%;
-    background-image: url("@/img/userProfileBack.svg");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     margin-bottom: 2%;
     justify-content: center;
     align-items: center;
-    padding: 1%;
+    position: relative;
+}
+.container-img-userprof{
+    width: fit-content;
+    display: flex;
+    justify-content: center;
 }
 
-.userProfile img{
-    width: 89.7%;
-    height: 99.6%;
-    border-radius: 100px;
+.img-profile{
+    width: 71.4%;
+    border-radius: 50%;
+    border: 4px solid #9D1A1A;
 }
 
 .uploadImage{
@@ -57,6 +54,7 @@
     height: auto;
     cursor: pointer;
     border-radius: 5px;
+    top: -68%;
     transform: translate(0%, 12rem);
     position: absolute;
     filter: 
@@ -68,8 +66,9 @@
     display: flex;
     flex-direction: column;
     width: 100vw;
-    height: 33vh;
+    height: 45vh;
     align-items: center;
+    background-color: red;
 }
 
 .userMiddle_Container{
@@ -86,11 +85,11 @@
     height: 100%; 
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 5%;
+    margin-bottom: 4%;
 }
 
 .userMiddle_Input1 h1{
-    font-size: 140%;
+    font-size: 120%;
     color: #9D1A1A;
 }
 
@@ -104,7 +103,7 @@
     margin-right: 2%;
     color: #fff;
     padding-left: 4%;
-    font-size: 110%;
+    font-size: 1.13em;
 }
 
 .userMiddle_Input1 input:focus{
@@ -132,11 +131,11 @@
     height: 100%; 
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 5%;
+    margin-bottom: 4%;
 }
 
 .userMiddle_Input2 h1{
-    font-size: 140%;
+    font-size: 120%;
     color: #9D1A1A;
 }
 
@@ -150,7 +149,7 @@
     margin-right: 2%;
     color: #fff;
     padding-left: 4%;
-    font-size: 110%;
+    font-size: 106%;
 }
 
 .userMiddle_Input2 input:focus{
@@ -175,27 +174,30 @@
     display: flex;
     width: 100%;
     height: 100%; 
-    justify-content: space-between;
+    /* justify-content: space-between; */
     align-items: center;
     margin-bottom: 5%;
+    gap: 3%;
+}
+
+#options{
+
 }
 
 .userMiddle_Input3 h1{
-    font-size: 140%;
+    font-size: 120%;
     color: #9D1A1A;
 }
 
 .userMiddle_Input3 input{
-    width: 45%;
+    width: 60%;
     height: 70%;
     border-radius: 10px;
     border: none;
     background-color: #703A31;
-    margin-left: 0%;
-    margin-right: -2%;
     color: #fff;
-    padding-left: 4%;
-    font-size: 110%;
+    padding-left: 2%;
+    font-size: 106%;
     appearance: none;
 }
 
@@ -208,6 +210,7 @@
 .userMiddle_Input3 select{
     display: flex;
     justify-content: center;
+    width: 17%;
     align-items: center;
     border: none;
     background: #703A31;
@@ -230,10 +233,9 @@
 
 .userMiddle_A3{
     width: auto;
-    height: 38%;
+    height: 47%;
     justify-content: center;
     align-items: center;
-    margin-left: 1%;
 }
 
 .userMiddle_A3 img{
@@ -246,32 +248,31 @@
     display: flex;
     width: 100%;
     height: 100%; 
-    align-items: center;
-    margin-bottom: 5%;
+    /* align-items: center; */
+    margin-bottom: 4%;
+    /* gap: 0.1%; */
 }
 
 .userMiddle_Input4 h1{
-    font-size: 130%;
+    font-size: 110%;
     color: #9D1A1A;
 }
 .userMiddle_Input4 h2{
-    font-size: 130%;
+    font-size: 110%;
     color: #9D1A1A;
-    margin-left: 5%;
+    /* margin-left: 5%; */
 }
 
 .userMiddle_Input4 input {
-    width: 20%;
+    width: 30%;
     height: 70%;
     border-radius: 10px;
     border: none;
     background-color: #703A31;
-    margin-left: 0%;
-    margin-right: 4%;
     color: #fff;
     padding-left: 2%;
     padding-right: 2%;
-    font-size: 110%;
+    font-size: 106%;
     appearance: none; 
     -webkit-appearance: none; 
 }
@@ -337,7 +338,7 @@
 }
 
 #userInput4 {
-    margin-left: 3%;
+    /* margin-left: 1%; */
 }
 
 .userBottom4{
@@ -353,21 +354,20 @@
     flex-direction: column;
     width: 90vw;
     height: 100%;
-    margin-top: 3%;
+    margin-top: 1%;
 }
 
 .userBottom4_center h1{
     color: #703A31;
-    font-size: 150%;
-    margin-bottom: 3%;
+    font-size: 122%;
+    margin-bottom: 2%;
 }
 
 .userBottom4_center input{
     background-color: #703A31;
     border: none;
-    margin-bottom: 3%;    
+    margin-bottom: 2.5%;    
     border-radius: 10px;
-    height: 80%;
-    padding-left: 5%;
+    padding: 2%;
     color: #fff;
 }

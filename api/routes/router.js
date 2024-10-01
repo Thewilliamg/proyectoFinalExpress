@@ -7,11 +7,13 @@ const { getProductFavorites } = require('../controllers/productFavoritesControll
 const { getWorkshopId } = require('../controllers/workshopsIdController');
 
 const {getAllMarkets} = require('../controllers/marketsController');
-const {getAllWorkshops} = require('../controllers/workshopsController');
-const { registerUserNumber, registerUserEmail, loginUser, getCoupoonUser, getUserById } = require('../controllers/userController');
+
+const { registerUserNumber, registerUserEmail, loginUser, getCoupoonUser, getUserById, getuserProfileSidebar } = require('../controllers/userController');
+const {getAllWorkshops, getWorkshopInfo} = require('../controllers/workshopsController');
 const {getAllproductsByMarket,getProduct,getAllproducts} = require('../controllers/productsController');
 const {getAllItemsShopCar, saveOrder, addToCar} = require('../controllers/shopCarController');
 const {getAllPurchaseOrderByUser} = require('../controllers/ordersController');
+
 
 const userValidator = require('../validators/userValidator');
 // const productValidator = require('../validators/userValidator');
@@ -29,6 +31,7 @@ router.get('/discounts/category', getCategory)
 router.get('/discounts/product/:id', getProductIdDiscount)
 router.get('/favorites/:id', getProductFavorites)
 router.get('/workshop/:id', getWorkshopId)
+router.get('/workshops/info/:id', getWorkshopInfo)
 router.get('/markets',getAllMarkets);
 router.get('/workshops', getAllWorkshops)
 router.get('/coupon/:userid', getCoupoonUser)
@@ -43,5 +46,6 @@ router.get('/shop/:userId',getAllItemsShopCar);
 router.post('/new-shop',shoppingCartValidator,saveOrder);
 router.post('/items/car/:productId',addToCar)
 router.get('/orders/user/:userId',getAllPurchaseOrderByUser);
+router.get('/sidebar/:userId',getuserProfileSidebar);
 
 module.exports = router;

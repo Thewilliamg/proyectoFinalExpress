@@ -194,6 +194,7 @@
     object-fit: contain;
     height: 100%;
     width: 27%;
+    max-height: 5.6em;
 }
 
 .img-message{
@@ -229,7 +230,7 @@
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: 1fr;
     justify-items: center;
-    grid-gap: 1rem;
+    grid-gap: 0.5rem;
 }   
 
 
@@ -245,6 +246,7 @@
     object-fit: cover;
     height: 67%;
     width: 100%;
+    max-height: 8em;
 }
 
 .cardet{

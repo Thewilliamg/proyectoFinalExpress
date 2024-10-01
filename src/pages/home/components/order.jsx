@@ -1,38 +1,51 @@
 import GoBackArrow from "../../components/backArrow";
 import Title from "../storage/img/Rectangle-86.svg";
-import Vasija from "../storage/img/vasija.svg";
 import Message from "../storage/img/message.svg";
 import { Link } from "react-router-dom";
 import Manta from "../storage/img/manta.svg";
+import { useState, useEffect } from 'react';
 
 export default function Order() {
-  const shopped = [{
-    img: Vasija,
-    title: "Vasija pequeña con diseño de flora",
-    price: "S/.50",
-    measures: "13x10",
-    weight: "2 KG",
-    marketName: "Asoc. de artesanos productores de Chazuta",
-  },{
-    img: Vasija,
-    title: "Vasija pequeña con diseño de flora",
-    price: "S/.50",
-    measures: "13x10",
-    weight: "2 KG",
-    marketName: "Asoc. de artesanos productores de Chazuta",
-  }];
-  const items = {
-    img: Manta,
-    title: "Tapiz Chumpi Andino III",
-    price: "S/.600",
-    made: "Taller Awaq Ayllus",
-  };
+  const userId = localStorage.getItem('userId');
+  const [shopped, setShopped] = useState();
+  const [allproducts, setAllProducts] = useState();
+
+  useEffect(() => {
+    fetch(`http://localhost:5001/api/orders/user/${userId}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    })
+      .then(res => res.json())
+      .then(response =>
+        setShopped(response)
+      )
+      .catch((error) => {
+        console.error('Hubo un error:' + error.message);
+      });
+
+      fetch(`http://localhost:5001/api/products`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      })
+        .then(res => res.json())
+        .then(response =>
+          setAllProducts(response)
+        )
+        .catch((error) => {
+          console.error('Hubo un error:' + error.message);
+        });
+
+  }, [])
 
   return (
     <article className="orders-container">
       <div className="container-arrow">
         <Link to='/home'>
-          <GoBackArrow className='arrow'/>
+          <GoBackArrow className='arrow' />
         </Link>
 
         <img src={Title} className="img-title" />
@@ -42,18 +55,19 @@ export default function Order() {
         </div>
       </div>
       <div className="container-shopped">
+        {(shopped?.length === 0) && (<p>No hay pedidos realizados por el usuario :c</p>)}
         {
-          shopped.map((item,index)=>{
-            return(
-              <div className="card-shopped" key={item.title+index}>
-                <img src={item.img} className="img-product" />
+          shopped?.map((item, index) => {
+            return (
+              <div className="card-shopped" key={item?.titleProduct}>
+                <img src={item?.imgProduct} className="img-product" />
 
                 <div className="container-items-shopped">
                   <div className="container-text-shopped">
-                    <p>{item.title}</p>
-                    <p>S/.{item.price}</p>
-                    <p>{item.measures+', '+item.weight}</p>
-                    <p>{item.marketName}</p>
+                    <p>{item?.titleProduct}</p>
+                    <p>S/.{item?.priceProduct}</p>
+                    <p>{item?.measureProduct + ', ' + item?.weightProduct}</p>
+                    <p>{item?.marketName}</p>
                   </div>
                   <Link>
                     <button className="button-shopped">
@@ -73,96 +87,22 @@ export default function Order() {
       </div>
       <p className="edga">Sigue viendo más artesanías</p>
       <div className="container-artesan">
-        <div className="card-artesan">
-          <div className="cardet">
-            <img src={items.img} alt="" className="img-artesan" />
-            <div className="container-text-artesan">
-              <p>{items.title}</p>
-              <p>{items.price}</p>
-              <p>{items.made}</p>
-            </div>
-          </div>
-        </div>
-        <div className="card-artesan">
-          <div className="cardet">
-            <img src={items.img} alt="" className="img-artesan" />
-            <div className="container-text-artesan">
-              <p>{items.title}</p>
-              <p>{items.price}</p>
-              <p>{items.made}</p>
-            </div>
-          </div>
-        </div>
-        <div className="card-artesan">
-          <div className="cardet">
-            <img src={items.img} alt="" className="img-artesan" />
-            <div className="container-text-artesan">
-              <p>{items.title}</p>
-              <p>{items.price}</p>
-              <p>{items.made}</p>
-            </div>
-          </div>
-        </div>
-        <div className="card-artesan">
-          <div className="cardet">
-            <img src={items.img} alt="" className="img-artesan" />
-            <div className="container-text-artesan">
-              <p>{items.title}</p>
-              <p>{items.price}</p>
-              <p>{items.made}</p>
-            </div>
-          </div>
-        </div>
-        <div className="card-artesan">
-          <div className="cardet">
-            <img src={items.img} alt="" className="img-artesan" />
-            <div className="container-text-artesan">
-              <p>{items.title}</p>
-              <p>{items.price}</p>
-              <p>{items.made}</p>
-            </div>
-          </div>
-        </div>
-        <div className="card-artesan">
-          <div className="cardet">
-            <img src={items.img} alt="" className="img-artesan" />
-            <div className="container-text-artesan">
-              <p>{items.title}</p>
-              <p>{items.price}</p>
-              <p>{items.made}</p>
-            </div>
-          </div>
-        </div>
-        <div className="card-artesan">
-          <div className="cardet">
-            <img src={items.img} alt="" className="img-artesan" />
-            <div className="container-text-artesan">
-              <p>{items.title}</p>
-              <p>{items.price}</p>
-              <p>{items.made}</p>
-            </div>
-          </div>
-        </div>
-        <div className="card-artesan">
-          <div className="cardet">
-            <img src={items.img} alt="" className="img-artesan" />
-            <div className="container-text-artesan">
-              <p>{items.title}</p>
-              <p>{items.price}</p>
-              <p>{items.made}</p>
-            </div>
-          </div>
-        </div>
-        <div className="card-artesan">
-          <div className="cardet">
-            <img src={items.img} alt="" className="img-artesan" />
-            <div className="container-text-artesan">
-              <p>{items.title}</p>
-              <p>{items.price}</p>
-              <p>{items.made}</p>
-            </div>
-          </div>
-        </div>
+        {
+          allproducts?.map((items, index) => {
+            return (
+              <div className="card-artesan">
+                <div className="cardet">
+                  <img src={items.picture} alt="" className="img-artesan" />
+                  <div className="container-text-artesan">
+                    <p>{items.name}</p>
+                    <p>S/.{items.price}</p>
+                    <p>{items.marketName}</p>
+                  </div>
+                </div>
+              </div>
+            )
+          })
+        }
       </div>
     </article>
   );

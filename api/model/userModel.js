@@ -31,8 +31,9 @@ const userSchemaEmail = new mongoose.Schema({
 
 const userCouponSchema = new mongoose.Schema({
     productImg: { type: String, required: true },
-    productDiscount: { type: Number, required: true },
-    marketName: {type: String, required: true}
+    productDiscount: { type: String, required: true },
+    marketName: {type: String, required: true},
+    dateExpiration: {type: Date, required: true}
 })
 
 const userSchemaGet = new mongoose.Schema({
@@ -44,16 +45,23 @@ const userSchemaGet = new mongoose.Schema({
     birthDate: { type: Date, required: false },
 });
 
+const getUserSideBarProfileSchema = new mongoose.Schema({
+    nickName: String,
+    img:String
+})
+
 const UserPhoneModel = mongoose.model('UserPhoneModel', userSchemaPhone, "Users"); 
 const UserEmailModel = mongoose.model('UserEmailModel', userSchemaEmail, "Users");
 const UserSignModel = mongoose.model('UserSignModel', userSchema, "Users");
 const UserCouponModel = mongoose.model('UserCouponModel', userCouponSchema, "Users")
 const UserModel = mongoose.model('UserModel', userSchemaGet, "Users")
+const getUserProfileSidebarModel = mongoose.model('getUserProfileModel', getUserSideBarProfileSchema, "Users");
 
 module.exports = {
     UserSignModel,
     UserPhoneModel,
     UserEmailModel,
     UserCouponModel,
-    UserModel
+    UserModel,
+    getUserProfileSidebarModel
 }

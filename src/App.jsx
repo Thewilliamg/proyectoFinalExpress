@@ -34,38 +34,38 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route index element= {<Start/>}/>
-          <Route path="/customer_service" element={<Service/> } />  //Ruta para pantalla 25
-          <Route path="/workshops" element={<Workshop />} />
-          <Route path="/workshops/info" element={<WorkshopsInfo/> } /> //Ruta para pantalla 28
-          <Route path='/workshops/business-presentation/:id' element={<Business />}/>
-          <Route path='/categories' element={<Categories />}/>
-          <Route path='/community' element={<Community />} />
-          <Route path='/coupons' element={<Coupon />} />
-          <Route path="/favorites" element={<Favorites/> } />
-          <Route path="/settings" element={<Settings/> } />
-          {/* //Rutas de descuentos */}
-          <Route path="/home" element={<Home/>}/>
-          <Route path="/discounts" element={<Home page={<Discounts/>}/>} />
-          <Route path="/discounts/product" element={<Parrafito />} />
-          {/* Rutas de tiendas*/ }
-          <Route path="/markets" element={<Home page={<Markets/>}/>} />
-          <Route path="/markets/products" element={<Products />} />
-          <Route path="/markets/products/details/:productId" element={<ProductDetails />} />
-          {/* Rutas de comprar */}
-          <Route path="/shop" element={<Home page={<Shop/>}/>} />
-          <Route path="/orders" element={<Order />}/> 
-          <Route path="/shop/confirmation" element={<Confirmation />} />
-          {/* Rutas de perfil de usuario */}
-          <Route path='/user' element={<Home page={<User/>}/>} />
-          {/* Rutas de registro */}   
-          <Route path='/login' element={<Login />} />
-          <Route path='/login/user' element={<Login_User />} />                      
-          <Route path='/signup' element={<SignUp />} />                       // Pantalla 2
-          <Route path='/signup/email' element={<SignupEmail />} />            // Pantalla 6
-          <Route path='/signup/email/policy' element={<EmailPolicy />} />
-          <Route path='/signup/register' element={<Register />} /> 
-          <Route path='/signup/register/policy' element={<Policy />} />      
-          <Route path='/customer_service/chat' element={<Chat/>} />
+        <Route path="/customer_service" element={<Service/> } />  //Ruta para pantalla 25
+        <Route path="/workshops" element={<Workshop />} />
+        <Route path="/workshops/info" element={<WorkshopsInfo/> } /> //Ruta para pantalla 28
+        <Route path='/workshops/business-presentation' element={<Business />}/>
+        <Route path='/categories' element={<Categories />}/>
+        <Route path='/community' element={<Community />} />
+        <Route path='/coupons' element={<Coupon />} />
+        <Route path="/favorites" element={<Favorites/> } />
+        <Route path="/settings" element={<Settings/> } />
+        {/* //Rutas de descuentos */}
+        <Route path="/home" element={<Home/>}/>
+        <Route path="/discounts" element={<Home page={<Discounts/>}/>} />
+        <Route path="/discounts/product" element={<Parrafito />} />
+        {/* Rutas de tiendas*/ }
+        <Route path="/markets" element={<Home page={<Markets/>}/>} />
+        <Route path="/markets/:marketId/products" element={<Products />} />
+        <Route path="/markets/:marketId/products/details/:productId" element={<ProductDetails />} />
+        {/* Rutas de comprar */}
+        <Route path="/shop" element={<Home page={<Shop/>}/>} />
+        <Route path="/orders" element={<Order />}/> 
+        <Route path="/shop/confirmation" element={<Confirmation />} />
+        {/* Rutas de perfil de usuario */}
+        <Route path='/user' element={<Home page={<User/>}/>} />
+        {/* Rutas de registro */}   
+        <Route path='/login' element={<Login />} />
+        <Route path='/login/user' element={<Login_User />} />                      
+        <Route path='/signup' element={<SignUp />} />                       // Pantalla 2
+        <Route path='/signup/email' element={<SignupEmail />} />            // Pantalla 6
+        <Route path='/signup/email/policy' element={<EmailPolicy />} />
+        <Route path='/signup/register' element={<Register />} /> 
+        <Route path='/signup/register/policy' element={<Policy />} />      
+        <Route path='/customer_service/chat' element={<Chat/>} />
       </Routes>
   </BrowserRouter>
   )
