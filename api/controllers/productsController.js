@@ -1,6 +1,11 @@
 const {AllProductsByMarketModel,allProductsModel,productModel} = require("../model/productsModel");
 const ObjectId = require('mongoose').Types.ObjectId;
 
+/**
+ * Obtiene todos los productos de un mercado específico
+ * @param {Object} req - Objeto de solicitud Express
+ * @param {Object} res - Objeto de respuesta Express
+ */
 exports.getAllproductsByMarket = async (req, res) => {
     const marketId = req.params.marketId;
     const objectId = new ObjectId(marketId);
@@ -47,6 +52,11 @@ exports.getAllproductsByMarket = async (req, res) => {
     }
 };
 
+/**
+ * Obtiene los detalles de un producto específico
+ * @param {Object} req - Objeto de solicitud Express
+ * @param {Object} res - Objeto de respuesta Express
+ */
 exports.getProduct = async (req, res) => {
     const productId = req.params.id;
     const objectId = new ObjectId(productId);
@@ -92,6 +102,11 @@ exports.getProduct = async (req, res) => {
     }
 };
 
+/**
+ * Obtiene todos los productos
+ * @param {Object} req - Objeto de solicitud Express
+ * @param {Object} res - Objeto de respuesta Express
+ */
 exports.getAllproducts = async (req, res) => {
     try {
         const allproducts = await allProductsModel.aggregate([

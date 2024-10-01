@@ -1,5 +1,5 @@
 import GoBackArrow from "../../components/backArrow";
-import Square from "@/img/square-beige-icon.svg";
+// import Square from "@/img/square-beige-icon.svg";
 import { Link } from "react-router-dom";
 import "./community.css";
 

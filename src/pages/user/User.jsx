@@ -79,7 +79,7 @@ export default function User() {
         <h1>Foto de perfil</h1>
         <div className="userProfile">
           <div className="container-img-userprof">
-            <img src={profileImage} alt="user" className="img-profile" />
+            <img src={data?.urlPicture} alt="user" className="img-profile" />
           </div>
           <img
             src={Edit}
