@@ -10,16 +10,28 @@ const shopCarSchema = new mongoose.Schema({
         weight: { type: String, required: true },
         price: { type: String, required: true }
 });
+const productsSchema = new mongoose.Schema({
+        productId: mongoose.ObjectId,
+        quantity: { type: Number, required: true },
+        purchasePrice: Number
+}, { _id: false })
 
 const saveOrderSchema = new mongoose.Schema({
-        userId: String,
-        products: [Object],
+        userId: mongoose.ObjectId,
+        products: [productsSchema],
         total: Number,
         orderDate: { type: Date, default: Date.now },
-        status: {type:String, default:'completada'}
-}, { versionKey: false })
+        status: { type: String, default: 'completada' }
+}, { versionKey: false });
 
-const saveOrderModel = mongoose.model('saveOrder',saveOrderSchema,'Orders');
+const addToCarSchema = new mongoose.Schema({
+        userId: { type: mongoose.ObjectId, required: true },
+        productId: { type: mongoose.Schema.Types.ObjectId, required: true },
+        quantity: { type: Number, default: 1 }
+}, { versionKey: false });
+
+const saveOrderModel = mongoose.model('saveOrder', saveOrderSchema, 'Orders');
 const allproductsInCarModelByUserModel = mongoose.model('allproductsInCarModelByUser', shopCarSchema, 'shoppingCart');
+const addToCarModel = mongoose.model('addToCarModel', addToCarSchema, 'shoppingCart');
 
-module.exports = { saveOrderModel, allproductsInCarModelByUserModel};
+module.exports = { saveOrderModel, allproductsInCarModelByUserModel, addToCarModel };

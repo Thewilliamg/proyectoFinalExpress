@@ -8,21 +8,35 @@ import chatico from "@/img/chat-icon.svg";
 import customerServico from "@/img/customer-icon.svg";
 import santanderImg from "@/img/Escudo_de_Santander.png";
 import squaredot from "@/img/square.svg";
-import userprofile from "@/img/user-profile.svg";
+import {useState,useEffect} from 'react';
 
 export default function Sidebar({ isOpen}) {
+  const [dataUser,setDataUser] = useState();
+  const userId = localStorage.getItem('userId');
 
-  const dataUser = {
-    'nickName': 'SaraMartin9',
-    'img':userprofile
-};
+  useEffect(()=>{
+    fetch(`http://localhost:5001/api/sidebar/${userId}`,
+      {
+          method: 'GET',
+          headers: {
+              'Content-Type': 'application/json',
+          }
+      })
+      .then(res => res.json())
+      .then(data => setDataUser(data)
+      )
+      .catch((error) => {
+          console.error('Hubo un error:' + error.message)
+      });
+  },[])
+
 
   return (
     <div className={`sidebar ${isOpen ? 'open' : 'closed'}`}>
 
         <div className="sidebar-profile">
-            <img src={dataUser.img} alt="profile" />
-            <h3>{dataUser.nickName}</h3>
+            <img src={dataUser?.img} alt="profile" />
+            <h3>{dataUser?.nickName}</h3>
         </div>
         
         <nav className="nav-sidebar">

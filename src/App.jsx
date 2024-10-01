@@ -33,12 +33,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        
-        
-        
-        
-
-      <Route index element= {<Start/>}/>
+        <Route index element= {<Start/>}/>
         <Route path="/customer_service" element={<Service/> } />  //Ruta para pantalla 25
         <Route path="/workshops" element={<Workshop />} />
         <Route path="/workshops/info" element={<WorkshopsInfo/> } /> //Ruta para pantalla 28
@@ -51,11 +46,11 @@ function App() {
         {/* //Rutas de descuentos */}
         <Route path="/home" element={<Home/>}/>
         <Route path="/discounts" element={<Home page={<Discounts/>}/>} />
-        <Route path="discounts/product" element={<Parrafito />} />
+        <Route path="/discounts/product" element={<Parrafito />} />
         {/* Rutas de tiendas*/ }
         <Route path="/markets" element={<Home page={<Markets/>}/>} />
-        <Route path="/markets/products" element={<Products />} />
-        <Route path="/markets/products/details/:productId" element={<ProductDetails />} />
+        <Route path="/markets/:marketId/products" element={<Products />} />
+        <Route path="/markets/:marketId/products/details/:productId" element={<ProductDetails />} />
         {/* Rutas de comprar */}
         <Route path="/shop" element={<Home page={<Shop/>}/>} />
         <Route path="/orders" element={<Order />}/> 

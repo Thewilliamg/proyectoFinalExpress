@@ -35,7 +35,10 @@ export default function Login_User() {
                     }),
                 });
         
+                const data = await response.json();
+        
                 if (response.ok) {
+                    localStorage.setItem('userId',data.user._id)
                     navigate('/home');
                 } else {
                     console.error('Error response:', response);

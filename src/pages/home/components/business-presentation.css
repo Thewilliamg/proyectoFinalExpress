@@ -26,13 +26,15 @@
     align-items: center;
     position: relative;
     top: 20%;
-    right: 22%;
-    color: red;
-    font-size: 1.2rem;
+    right: 21%;
+    color: #5e3129;
+    font-size: 1.1rem;
+    font-weight: 600;
 }
 .img-title{
     height: 5rem;
     width: 5rem;
+    padding-top: 2%;
     z-index: -2;
 }
 
@@ -138,6 +140,10 @@
     overflow-y: scroll;
 }
 
+.workshop-letterp {
+    color: #FFFFFF
+}
+
 /* orders ----------------------------- */
 
 
@@ -155,35 +161,40 @@
     align-items: center;
     flex-direction: column;
     overflow-y: scroll;
-    gap: 1rem;
+    gap: 0.7rem;
 }
 
 .card-shopped{
     display: flex;
     width: 97%;
-    height: 50%;
+    height: fit-content;
     border-radius: 10px;
     background: #703A31;
-    gap: 1.2rem;
+    justify-content: center;
+    padding-top: 1.5%;
+    padding-bottom: 1.5%;
 }
 
 .container-items-shopped{
     display: flex;
     flex-direction: column;
-    width: 65%;
+    width: 56%;
     height: 100%;
     gap: 0.3rem;
+    justify-content: center;
+    padding-left: 2%;
 }
 
 .container-text-shopped{
     color: #fff;
-    font-size: 0.7rem;
+    font-size: 0.72rem;
 }
 
 .img-product{
     object-fit: contain;
     height: 100%;
-    width: 25%;
+    width: 27%;
+    max-height: 5.6em;
 }
 
 .img-message{
@@ -192,11 +203,6 @@
     left: 0%;
     height: 25%;
     width: 100%;
-}
-
-.message-container{
-    height: 100%;
-    width: 10%;
 }
 
 .button-shopped{
@@ -208,6 +214,11 @@
     width: 90%;
     border-style: none;
 }
+.message-container{
+    height: 100%;
+    width: 9%;
+}
+
 
 /* artesan ------------------------------------ */
 
@@ -219,7 +230,7 @@
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: 1fr;
     justify-items: center;
-    grid-gap: 1rem;
+    grid-gap: 0.5rem;
 }   
 
 
@@ -235,6 +246,7 @@
     object-fit: cover;
     height: 67%;
     width: 100%;
+    max-height: 8em;
 }
 
 .cardet{
