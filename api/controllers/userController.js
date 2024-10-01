@@ -169,8 +169,9 @@ exports.getCoupoonUser = async (req, res) => {
               $project: {
                 _id:0,
                 productImg:'$product.picture',
-                productDiscount:'$userCoupons.discount',
-                marketName:'$market.name'
+                productDiscount:'$userCoupons.description',
+                marketName:'$market.name',
+                date_end:'$userCoupons.dateExpiration'
               }
             }
           ]);
