@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import textil from "@/img/textil-icon.svg";
 import ceramic from "@/img/ceramics-icon.svg";
 import goldsmith from "@/img/goldsmith-icon.svg";
@@ -19,17 +19,20 @@ import "./categorie.css";
 
 export default function categories() {
   const [selectedIndex, setSelectedIndex] = useState(null);
+  const [categorieId, setcategorieId] = useState([])
+  const [arrayProducts, setarrayProducts] = useState([])
+  const [products, setproducts] = useState()
   const dataCategories = [
-    { icon: textil, title: "Textileria", href: "textil" },
-    { icon: ceramic, title: "Ceramica", href: "ceramica" },
-    { icon: goldsmith, title: "Orfebreria", href: "orfebreria" },
-    { icon: rockCarving, title: "Talla en piedra", href: "talla_piedra" },
-    { icon: woodCarving, title: "Talla en madera", href: "talla_madera" },
-    { icon: embroidery, title: "Bordado", href: "bordado" },
-    { icon: jewelry, title: "Joyeria", href: "joyeria" },
-    { icon: tinsmith, title: "Hojalateria", href: "hojalateria" },
-    { icon: stamp, title: "Estampado", href: "estampado" },
-    { icon: paint, title: "Pintura tradicional", href: "pintura" },
+    { icon: textil, id: "66fbeffac1f1e5ef5cd6b190",title: "Textileria", href: "textil" },
+    { icon: ceramic, id: "66fbeffac1f1e5ef5cd6b191",title: "Ceramica", href: "ceramica" },
+    { icon: goldsmith, id: "66fbeffac1f1e5ef5cd6b192",title: "Orfebreria", href: "orfebreria" },
+    { icon: rockCarving, id: "66fbeffac1f1e5ef5cd6b193",title: "Talla en piedra", href: "talla_piedra" },
+    { icon: woodCarving, id: "66fbeffac1f1e5ef5cd6b194",title: "Talla en madera", href: "talla_madera" },
+    { icon: embroidery, id: "66fbeffac1f1e5ef5cd6b195",title: "Bordado", href: "bordado" },
+    { icon: jewelry, id: "66fbeffac1f1e5ef5cd6b196",title: "Joyeria", href: "joyeria" },
+    { icon: tinsmith, id: "66fbeffac1f1e5ef5cd6b197",title: "Hojalateria", href: "hojalateria" },
+    { icon: stamp, id: "66fbeffac1f1e5ef5cd6b198",title: "Estampado", href: "estampado" },
+    { icon: paint, id: "66fbeffac1f1e5ef5cd6b199",title: "Pintura tradicional", href: "pintura" },
   ];
   const workshops = [
     {
@@ -89,8 +92,27 @@ export default function categories() {
     },
   ];
 
+  useEffect(() => {
+      fetch(`http://localhost:5001/api/products`)
+      .then((res) => res.json())
+      .then((data) => setarrayProducts(data))
+      .catch((error) => {
+        console.error("Hubo un error:" + error.message);
+      });
+      
+  }, [])
+
+  useEffect(() => { 
+    console.log(arrayProducts);
+    const fliteredCategories = arrayProducts.filter(item => item.categoryId === categorieId )
+    setproducts(fliteredCategories)
+  }, [categorieId])
+
   const handleCategoryClick = (index) => {
     setSelectedIndex(index); // Actualiza el índice seleccionado
+    setcategorieId(dataCategories[index].id);
+
+    
   };
   return (
     <article className="categorie-container">
@@ -136,23 +158,23 @@ export default function categories() {
         </div>
       </div>
       <div className="grid grid-cols-2 gap-4">
-        {workshops.map((workshop, index) => (
+        {products?.map((workshop, index) => (
           <div
             key={index}
             className="bg-white rounded-lg overflow-hidden shadow-md"
           >
             <img
-              src={workshop.image}
-              alt={workshop.name}
+              src={workshop?.picture}
+              alt={workshop?.name}
               className="w-full h-24 object-cover"
             />
 
             <div className="p-22">
               <h3 className="text-[#6B3E26] font-semibold text-sm">
-                {workshop.name}
+                {workshop?.name}
               </h3>
-              <p className="text-[#6B3E26] text-xs">{workshop.price}</p>
-              <p className="text-[#6B3E26] text-xs">{workshop.location}</p>
+              <p className="text-[#6B3E26] text-xs">{workshop?.price}</p>
+              <p className="text-[#6B3E26] text-xs">{workshop?.marketName}</p>
             </div>
           </div>
         ))}
