@@ -1,3 +1,373 @@
-.title {
-    font-size: 10rem;
+
+.userAll{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 80vh;
+    width: 100vw;
+    background-image: url('@/img/userBackground.svg');
+    background-size: 170%;
+    background-repeat: no-repeat;
+    background-position-x: 45%;
+    background-position-y: 54%;
+}
+
+.userHeader{
+    display: flex;
+    flex-direction: column;
+    margin-top: 3%;
+    width: 45vw;
+    height: 45%;
+    font-size: 0.7em;
+    align-items: center;
+    color: #9D1A1A;
+}
+
+.userProfile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 20vh;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-bottom: 2%;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.container-img-userprof{
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+}
+
+.img-profile{
+    width: 71.4%;
+    border-radius: 50%;
+    border: 4px solid #9D1A1A;
+}
+
+.uploadImage{
+    width: 5vw;
+    height: auto;
+    cursor: pointer;
+    border-radius: 5px;
+    top: -68%;
+    transform: translate(0%, 12rem);
+    position: absolute;
+    filter: 
+    drop-shadow(0 0 5px rgb(255, 255, 255))
+    drop-shadow(0 0 10px rgb(255, 255, 255));
+}
+
+.userMiddle{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 45vh;
+    align-items: center;
+    background-color: red;
+}
+
+.userMiddle_Container{
+    display: flex;
+    flex-direction: column;
+    margin-top: 2%;
+    width: 92vw;
+    height: 6vh;
+}
+
+.userMiddle_Input1{
+    display: flex;
+    width: 100%;
+    height: 100%; 
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4%;
+}
+
+.userMiddle_Input1 h1{
+    font-size: 120%;
+    color: #9D1A1A;
+}
+
+.userMiddle_Input1 input{
+    width: 70%;
+    height: 70%;
+    border-radius: 10px;
+    border: none;
+    background-color: #703A31;
+    margin-left: 5%;
+    margin-right: 2%;
+    color: #fff;
+    padding-left: 4%;
+    font-size: 1.13em;
+}
+
+.userMiddle_Input1 input:focus{
+    color: #fff;
+    border: none;
+}
+
+
+.userMiddle_A{
+    width: auto;
+    height: 47%;
+    justify-content: center;
+    align-items: center;
+}
+
+.userMiddle_A img{
+    width: 100%;
+    height: 100%;
+}
+
+
+.userMiddle_Input2{
+    display: flex;
+    width: 100%;
+    height: 100%; 
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4%;
+}
+
+.userMiddle_Input2 h1{
+    font-size: 120%;
+    color: #9D1A1A;
+}
+
+.userMiddle_Input2 input{
+    width: 70%;
+    height: 70%;
+    border-radius: 10px;
+    border: none;
+    background-color: #703A31;
+    margin-left: 8%;
+    margin-right: 2%;
+    color: #fff;
+    padding-left: 4%;
+    font-size: 106%;
+}
+
+.userMiddle_Input2 input:focus{
+    color: #fff;
+    border: none;
+}
+
+.userMiddle_A2{
+    width: auto;
+    height: 47%;
+    justify-content: center;
+    align-items: center;
+}
+
+.userMiddle_A2 img{
+    width: 100%;
+    height: 100%;
+}
+
+
+.userMiddle_Input3{
+    display: flex;
+    width: 100%;
+    height: 100%; 
+    /* justify-content: space-between; */
+    align-items: center;
+    margin-bottom: 5%;
+    gap: 3%;
+}
+
+#options{
+
+}
+
+.userMiddle_Input3 h1{
+    font-size: 120%;
+    color: #9D1A1A;
+}
+
+.userMiddle_Input3 input{
+    width: 60%;
+    height: 70%;
+    border-radius: 10px;
+    border: none;
+    background-color: #703A31;
+    color: #fff;
+    padding-left: 2%;
+    font-size: 106%;
+    appearance: none;
+}
+
+
+.userMiddle_Input3 input:focus{
+    color: #fff;
+    border: none;
+}
+
+.userMiddle_Input3 select{
+    display: flex;
+    justify-content: center;
+    width: 17%;
+    align-items: center;
+    border: none;
+    background: #703A31;
+    color: #fff;
+    border-radius: 10px;
+    height: 70%;
+    margin-left: 2%;
+    appearance: transparent; 
+    -webkit-appearance: none; 
+    -moz-appearance: none; 
+    cursor: pointer;
+    text-align: center;
+}
+
+.userMiddle_Input3 select:focus{
+    border: none;
+    border-radius: 10px;
+}
+
+
+.userMiddle_A3{
+    width: auto;
+    height: 47%;
+    justify-content: center;
+    align-items: center;
+}
+
+.userMiddle_A3 img{
+    width: 100%;
+    height: 100%;
+}
+
+
+.userMiddle_Input4{
+    display: flex;
+    width: 100%;
+    height: 100%; 
+    /* align-items: center; */
+    margin-bottom: 4%;
+    /* gap: 0.1%; */
+}
+
+.userMiddle_Input4 h1{
+    font-size: 110%;
+    color: #9D1A1A;
+}
+.userMiddle_Input4 h2{
+    font-size: 110%;
+    color: #9D1A1A;
+    /* margin-left: 5%; */
+}
+
+.userMiddle_Input4 input {
+    width: 30%;
+    height: 70%;
+    border-radius: 10px;
+    border: none;
+    background-color: #703A31;
+    color: #fff;
+    padding-left: 2%;
+    padding-right: 2%;
+    font-size: 106%;
+    appearance: none; 
+    -webkit-appearance: none; 
+}
+
+.userMiddle_Input4 input:focus {
+    color: #fff;
+    border: none;
+}
+
+#sexOptions{
+    text-align: center;
+}
+
+.userMiddle_Input4 select{
+    border: none;
+    background: #703A31;
+    color: #fff;
+    border-radius: 10px;
+    height: 70%;
+    margin-left: 4%;
+    appearance: transparent; 
+    -webkit-appearance: none; 
+    -moz-appearance: none; 
+    padding: 1%;
+    cursor: pointer;
+    font-size: 80%;
+}
+
+.userMiddle_Input4 select:focus{
+    border: none;
+    border-radius: 10px;
+}
+
+.userMiddle_A41{
+    width: auto;
+    height: 80%;
+    justify-content: center;
+    align-items: center;
+    margin-left: 2%;
+}
+
+.userMiddle_A41 img{
+    width: 100%;
+    height: 100%;
+}
+
+
+.userMiddle_A4{
+    width: auto;
+    height: 80%;
+    justify-content: center;
+    align-items: center;
+}
+
+.userMiddle_A4 img{
+    width: 100%;
+    height: 100%;
+}
+
+#userInput4::-webkit-calendar-picker-indicator {
+    filter: invert(100%); 
+    cursor: pointer;
+}
+
+#userInput4 {
+    /* margin-left: 1%; */
+}
+
+.userBottom4{
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 18vh;
+    align-items: center;
+}
+
+.userBottom4_center{
+    display: flex;
+    flex-direction: column;
+    width: 90vw;
+    height: 100%;
+    margin-top: 1%;
+}
+
+.userBottom4_center h1{
+    color: #703A31;
+    font-size: 122%;
+    margin-bottom: 2%;
+}
+
+.userBottom4_center input{
+    background-color: #703A31;
+    border: none;
+    margin-bottom: 2.5%;    
+    border-radius: 10px;
+    padding: 2%;
+    color: #fff;
 }

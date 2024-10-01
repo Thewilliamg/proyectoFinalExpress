@@ -1,20 +1,7 @@
-const { UserSignModel, UserPhoneModel, UserEmailModel,UserCouponModel, UserModel } = require("../model/userModel");
+const { UserSignModel, UserPhoneModel, UserEmailModel,UserCouponModel, UserModel, getUserProfileSidebarModel } = require("../model/userModel");
 const bcrypt = require('bcrypt');
 const ObjectId = require('mongoose').Types.ObjectId;
-
-// !! Method example
-
-// exports.getUser = async (req, res) => {
-//     try {
-//         const user = await User.findById(req.params.id);
-//         if (!user) {
-//             return res.status(404).json({ message: 'Usuario no encontrado' });
-//         }
-//         res.status(200).json(user);
-//     } catch (error) {
-//         res.status(500).json({ message: 'Error al obtener el usuario', error });
-//     }
-// };
+const defaultAvatar = 'https://media.istockphoto.com/id/1337144146/vector/default-avatar-profile-icon-vector.jpg?s=612x612&w=0&k=20&c=BIbFwuv7FxTWvh5S3vB6bkT0Qv8Vn8N5Ffseq84ClGI='
 
 exports.registerUserNumber = async (req, res) => {
     try {
@@ -34,7 +21,8 @@ exports.registerUserNumber = async (req, res) => {
             numberPhone,
             password: hashedPassword,
             gender,
-            birthDate
+            birthDate,
+            urlPicture: defaultAvatar
         });
 
         // Guardar el usuario en la base de datos
@@ -66,7 +54,8 @@ exports.registerUserEmail = async (req, res) => {
             email,
             password: hashedPassword,
             gender,
-            birthDate
+            birthDate,
+            urlPicture: defaultAvatar
         });
 
         // Guardar el usuario en la base de datos
@@ -141,11 +130,37 @@ exports.getCoupoonUser = async (req, res) => {
               }
             },
             {
+              $unwind: "$userCoupons"
+            },
+            {
+              $lookup: {
+                from: "Products",
+                localField: "userCoupons.productId",
+                foreignField: "_id",
+                as: "product"
+              }
+            },
+            {
+              $unwind: '$product'
+            },
+            {
+              $lookup: {
+                from: 'Markets',
+                localField: 'product.marketId',
+                foreignField: '_id',
+                as: 'market'
+              }
+            },
+            {
+              $unwind:'$market'
+            },
+            {
               $project: {
-                _id: 0,
-                name: 1,
-                email:1,
-                userCoupons: 1
+                _id:0,
+                productImg:'$product.picture',
+                productDiscount:'$userCoupons.description',
+                marketName:'$market.name',
+                date_end:'$userCoupons.dateExpiration'
               }
             }
           ]);
@@ -164,12 +179,35 @@ exports.getUserById = async (req, res) => {
     const userid = req.params.id;
     const objectId = new ObjectId(userid);
     try {
-        const user = await UserModel.findById(objectId, 'name email password numberPhone gender birthDate');
+        const user = await UserModel.findById(objectId, '-_id name email numberPhone gender birthDate urlPicture');
         if (!user) {
             return res.status(404).json({ message: 'User not found' });
         }
         res.status(200).json(user);
     } catch (error) {
         res.status(500).json({ message: 'Error retrieving user', error: error.message });
+    }
+}
+
+exports.getuserProfileSidebar = async (req, res) => {
+    const userId = req.params.userId;
+    const objectUserId = new ObjectId(userId);
+    try {
+        const userinfoSidebar = await getUserProfileSidebarModel.aggregate([
+            {$match:{"_id":objectUserId}},
+            {$project:{
+                _id:0,
+                nickName:"$name",
+                img: "$urlPicture"
+            }}
+        ]);
+
+        if (!userinfoSidebar) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+        res.status(200).json(userinfoSidebar[0]);
+        
+    } catch (error) {
+        res.status(500).json({ message: 'Error authenticating user', error: error.message });
     }
 }

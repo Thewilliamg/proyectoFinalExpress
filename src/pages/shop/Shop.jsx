@@ -7,8 +7,7 @@ import trash from '@/img/trash-icon.svg';
 export default function Shop() {
     const [showPopup, setShowPopup] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
-    //TODO: Encontrar al usuario que inicia sesion
-    const userId = '64d2c84a8a39f00001e4c1ec';
+    const userId = localStorage.getItem('userId');
     const shippingCost = 20;
     const [items, setItems] = useState([]);
 

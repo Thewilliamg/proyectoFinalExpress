@@ -1,5 +1,5 @@
 import { useState } from "react";
-import textil from "@/img/textil-icon.svg";
+// import textil from "@/img/textil-icon.svg";
 import ceramic from "@/img/ceramics-icon.svg";
 import goldsmith from "@/img/goldsmith-icon.svg";
 import rockCarving from "@/img/rock-carving-icon.svg";

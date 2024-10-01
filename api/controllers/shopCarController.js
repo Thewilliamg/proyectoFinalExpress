@@ -95,15 +95,18 @@ exports.saveOrder = async (req, res) => {
 }
 
 exports.addToCar = async (req, res) => {
-  // const userId = new ObjectId(localStorage.getItem('userId'));
-  const userId = req.headers.userId;
-  const objectId = new ObjectId(userId);
+  const userId = req.headers.userid;
   const objectProductId = new ObjectId(req.params.productId);
-  console.log(objectId); console.log(objectProductId);
 
   try {
+    const existingItem = await addToCarModel.findOne({ userId: new ObjectId(userId), productId: new ObjectId(objectProductId) });
+    
+    if (existingItem) {
+      return res.status(409).json({ message: 'El producto ya está en el carrito.' });
+    }
+
     const objectToAdd = new addToCarModel({
-      userId: objectId,
+      userId: new ObjectId(userId),
       productId: objectProductId,
       quantity: 1
     })
