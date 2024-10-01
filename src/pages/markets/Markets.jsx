@@ -10,48 +10,45 @@ export default function Markets() {
       name: "Arte Abedui Aller Escalante",
       location: "Cusco",
       image: Cristo,
+      marketId:"64d2c84a8a39f00001e4c1e9"
     },
     {
       name: "Asoc. de artesanos Tinihuy",
       location: "Huánuco",
       image: Cristo,
+      marketId:"64d2c84a8a39f00001e4c1e9"
     },
     {
       name: "Retablos Jesús Urbano",
       location: "Ayacucho",
       image: Cristo,
+      marketId:"64d2c84a8a39f00001e4c1e9"
     },
     {
       name: "Taller Awaq Ayllu",
       location: "Ayacucho",
       image: Cristo,
+      marketId:"64d2c84a8a39f00001e4c1e9"
     },
 
     {
       name: "Taller Sanabria Nuñez",
       location: "Junín",
       image: Cristo,
+      marketId:"64d2c84a8a39f00001e4c1e9"
     },
     {
       name: "Taller Sanabria Nuñez",
       location: "Junín",
       image: Cristo,
+      marketId:"64d2c84a8a39f00001e4c1e9"
     },
     {
       name: "Taller Sanabria Nuñez",
       location: "Junín",
       image: Cristo,
-    },
-    {
-      name: "Taller Sanabria Nuñez",
-      location: "Junín",
-      image: Cristo,
-    },
-    {
-      name: "Lastenia Canayo",
-      location: "Ucayali",
-      image: Cristo,
-    },
+      marketId:"64d2c84a8a39f00001e4c1e8"
+    }
   ];
 
   return (
@@ -70,7 +67,7 @@ export default function Markets() {
       </div>
       <div className="grids grid-cols-2 gap-4">
         {workshops.map((workshop, index) => (
-          <Link to='/markets/products'>
+          <Link key={index+'key'} to={`/markets/${workshop.marketId}/products`}>
             <div
               key={index}
               className="bg-white rounded-lg overflow-hidden shadow-md"
