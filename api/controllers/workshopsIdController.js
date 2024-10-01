@@ -1,6 +1,11 @@
 const { WorShopId } = require("../model/worshopIdModel");
 const { ObjectId } = require('mongodb');
 
+/**
+ * Obtiene un taller por su ID
+ * @param {Object} req - Objeto de solicitud Express
+ * @param {Object} res - Objeto de respuesta Express
+ */
 exports.getWorkshopId = async(req, res) => {
     try {
         const id = new ObjectId(req.params.id)

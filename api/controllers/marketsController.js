@@ -1,5 +1,10 @@
 const AllMarkets = require("../model/marketsModel");
 
+/**
+ * Controlador para obtener todos los mercados
+ * @param {Object} req - Objeto de solicitud Express
+ * @param {Object} res - Objeto de respuesta Express
+ */
 exports.getAllMarkets = async (req, res) => {
     try {
         const markets = await AllMarkets.find({});

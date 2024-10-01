@@ -30,6 +30,7 @@ transform: translateX(0);
 
 .sidebar-profile img{
     height: 50%;
+    border-radius: 50%;
 }
 .nav-sidebar {
     width: 95%;
