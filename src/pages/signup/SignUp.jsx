@@ -7,6 +7,10 @@ import Email from '@/img/EmailIcon.svg';
 import Phone from '@/img/PhoneIcon.svg';
 
 export default function SignUp() {
+    const handleDiscordLogin = () => {
+        window.location.href = 'http://localhost:5001/auth/discord';
+    };
+
     return (
         <div className="signupBack">
                 <div className="signupTitle">
@@ -26,13 +30,12 @@ export default function SignUp() {
                         </button>
                     </Link>
                     <Link className='signupA'>
-                        <button className='signup_btn'>
-                            <span className='signupBtnSpan'>
-                                <img src= {Discord} alt="Gmail">
-                            </img>
-                            </span>
-                            <p className='signup_p2'>Regístrate con <span className='signupBtnSpan2'>Discord</span> </p>
-                        </button>
+                        <button className='signup_btn' onClick={handleDiscordLogin}>
+                        <span className='signupBtnSpan'>
+                            <img src={Discord} alt="Discord" />
+                        </span>
+                        <p className='signup_p2'>Regístrate con <span className='signupBtnSpan2'>Discord</span> </p>
+                    </button>
                     </Link>
                     <Link className='signupA'>
                         <button className='signup_btn'>
