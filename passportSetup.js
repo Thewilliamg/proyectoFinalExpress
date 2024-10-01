@@ -81,11 +81,31 @@ module.exports = (app) => {
       if (!user) {
         user = new User({
           googleId: profile.id,
-          username: profile.displayName,
+          name: profile.displayName,
           email: profile.emails[0].value,
-          avatar: profile.photos[0].value
+          urlPicture: profile.photos[0].value
         });
+
+        const email = profile.emails[0].value;
+
+        const getUserId = async () => {
+          try{
+            const userId = await fetch(`http://localhost:5001/api/search-email/${email}`,{
+              method: 'GET',
+              headers: {
+                'Content-Type': 'application/json',
+              }
+            })
+            return userId
+          } catch (error) {
+            console.error(error);
+            return null
+          }
+        }
+        const userid = getUserId()
+        console.log(userid);
         await user.save();
+
       }
       return done(null, user);
     } catch (err) {

@@ -3,11 +3,11 @@ const mongoose = require('mongoose');
 const userSchema = new mongoose.Schema({
   discordId: String,
   googleId: String,
-  username: String,
+  name: String,
   email: String,
-  avatar: String
+  urlPicture: String
 }, {
     versionKey: false 
   });
 
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model('User', userSchema, "Users");

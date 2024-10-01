@@ -99,6 +99,7 @@ app.get('/auth/google/callback', (req, res, next) => {
     failureRedirect: 'http://localhost:5173/signup',
     successRedirect: 'http://localhost:5173/home'
   })(req, res, next);
+  console.log(res);
 });
 
 /**

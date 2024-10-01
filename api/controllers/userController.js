@@ -1,4 +1,6 @@
 const { UserSignModel, UserPhoneModel, UserEmailModel,UserCouponModel, UserModel, getUserProfileSidebarModel } = require("../model/userModel");
+const { newUserSearcherModel } = require("../model/userDiscordModel");
+
 const bcrypt = require('bcrypt');
 const ObjectId = require('mongoose').Types.ObjectId;
 const defaultAvatar = 'https://media.istockphoto.com/id/1337144146/vector/default-avatar-profile-icon-vector.jpg?s=612x612&w=0&k=20&c=BIbFwuv7FxTWvh5S3vB6bkT0Qv8Vn8N5Ffseq84ClGI='
@@ -242,3 +244,17 @@ exports.getuserProfileSidebar = async (req, res) => {
         res.status(500).json({ message: 'Error al autenticar el usuario', error: error.message });
     }
 }
+
+exports.searchUserId = async (req, res) => {
+    const email = req.params.email;
+    try {
+      const user = await newUserSearcherModel.findOne({ email: email }, { _id: 1 });
+      if (!user) {
+        return res.status(400).json({ message: "Error de solicitud" });
+      }
+  
+      res.status(200).json(user._id);
+    } catch (error) {
+      res.status(500).json({ message: "Error al obtener el email del usuario." });
+    }
+  };
