@@ -1,7 +1,8 @@
 import "./home.css";
 import SearchBar from "./components/search-bar";
 import FooterNavbar from "./components/footer-navbar";
-import { useState} from 'react';
+import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import Sidebar from "./components/sidebar/sidebar";
 import textil from "@/img/textil-icon.svg";
 import leftTriangle from "@/img/square-brown-figure.svg";
@@ -12,15 +13,25 @@ import rockCarving from "@/img/rock-carving-icon.svg";
 import woodCarving from "@/img/wood-carving.svg";
 import embroidery from "@/img/embroidery-icon.svg";
 import jewelry from "@/img/jewelry-icon.svg";
-import tinsmith from "@/img/tinsmith-icon.svg"
+import tinsmith from "@/img/tinsmith-icon.svg";
 import stamp from "@/img/stamping-icon.svg";
 import paint from "@/img/paint-icon.svg";
 import square from "@/img/square.svg";
 import homeFigure from "@/img/home-figure-bottom.svg";
 
 export default function Home({page=HomePage()}) {
-
     const [isOpen, setIsOpen] = useState(false);
+    const location = useLocation();
+
+    useEffect(() => {
+        const params = new URLSearchParams(location.search);
+        const userId = params.get('userId');
+        if (userId) {
+            localStorage.setItem('userId', userId);
+            console.log('UserId guardado en localStorage:', userId);
+            // Aquí puedes agregar lógica adicional si es necesario
+        }
+    }, [location]);
 
     const clickedMenu = () => {
         setIsOpen(!isOpen);
@@ -41,13 +52,17 @@ export default function Home({page=HomePage()}) {
 }
 
 function HomePage() {
-
     const dataCategories = [
-        {icon:textil, title:"Textileria",href:'textil'},{icon:ceramic, title:"Ceramica",href:'ceramica'},
-        {icon:goldsmith, title:"Orfebreria",href:'orfebreria'},{icon:rockCarving, title:"Talla en piedra",href:'talla_piedra'},
-        {icon:woodCarving, title:"Talla en madera",href:'talla_madera'},{icon:embroidery, title:"Bordado",href:'bordado'},
-        {icon:jewelry, title:"Joyeria",href:'joyeria'},{icon:tinsmith, title:"Hojalateria",href:'hojalateria'},
-        {icon:stamp, title:"Estampado",href:'estampado'},{icon:paint, title:"Pintura tradicional",href:'pintura'}
+        {icon:textil, title:"Textileria",href:'textil'},
+        {icon:ceramic, title:"Ceramica",href:'ceramica'},
+        {icon:goldsmith, title:"Orfebreria",href:'orfebreria'},
+        {icon:rockCarving, title:"Talla en piedra",href:'talla_piedra'},
+        {icon:woodCarving, title:"Talla en madera",href:'talla_madera'},
+        {icon:embroidery, title:"Bordado",href:'bordado'},
+        {icon:jewelry, title:"Joyeria",href:'joyeria'},
+        {icon:tinsmith, title:"Hojalateria",href:'hojalateria'},
+        {icon:stamp, title:"Estampado",href:'estampado'},
+        {icon:paint, title:"Pintura tradicional",href:'pintura'}
     ]
 
     return(
@@ -56,7 +71,6 @@ function HomePage() {
                 <div className="localizate-bar">
                     <img src={localizate} alt="icon-localization" />
                     <input type="text" placeholder="Ubicacion de energía actual"/>
-                    
                 </div>
                 <div className="title-page-home">
                     <img width="9%" src={leftTriangle} alt="triangle" />
