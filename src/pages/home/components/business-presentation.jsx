@@ -1,20 +1,17 @@
 import QRCode from "react-qr-code";
 import Pinchitos from "../storage/img/pinchito-business.svg";
 import GoBackArrow from "../../components/backArrow";
-import { Link, useLocation, useParams } from "react-router-dom";
-import Video from "../storage/img/video-business.svg";
+import { Link, useParams } from "react-router-dom";
 import "./business-presentation.css";
 import { useEffect, useState } from "react";
 
 export default function Business() {
-  const [workShop, setWorkshop] = useState([]);
+  const [workShop, setWorkshop] = useState({});
   const { id } = useParams();
-  // const location = useLocation();
-  // const workshopId = location.state?.workshopId;
 
   useEffect(() => {
     fetchWorkshopId();
-  }, []);
+  }, [id]);
 
   const fetchWorkshopId = async () => {
     try {
@@ -31,6 +28,15 @@ export default function Business() {
     }
   };
 
+  // Función para extraer el ID del video de YouTube
+  const getYouTubeVideoId = (url) => {
+    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+    const match = url.match(regExp);
+    return (match && match[2].length === 11) ? match[2] : null;
+  };
+
+  const videoId = workShop.video ? getYouTubeVideoId(workShop.video) : null;
+
   return (
     <article className="business-container">
       <Link to="/workshops">
@@ -38,7 +44,7 @@ export default function Business() {
       </Link>
 
       <div className="arribita-container">
-        <img src={Pinchitos} className="pinchitos" />
+        <img src={Pinchitos} className="pinchitos" alt="Pinchitos" />
         <div className="arribita-chiquito">
           <p>{workShop.description}</p>
         </div>
@@ -47,17 +53,20 @@ export default function Business() {
         <div className="mitad-container">
           <p>{workShop.name}</p>
           <div className="mitad-chiquito">
-            <iframe
-              width="560"
-              height="315"
-              src={workShop.video || "video"}
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen
-              className="img-mitad"
-            />
+            {videoId ? (
+              <iframe
+                width="560"
+                height="315"
+                src={`https://www.youtube.com/embed/${videoId}`}
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                className="img-mitad"
+              />
+            ) : (
+              <p>Video no disponible</p>
+            )}
           </div>
         </div>
 
@@ -69,10 +78,10 @@ export default function Business() {
           <div className="abajito-chiquito">
             <QRCode
               value="/workshop"
-              size={120} // tamaño del QR
-              fgColor="#500c06" // color del frente
-              bgColor="#ffffff" // color del fondo
-              level="H" // nivel de corrección de errores (L, M, Q, H)
+              size={120}
+              fgColor="#500c06"
+              bgColor="#ffffff"
+              level="H"
             />
           </div>
         </div>
