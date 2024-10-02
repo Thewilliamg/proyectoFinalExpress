@@ -42,7 +42,7 @@ module.exports = (app) => {
     if (!user) {
       user = new User({
         email: profile.email,
-        name: profile.username || profile.displayName,
+        name: profile.name || profile.displayName,
         urlPicture: profile.avatar || profile.photos[0].value
       });
     }

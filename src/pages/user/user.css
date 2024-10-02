@@ -49,6 +49,7 @@
     border: 4px solid #9D1A1A;
     min-width: 12em;
     min-height: 12em;
+    max-height: 8rem;
 }
 
 .uploadImage{

@@ -8,7 +8,7 @@ export default function User() {
   const [profileImage, setProfileImage] = useState(Profile);
   const [data, setData] = useState({});
   const [isEditing, setIsEditing] = useState({});
-  const id = localStorage.getItem('userId');
+  const id = localStorage.getItem("userId");
 
   useEffect(() => {
     fetchUserData();
@@ -24,17 +24,17 @@ export default function User() {
   };
 
   const formatDateForInput = (isoDate) => {
-    if (!isoDate) return '';
+    if (!isoDate) return "";
     const date = new Date(isoDate);
-    return date.toISOString().split('T')[0]; // This will return yyyy-mm-dd
+    return date.toISOString().split("T")[0]; // This will return yyyy-mm-dd
   };
 
   const getGenderValue = (gender) => {
-    if (!gender) return 'otro';
+    if (!gender) return "otro";
     const lowerGender = gender.toLowerCase();
-    if (lowerGender.startsWith('m')) return 'masculino';
-    if (lowerGender.startsWith('f')) return 'femenino';
-    return 'otro';
+    if (lowerGender.startsWith("m")) return "masculino";
+    if (lowerGender.startsWith("f")) return "femenino";
+    return "otro";
   };
 
   const handleImageChange = async (event) => {
@@ -43,23 +43,26 @@ export default function User() {
       const reader = new FileReader();
       reader.onload = async (e) => {
         setProfileImage(e.target.result);
-        
+
         // Upload the image to the server
         const formData = new FormData();
-        formData.append('image', file);
-        
+        formData.append("image", file);
+
         try {
-          const response = await fetch(`http://localhost:5001/api/user/${id}/image`, {
-            method: 'POST',
-            body: formData,
-          });
+          const response = await fetch(
+            `http://localhost:5001/api/user/${id}/image`,
+            {
+              method: "POST",
+              body: formData,
+            }
+          );
           if (response.ok) {
             fetchUserData(); // Refresh user data to get the new image URL
           } else {
-            console.error('Failed to upload image');
+            console.error("Failed to upload image");
           }
         } catch (error) {
-          console.error('Error uploading image:', error);
+          console.error("Error uploading image:", error);
         }
       };
       reader.readAsDataURL(file);
@@ -71,33 +74,33 @@ export default function User() {
   };
 
   const handleEditClick = (field) => {
-    setIsEditing(prev => ({ ...prev, [field]: true }));
+    setIsEditing((prev) => ({ ...prev, [field]: true }));
   };
 
   const handleSave = async (field) => {
-    setIsEditing(prev => ({ ...prev, [field]: false }));
-    
+    setIsEditing((prev) => ({ ...prev, [field]: false }));
+
     try {
       const response = await fetch(`http://localhost:5001/api/user/${id}`, {
-        method: 'PATCH',
+        method: "PATCH",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({ [field]: data[field] }),
       });
-      
+
       if (response.ok) {
         fetchUserData(); // Refresh user data
       } else {
-        console.error('Failed to update user data');
+        console.error("Failed to update user data");
       }
     } catch (error) {
-      console.error('Error updating user data:', error);
+      console.error("Error updating user data:", error);
     }
   };
 
   const handleInputChange = (field, value) => {
-    setData(prev => ({ ...prev, [field]: value }));
+    setData((prev) => ({ ...prev, [field]: value }));
   };
 
   return (
@@ -106,7 +109,7 @@ export default function User() {
         <h1>Foto de perfil</h1>
         <div className="userProfile">
           <div className="container-img-userprof">
-            <img src={data?.urlPicture || profileImage} alt="user" className="img-profile" />
+            <img src={data?.urlPicture} alt="user" className="img-profile" />
           </div>
           <img
             src={Edit}
@@ -130,14 +133,17 @@ export default function User() {
             <input
               type="text"
               id="userInput"
-              value={data?.name || ''}
-              onChange={(e) => handleInputChange('name', e.target.value)}
+              value={data?.name || ""}
+              onChange={(e) => handleInputChange("name", e.target.value)}
               readOnly={!isEditing.name}
             />
             {isEditing.name ? (
-              <button onClick={() => handleSave('name')}>Guardar</button>
+              <button onClick={() => handleSave("name")}>Guardar</button>
             ) : (
-              <a className="userMiddle_A" onClick={() => handleEditClick('name')}>
+              <a
+                className="userMiddle_A"
+                onClick={() => handleEditClick("name")}
+              >
                 <img src={Edit2} alt="Edit2" />
               </a>
             )}
@@ -147,21 +153,24 @@ export default function User() {
             <input
               type="text"
               id="userInput2"
-              value={data?.email || ''}
-              onChange={(e) => handleInputChange('email', e.target.value)}
+              value={data?.email || ""}
+              onChange={(e) => handleInputChange("email", e.target.value)}
               readOnly={!isEditing.email}
             />
             {isEditing.email ? (
-              <button onClick={() => handleSave('email')}>Guardar</button>
+              <button onClick={() => handleSave("email")}>Guardar</button>
             ) : (
-              <a className="userMiddle_A2" onClick={() => handleEditClick('email')}>
+              <a
+                className="userMiddle_A2"
+                onClick={() => handleEditClick("email")}
+              >
                 <img src={Edit2} alt="Edit2" />
               </a>
             )}
           </div>
           <div className="userMiddle_Input3">
             <h1>Celular: </h1>
-            <select id="options" name="celular" defaultValue={'+57'}>
+            <select id="options" name="celular" defaultValue={"+57"}>
               <option value="opcion1">+1</option>
               <option value="opcion2">+20</option>
               <option value="opcion3">+27</option>
@@ -335,14 +344,17 @@ export default function User() {
             <input
               type="text"
               id="userInput3"
-              value={data?.numberPhone || ''}
-              onChange={(e) => handleInputChange('numberPhone', e.target.value)}
+              value={data?.numberPhone || ""}
+              onChange={(e) => handleInputChange("numberPhone", e.target.value)}
               readOnly={!isEditing.numberPhone}
             />
             {isEditing.numberPhone ? (
-              <button onClick={() => handleSave('numberPhone')}>Guardar</button>
+              <button onClick={() => handleSave("numberPhone")}>Guardar</button>
             ) : (
-              <a className="userMiddle_A3" onClick={() => handleEditClick('numberPhone')}>
+              <a
+                className="userMiddle_A3"
+                onClick={() => handleEditClick("numberPhone")}
+              >
                 <img src={Edit2} alt="Edit2" />
               </a>
             )}
@@ -353,7 +365,7 @@ export default function User() {
               id="sexOptions"
               name="sexo"
               value={getGenderValue(data?.gender)}
-              onChange={(e) => handleInputChange('gender', e.target.value)}
+              onChange={(e) => handleInputChange("gender", e.target.value)}
               disabled={!isEditing.gender}
             >
               <option value="femenino">F</option>
@@ -361,9 +373,12 @@ export default function User() {
               <option value="otro">Otro</option>
             </select>
             {isEditing.gender ? (
-              <button onClick={() => handleSave('gender')}>Guardar</button>
+              <button onClick={() => handleSave("gender")}>Guardar</button>
             ) : (
-              <a className="userMiddle_A41" onClick={() => handleEditClick('gender')}>
+              <a
+                className="userMiddle_A41"
+                onClick={() => handleEditClick("gender")}
+              >
                 <img src={Edit2} alt="Edit2" />
               </a>
             )}
@@ -372,13 +387,16 @@ export default function User() {
               type="date"
               id="userInput4"
               value={formatDateForInput(data?.birthDate)}
-              onChange={(e) => handleInputChange('birthDate', e.target.value)}
+              onChange={(e) => handleInputChange("birthDate", e.target.value)}
               readOnly={!isEditing.birthDate}
             />
             {isEditing.birthDate ? (
-              <button onClick={() => handleSave('birthDate')}>Guardar</button>
+              <button onClick={() => handleSave("birthDate")}>Guardar</button>
             ) : (
-              <a className="userMiddle_A4" onClick={() => handleEditClick('birthDate')}>
+              <a
+                className="userMiddle_A4"
+                onClick={() => handleEditClick("birthDate")}
+              >
                 <img src={Edit2} alt="Edit2" />
               </a>
             )}

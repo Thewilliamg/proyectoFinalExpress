@@ -1,8 +1,8 @@
 import "./home.css";
 import SearchBar from "./components/search-bar";
 import FooterNavbar from "./components/footer-navbar";
-import { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import Sidebar from "./components/sidebar/sidebar";
 import textil from "@/img/textil-icon.svg";
 import leftTriangle from "@/img/square-brown-figure.svg";
@@ -19,97 +19,111 @@ import paint from "@/img/paint-icon.svg";
 import square from "@/img/square.svg";
 import homeFigure from "@/img/home-figure-bottom.svg";
 
-export default function Home({page=HomePage()}) {
-    const [isOpen, setIsOpen] = useState(false);
-    const location = useLocation();
+export default function Home({ page = HomePage() }) {
+  const [isOpen, setIsOpen] = useState(false);
+  const [userId, setUserId] = useState(null);
+  const location = useLocation();
 
-    useEffect(() => {
-        const params = new URLSearchParams(location.search);
-        const userId = params.get('userId');
-        if (userId) {
-            localStorage.setItem('userId', userId);
-            console.log('UserId guardado en localStorage:', userId);
-            // Aquí puedes agregar lógica adicional si es necesario
-        }
-    }, [location]);
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const fetchedUserId = params.get("userId");
+    if (fetchedUserId) {
+      localStorage.setItem("userId", fetchedUserId);
+      setUserId(fetchedUserId);
+      console.log("UserId guardado en localStorage:", fetchedUserId);
+      // Aquí puedes agregar lógica adicional si es necesario
+    } else {
+      // Si no hay userId en los parámetros, intenta obtenerlo de localStorage
+      const storedUserId = localStorage.getItem("userId");
+      if (storedUserId) {
+        setUserId(storedUserId);
+      }
+    }
+  }, [location]);
 
-    const clickedMenu = () => {
-        setIsOpen(!isOpen);
-    };
-    
-    return (
-        <div className="home-page">
-            <SearchBar isOpen={isOpen} clickedMenu={clickedMenu}/>
-            <div className="all-container-home">
-                <Sidebar isOpen={isOpen}/>
-                <div className="home-container">
-                    {page}
-                </div>
-            </div>
-            <FooterNavbar />
-        </div>
-    )
+  const clickedMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
+  return (
+    <div className="home-page">
+      <SearchBar isOpen={isOpen} clickedMenu={clickedMenu} />
+      <div className="all-container-home">
+        <Sidebar isOpen={isOpen} userId={userId} />
+        <div className="home-container">{page}</div>
+      </div>
+      <FooterNavbar />
+    </div>
+  );
 }
 
 function HomePage() {
-    const dataCategories = [
-        {icon:textil, title:"Textileria",href:'textil'},
-        {icon:ceramic, title:"Ceramica",href:'ceramica'},
-        {icon:goldsmith, title:"Orfebreria",href:'orfebreria'},
-        {icon:rockCarving, title:"Talla en piedra",href:'talla_piedra'},
-        {icon:woodCarving, title:"Talla en madera",href:'talla_madera'},
-        {icon:embroidery, title:"Bordado",href:'bordado'},
-        {icon:jewelry, title:"Joyeria",href:'joyeria'},
-        {icon:tinsmith, title:"Hojalateria",href:'hojalateria'},
-        {icon:stamp, title:"Estampado",href:'estampado'},
-        {icon:paint, title:"Pintura tradicional",href:'pintura'}
-    ]
+  const dataCategories = [
+    { icon: textil, title: "Textileria", href: "textil" },
+    { icon: ceramic, title: "Ceramica", href: "ceramica" },
+    { icon: goldsmith, title: "Orfebreria", href: "orfebreria" },
+    { icon: rockCarving, title: "Talla en piedra", href: "talla_piedra" },
+    { icon: woodCarving, title: "Talla en madera", href: "talla_madera" },
+    { icon: embroidery, title: "Bordado", href: "bordado" },
+    { icon: jewelry, title: "Joyeria", href: "joyeria" },
+    { icon: tinsmith, title: "Hojalateria", href: "hojalateria" },
+    { icon: stamp, title: "Estampado", href: "estampado" },
+    { icon: paint, title: "Pintura tradicional", href: "pintura" },
+  ];
 
-    return(
-        <div className="homepage-view">
-            <div className="top-homepage">
-                <div className="localizate-bar">
-                    <img src={localizate} alt="icon-localization" />
-                    <input type="text" placeholder="Ubicacion de energía actual"/>
-                </div>
-                <div className="title-page-home">
-                    <img width="9%" src={leftTriangle} alt="triangle" />
-                    <h1>Categorías</h1>
-                </div>
-            </div>
-
-            <div className="categories-container">
-                {dataCategories.map((item,index)=>{
-                    return (
-                        <a href={'/categories?cat='+item.href} key={'icon'+index} className="box-categorie-home">
-                            <img src={item.icon} alt="icon" />
-                            <small>{item.title}</small>
-                        </a>
-                    )})
-                }
-            </div>
-            
-            <div className="courses-all-container">
-                <div className="courses-info-container">
-                    <div className="home-dots-square">
-                        <img src={square} alt="dotTriangle" />
-                        <img src={square} alt="dotTriangle" />
-                        <img src={square} alt="dotTriangle" />
-                        <img src={square} alt="dotTriangle" />
-                        <img src={square} alt="dotTriangle" />
-                    </div>
-                    <h1>Talleres del mes</h1>
-                    <div className="home-dots-square">
-                        <img src={square} alt="dotTriangle" />
-                        <img src={square} alt="dotTriangle" />
-                        <img src={square} alt="dotTriangle" />
-                        <img src={square} alt="dotTriangle" />
-                        <img src={square} alt="dotTriangle" />
-                    </div>
-                </div>
-                <p>¡Aprende como hacerlos en estos talleres educativos!</p>
-                <img className="home-figure" src={homeFigure} alt="figure-home-course" />
-            </div>
+  return (
+    <div className="homepage-view">
+      <div className="top-homepage">
+        <div className="localizate-bar">
+          <img src={localizate} alt="icon-localization" />
+          <input type="text" placeholder="Ubicacion de energía actual" />
         </div>
-    )
+        <div className="title-page-home">
+          <img width="9%" src={leftTriangle} alt="triangle" />
+          <h1>Categorías</h1>
+        </div>
+      </div>
+
+      <div className="categories-container">
+        {dataCategories.map((item, index) => {
+          return (
+            <a
+              href={"/categories?cat=" + item.href}
+              key={"icon" + index}
+              className="box-categorie-home"
+            >
+              <img src={item.icon} alt="icon" />
+              <small>{item.title}</small>
+            </a>
+          );
+        })}
+      </div>
+
+      <div className="courses-all-container">
+        <div className="courses-info-container">
+          <div className="home-dots-square">
+            <img src={square} alt="dotTriangle" />
+            <img src={square} alt="dotTriangle" />
+            <img src={square} alt="dotTriangle" />
+            <img src={square} alt="dotTriangle" />
+            <img src={square} alt="dotTriangle" />
+          </div>
+          <h1>Talleres del mes</h1>
+          <div className="home-dots-square">
+            <img src={square} alt="dotTriangle" />
+            <img src={square} alt="dotTriangle" />
+            <img src={square} alt="dotTriangle" />
+            <img src={square} alt="dotTriangle" />
+            <img src={square} alt="dotTriangle" />
+          </div>
+        </div>
+        <p>¡Aprende como hacerlos en estos talleres educativos!</p>
+        <img
+          className="home-figure"
+          src={homeFigure}
+          alt="figure-home-course"
+        />
+      </div>
+    </div>
+  );
 }
