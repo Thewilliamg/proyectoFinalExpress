@@ -51,6 +51,14 @@ export default function Login_User() {
             }
         };
 
+        function handleSessiontTimeOut(){
+            const delay = 50000 //milliseconds
+            setTimeout(() => {
+                alert('Sesion expirada');
+                localStorage.removeItem('userId');
+            }, delay);
+        }
+
     return (
         <div>
             <div className='userBackground'>
@@ -85,7 +93,7 @@ export default function Login_User() {
                 </div>
                 {error && <p className="error-message">{error}</p>}
                 <div className='userForm-middle'>
-                    <button type="submit"><p>Iniciar sesión</p></button>
+                    <button type="submit" onClick={handleSessiontTimeOut}><p>Iniciar sesión</p></button>
                     <Link to="">Olvidaste tu contraseña</Link>
                     <Link to="/signup/register">Registrarse</Link>
                 </div>
