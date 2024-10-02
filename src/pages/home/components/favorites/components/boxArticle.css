@@ -11,6 +11,7 @@
     position: relative; /* Esto permite que los elementos internos se posicionen de forma absoluta en relación con este contenedor */
     width: 100%;
     height: 100%;
+    max-height: 74%;
     border-radius: 0.5rem;
     /* box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3); */
 }
@@ -50,11 +51,11 @@
 /* Estilo para el botón de cerrar (X) */
 .buttonX {
     position: absolute;
-    top: -9px; /* Ajusta la distancia desde la parte superior */
-    right: -5px; /* Ajusta la distancia desde la derecha */
+    top: -15px; /* Ajusta la distancia desde la parte superior */
+    right: -9px; /* Ajusta la distancia desde la derecha */
     background-color: transparent;
     border: none;
-    font-size: 1.2rem;
+    font-size: 2rem;
     color: #FFA800; /* Color de la "X" */
     cursor: pointer;
     z-index: 1; /* Asegura que esté por encima de otros elementos */
