@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import PrivateRoute from "./privateRoute.jsx";
 
 import Home from './pages/home/Home.jsx';
 import Start from './pages/start/Start.jsx';
@@ -34,29 +35,29 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route index element= {<Start/>}/>
-        <Route path="/customer_service" element={<Service/> } />  //Ruta para pantalla 25
-        <Route path="/workshops" element={<Workshop />} />
-        <Route path="/workshops/info" element={<WorkshopsInfo/> } /> //Ruta para pantalla 28
-        <Route path='/workshops/business-presentation' element={<Business />}/>
-        <Route path='/categories' element={<Categories />}/>
-        <Route path='/community' element={<Community />} />
-        <Route path='/coupons' element={<Coupon />} />
-        <Route path="/favorites" element={<Favorites/> } />
-        <Route path="/settings" element={<Settings/> } />
+        <Route path="/customer_service" element={<PrivateRoute><Service/></PrivateRoute> } />  //Ruta para pantalla 25
+        <Route path="/workshops" element={<PrivateRoute><Workshop /></PrivateRoute>} />
+        <Route path="/workshops/info" element={<PrivateRoute><WorkshopsInfo/></PrivateRoute> } /> //Ruta para pantalla 28
+        <Route path='/workshops/business-presentation' element={<PrivateRoute><Business/></PrivateRoute>}/>
+        <Route path='/categories' element={<PrivateRoute><Categories /></PrivateRoute>}/>
+        <Route path='/community' element={<PrivateRoute><Community /></PrivateRoute>} />
+        <Route path='/coupons' element={<PrivateRoute><Coupon /></PrivateRoute>} />
+        <Route path="/favorites" element={<PrivateRoute><Favorites/></PrivateRoute> } />
+        <Route path="/settings" element={<PrivateRoute><Settings/></PrivateRoute> } />
         {/* //Rutas de descuentos */}
-        <Route path="/home" element={<Home/>}/>
-        <Route path="/discounts" element={<Home page={<Discounts/>}/>} />
-        <Route path="/discounts/product" element={<Parrafito />} />
+        <Route path="/home" element={<PrivateRoute><Home/></PrivateRoute>}/>
+        <Route path="/discounts" element={<PrivateRoute><Home page={<Discounts/>}/></PrivateRoute>} />
+        <Route path="/discounts/product" element={<PrivateRoute><Parrafito /></PrivateRoute>} />
         {/* Rutas de tiendas*/ }
-        <Route path="/markets" element={<Home page={<Markets/>}/>} />
-        <Route path="/markets/:marketId/products" element={<Products />} />
-        <Route path="/markets/:marketId/products/details/:productId" element={<ProductDetails />} />
+        <Route path="/markets" element={<PrivateRoute><Home page={<Markets/>}/></PrivateRoute>} />
+        <Route path="/markets/:marketId/products" element={<PrivateRoute><Products /></PrivateRoute>} />
+        <Route path="/markets/:marketId/products/details/:productId" element={<PrivateRoute><ProductDetails /></PrivateRoute>} />
         {/* Rutas de comprar */}
-        <Route path="/shop" element={<Home page={<Shop/>}/>} />
-        <Route path="/orders" element={<Order />}/> 
-        <Route path="/shop/confirmation" element={<Confirmation />} />
+        <Route path="/shop" element={<PrivateRoute><Home page={<Shop/>}/></PrivateRoute>} />
+        <Route path="/orders" element={<PrivateRoute><Order /></PrivateRoute>}/> 
+        <Route path="/shop/confirmation" element={<PrivateRoute><Confirmation /></PrivateRoute>} />
         {/* Rutas de perfil de usuario */}
-        <Route path='/user' element={<Home page={<User/>}/>} />
+        <Route path='/user' element={<PrivateRoute><Home page={<User/>}/></PrivateRoute>} />
         {/* Rutas de registro */}   
         <Route path='/login' element={<Login />} />
         <Route path='/login/user' element={<Login_User />} />                      
@@ -65,7 +66,7 @@ function App() {
         <Route path='/signup/email/policy' element={<EmailPolicy />} />
         <Route path='/signup/register' element={<Register />} /> 
         <Route path='/signup/register/policy' element={<Policy />} />      
-        <Route path='/customer_service/chat' element={<Chat/>} />
+        <Route path='/customer_service/chat' element={<PrivateRoute><Chat/></PrivateRoute>} />
       </Routes>
   </BrowserRouter>
   )

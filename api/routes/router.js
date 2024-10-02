@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const isAuthenticated = require('../middlewares/auth'); 
 
 const { getProductDiscount, getProductIdDiscount } = require('../controllers/productDiscountController');
 const { getCategory } = require('../controllers/categoryController');
@@ -26,27 +27,27 @@ const userValidator = require('../validators/userValidator');
 // const workshopValidator = require('../validators/userValidator');
 const shoppingCartValidator = require('../validators/userValidator');
 
-router.get('/discounts', getProductDiscount)
-router.get('/discounts/category', getCategory)
-router.get('/discounts/product/:id', getProductIdDiscount)
-router.get('/favorites/:id', getProductFavorites)
-router.get('/workshop/:id', getWorkshopId)
-router.get('/workshops/info/:id', getWorkshopInfo)
-router.get('/markets',getAllMarkets);
-router.get('/workshops', getAllWorkshops)
-router.get('/coupon/:userid', getCoupoonUser)
-router.get('/user/:id', getUserById);
+router.get('/discounts',isAuthenticated, getProductDiscount)
+router.get('/discounts/category', isAuthenticated,getCategory)
+router.get('/discounts/product/:id', isAuthenticated,getProductIdDiscount)
+router.get('/favorites/:id', isAuthenticated,getProductFavorites)
+router.get('/workshop/:id',isAuthenticated, getWorkshopId)
+router.get('/workshops/info/:id', isAuthenticated,getWorkshopInfo)
+router.get('/markets',isAuthenticated,getAllMarkets);
+router.get('/workshops',isAuthenticated, getAllWorkshops)
+router.get('/coupon/:userid', isAuthenticated,getCoupoonUser)
+router.get('/user/:id', isAuthenticated,getUserById);
 router.post('/signup/phoneNumber', userValidator, registerUserNumber)
 router.post('/signup/email', userValidator, registerUserEmail)
 router.post('/login/user', userValidator, loginUser)
-router.get('/markets/:marketId/products',getAllproductsByMarket);
-router.get('/product/details/:id',getProduct);
-router.get('/products',getAllproducts);
-router.get('/shop/:userId',getAllItemsShopCar);
-router.post('/new-shop',shoppingCartValidator,saveOrder);
-router.post('/items/car/:productId',addToCar)
-router.get('/orders/user/:userId',getAllPurchaseOrderByUser);
-router.get('/sidebar/:userId',getuserProfileSidebar);
-router.get('/search-email/:email',searchUserId);
+router.get('/markets/:marketId/products',isAuthenticated,getAllproductsByMarket);
+router.get('/product/details/:id',isAuthenticated,getProduct);
+router.get('/products',isAuthenticated,getAllproducts);
+router.get('/shop/:userId',isAuthenticated,getAllItemsShopCar);
+router.post('/new-shop',isAuthenticated,shoppingCartValidator,saveOrder);
+router.post('/items/car/:productId',isAuthenticated,addToCar)
+router.get('/orders/user/:userId',isAuthenticated,getAllPurchaseOrderByUser);
+router.get('/sidebar/:userId',isAuthenticated,getuserProfileSidebar);
+router.get('/search-email/:email',isAuthenticated,searchUserId);
 
 module.exports = router;
