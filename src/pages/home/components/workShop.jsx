@@ -1,17 +1,21 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import GoBackArrow from "../../components/backArrow";
 import Title from "../storage/img/Rectangle-86.svg";
 import Search from "../storage/img/Group-6.svg";
-import Flower from "../storage/img/Rectangle-51.png";
 
 export default function Workshop() {
   const [busqueda, setBusqueda] = useState("");
   const [workShops, setWorkshops] = useState([]);
+  const [filteredWorkShops, setFilteredWorkShops] = useState([]);
 
   useEffect(() => {
     fetchWorkshops();
   }, []);
+
+  useEffect(() => {
+    filterWorkshops();
+  }, [busqueda, workShops]);
 
   const fetchWorkshops = async () => {
     try {
@@ -21,9 +25,19 @@ export default function Workshop() {
       }
       const data = await response.json();
       setWorkshops(data);
+      setFilteredWorkShops(data);
     } catch (error) {
-      console.error(error); // Manejo de errores
+      console.error(error);
     }
+  };
+
+  const filterWorkshops = () => {
+    const filtered = workShops.filter((workshop) =>
+      workshop.name.toLowerCase().includes(busqueda.toLowerCase()) ||
+      workshop.description.toLowerCase().includes(busqueda.toLowerCase()) ||
+      workshop.markets.name.toLowerCase().includes(busqueda.toLowerCase())
+    );
+    setFilteredWorkShops(filtered);
   };
 
   const manejarCambio = (e) => {
@@ -32,7 +46,7 @@ export default function Workshop() {
 
   const manejarSubmit = (e) => {
     e.preventDefault();
-    alert(`Buscaste: ${busqueda}`);
+    filterWorkshops();
   };
 
   return (
@@ -61,32 +75,31 @@ export default function Workshop() {
         </div>
       </form>
       <div className="container-cards">
-        {workShops.length > 0 ? (
-          workShops.map((worshop, index) => (
+        {filteredWorkShops.length > 0 ? (
+          filteredWorkShops.map((workshop, index) => (
             <div className="card-items" key={index}>
               <div className="container-items">
                 <div className="card-img">
                   <img
-                    src={worshop.picture}
+                    src={workshop.picture}
                     className="img-item"
-                    alt={worshop.name}
+                    alt={workshop.name}
                   />
                 </div>
                 <div className="item-container">
                   <div className="text-item-container">
                     <strong>
-                      <p>{worshop.name}</p>
+                      <p>{workshop.name}</p>
                     </strong>
-                    <Link to={`/workshops/info/${worshop._id}`} className="workshop-letterp">
+                    <Link to={`/workshops/info/${workshop._id}`} className="workshop-letterp">
                       <p>Para el publico en general</p>
                     </Link>
-                    <p>{worshop.description}</p>
-                    <p>{worshop.markets.name}</p>
+                    <p>{workshop.description}</p>
+                    <p>{workshop.markets.name}</p>
                   </div>
                   <button className="button-item">
                     <Link
-                      // state={{ workshopId: worshop.markets }}
-                      to={`business-presentation/${worshop.markets._id}`}
+                      to={`business-presentation/${workshop.markets._id}`}
                       className="text-button"
                     >
                       Entérate más sobre el taller aquí

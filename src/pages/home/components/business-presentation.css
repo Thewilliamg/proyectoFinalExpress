@@ -85,6 +85,7 @@
     background: #703A31;
     gap: 1rem;
     border-radius: 10px;
+    min-height: 12rem;
 }
 
 .img-item{
