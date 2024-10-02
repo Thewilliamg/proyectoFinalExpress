@@ -3,7 +3,7 @@ const router = express.Router();
 
 const { getProductDiscount, getProductIdDiscount } = require('../controllers/productDiscountController');
 const { getCategory } = require('../controllers/categoryController');
-const { getProductFavorites, addProductToFavorites } = require('../controllers/productFavoritesController');
+const { getProductFavorites, addProductToFavorites, removeProductFromFavorites } = require('../controllers/productFavoritesController');
 const { getWorkshopId } = require('../controllers/workshopsIdController');
 
 const {getAllMarkets} = require('../controllers/marketsController');
@@ -31,6 +31,7 @@ router.get('/discounts/category', getCategory)
 router.get('/discounts/product/:id', getProductIdDiscount)
 router.get('/favorites/:id', getProductFavorites)
 router.post('/product/favorite', addProductToFavorites)
+router.delete('/product/favorite/delete', removeProductFromFavorites)
 router.get('/workshop/:id', getWorkshopId)
 router.get('/workshops/info/:id', getWorkshopInfo)
 router.get('/markets',getAllMarkets);

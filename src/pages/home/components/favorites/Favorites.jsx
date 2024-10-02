@@ -50,7 +50,7 @@ export default function Favorites() {
       const filteredFavorites = data.data.filter(item => 
         item.productos.categoryId === selectedCategory
       );
-      
+
       setFavorites(filteredFavorites);
     } catch (error) {
       console.error("Error fetching favorites:", error);
@@ -90,6 +90,7 @@ export default function Favorites() {
             texto1: item.productos.name,
             texto2: item.productos.price,
             texto3: item.market.name,
+            productId: item.productos._id
           }))}
         />
       ) : (

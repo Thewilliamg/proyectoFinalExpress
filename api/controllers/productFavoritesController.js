@@ -93,3 +93,31 @@ exports.addProductToFavorites = async (req, res) => {
       });
   }
 };
+
+exports.removeProductFromFavorites = async (req, res) => {
+  try {
+      const { userId, productId } = req.body;
+
+      // Busca al usuario por su _id
+      const user = await productsFavoriteSchema.findById(new ObjectId(userId));
+
+      // Filtra el array de favoritos para eliminar el productId
+      user.favorites = user.favorites.filter(Id => !Id.equals(new ObjectId(productId)));
+
+      // Guarda los cambios
+      await user.save();
+
+      return res.status(200).json({
+          message: "Producto favorito eliminado correctamente",
+          status: 200,
+          data: user.favorites
+      });
+
+  } catch (error) {
+      return res.status(500).json({
+          message: "Error interno del servidor",
+          status: 500,
+          error: error.message
+      });
+  }
+};
