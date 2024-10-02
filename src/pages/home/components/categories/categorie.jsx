@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import textil from "@/img/textil-icon.svg";
 import ceramic from "@/img/ceramics-icon.svg";
 import goldsmith from "@/img/goldsmith-icon.svg";
