@@ -9,6 +9,7 @@ import customerServico from "@/img/customer-icon.svg";
 import santanderImg from "@/img/Escudo_de_Santander.png";
 import squaredot from "@/img/square.svg";
 import {useState,useEffect} from 'react';
+import fetchWithSessionCheck from '../../../../api'
 
 export default function Sidebar({ isOpen}) {
   const [dataUser,setDataUser] = useState();
