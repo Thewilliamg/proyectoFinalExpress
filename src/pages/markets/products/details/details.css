@@ -13,6 +13,21 @@
 .shp-container-car-p{
     display: flex;
     justify-content: center;
+    position: relative;
+}
+
+.succes-assign-product-shop{
+  font-size: 1.1em;
+  background-color: rgb(202, 230, 138);
+  color: #9D1A1A;
+  position: absolute;
+  width: 90%;
+  height: 50%;
+  bottom: -50%;
+  display: flex;
+  justify-content: center;
+  font-weight: 800;
+  align-items: center;
 }
 
 .product-card-header-p .product-image-detail {

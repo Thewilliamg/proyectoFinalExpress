@@ -1,11 +1,21 @@
 import './Login.css'
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Linkedin from '@/img/LinkedinIcon.svg';
 import Gmail from '@/img/gmailIcon.svg';
 import Discord from '@/img/discordIcon.svg';
 import User from '@/img/UserIcon.svg';
 
 export default function Login() {
+    const navigate = useNavigate();
+
+    const getUserId = localStorage.getItem('userId');
+    if (getUserId) {
+        const delay = 100
+        setTimeout(() => {
+            navigate('/home')
+        }, delay);
+    }
+
     const handleDiscordLogin = () => {
         window.location.href = 'http://localhost:5001/auth/discord';
     };

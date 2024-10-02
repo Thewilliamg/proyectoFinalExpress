@@ -9,11 +9,12 @@ import customerServico from "@/img/customer-icon.svg";
 import santanderImg from "@/img/Escudo_de_Santander.png";
 import squaredot from "@/img/square.svg";
 import {useState,useEffect} from 'react';
-import fetchWithSessionCheck from '../../../../api'
+import { useNavigate } from 'react-router-dom';
 
 export default function Sidebar({ isOpen}) {
   const [dataUser,setDataUser] = useState();
   const userId = localStorage.getItem('userId');
+  const navigate = useNavigate();
 
   useEffect(()=>{
     fetch(`http://localhost:5001/api/sidebar/${userId}`,
@@ -30,6 +31,11 @@ export default function Sidebar({ isOpen}) {
           console.error('Hubo un error:' + error.message)
       });
   },[])
+
+  function handleSessionExit(){
+    localStorage.removeItem('userId');
+    navigate('/login')
+}
 
 
   return (
@@ -67,6 +73,7 @@ export default function Sidebar({ isOpen}) {
               <li><img src={settingsico} alt="settIco" /><a href="/settings" className="nav-item-sidebar">Ajustes</a></li>
               <li><img src={chatico} alt="chat" /><a href="/community" className="nav-item-sidebar">Comentarios</a></li>
               <li><img src={customerServico} alt="customerService" /><a href="customer_service" className="nav-item-sidebar">Atencion al cliente</a></li>
+              <li><a onClick={handleSessionExit} className="nav-item-sidebar">Cerrar sesión</a></li>
             </ul>
         </nav>
         <div className="sidebar-footer">

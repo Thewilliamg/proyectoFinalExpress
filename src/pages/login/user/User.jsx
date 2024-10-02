@@ -4,60 +4,63 @@ import { Link, useNavigate } from "react-router-dom";
 import GoBack from '../../components/backArrow';
 
 export default function Login_User() {
-        const [credentials, setCredentials] = useState({
-            identifier: '',
-            password: ''
-        });
-        const [error, setError] = useState('');
-        const navigate = useNavigate();
+    const navigate = useNavigate();
+    const [error, setError] = useState('');
 
-        const handleChange = (e) => {
-            const { name, value } = e.target;
-            setCredentials(prev => ({
-                ...prev,
-                [name]: value
-            }));
-        };
+    const getUserId = localStorage.getItem('userId');
+    if (getUserId) {
+        const delay = 100 //milliseconds
+        setTimeout(() => {
+            navigate('/home')
+        }, delay);
+    }
 
-        const handleSubmit = async (e) => {
-            e.preventDefault();
-            setError('');
-        
-            try {
-                const response = await fetch('http://localhost:5001/api/login/user', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        identifier: credentials.identifier,
-                        password: credentials.password
-                    }),
-                });
-        
-                const data = await response.json();
-        
-                if (response.ok) {
-                    localStorage.setItem('userId',data.user._id)
-                    navigate('/home');
-                } else {
-                    console.error('Error response:', response);
-                    console.error('Error data:', data);
-                    setError(data.message || 'Error en el inicio de sesión');
-                }
-            } catch (error) {
-                console.error('Fetch error:', error);
-                setError('Error de conexión');
+    const [credentials, setCredentials] = useState({
+        identifier: '',
+        password: ''
+    });
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setCredentials(prev => ({
+            ...prev,
+            [name]: value
+        }));
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setError('');
+
+        try {
+            const response = await fetch('http://localhost:5001/api/login/user', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    identifier: credentials.identifier,
+                    password: credentials.password
+                }),
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                localStorage.setItem('userId', data.user._id)
+                navigate('/home');
+            } else {
+                console.error('Error response:', response);
+                console.error('Error data:', data);
+                setError(data.message || 'Error en el inicio de sesión');
             }
-        };
-
-        function handleSessiontTimeOut(){
-            const delay = 50000 //milliseconds
-            setTimeout(() => {
-                alert('Sesion expirada');
-                localStorage.removeItem('userId');
-            }, delay);
+        } catch (error) {
+            console.error('Fetch error:', error);
+            setError('Error de conexión');
         }
+    };
+
+
 
     return (
         <div>
@@ -93,7 +96,7 @@ export default function Login_User() {
                 </div>
                 {error && <p className="error-message">{error}</p>}
                 <div className='userForm-middle'>
-                    <button type="submit" onClick={handleSessiontTimeOut}><p>Iniciar sesión</p></button>
+                    <button type="submit"><p>Iniciar sesión</p></button>
                     <Link to="">Olvidaste tu contraseña</Link>
                     <Link to="/signup/register">Registrarse</Link>
                 </div>

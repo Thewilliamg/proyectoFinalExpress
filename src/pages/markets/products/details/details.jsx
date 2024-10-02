@@ -2,7 +2,6 @@ import "./details.css"
 import {Link,useParams,useLocation} from 'react-router-dom';
 import {useState,useEffect} from 'react';
 import ShoppingCart from '@/img/shopping-car.svg';
-import item1 from "@/img/product-workshop1.png";
 import GoBackArrow from '../../../components/backArrow';
 import Check from '@/img/checked-square.svg';
 import triangle from '@/img/square-brown-figure.svg';
@@ -14,6 +13,7 @@ export default function ProductDetails() {
     const pathBack = location.pathname.replace(`/details/${productId}`,'');
     const [dataDetails,setDataDetails] = useState();
     const [isFavorite, setIsFavorite] = useState(false);
+    const [isVisible, setIsVisible] = useState(false);
 
     useEffect(()=>{
         fetch(`http://localhost:5001/api/product/details/${productId}`, {
@@ -45,12 +45,19 @@ export default function ProductDetails() {
         }
     )
         .then(res => res.json())
-        .then(data => setItems(data)
-        )
+        .then(data => setItems(data))
         .catch((error) => {
             console.error('Hubo un error:' + error.message)
         });
+
+        setIsVisible(true);
+
+        setTimeout(() => {        
+            setIsVisible(false); 
+        }, 2600);
+
     }
+
 
     const handleFavoriteClick = async() => {
         if (!isFavorite) {
@@ -121,6 +128,7 @@ export default function ProductDetails() {
                     <button className="add-to-cart-button-product" onClick={handleShopAddProductToCar}>
                         <img src={ShoppingCart} className="button-icon-p" /> Añadir a mi carrito de compras
                     </button>
+                    {isVisible&&<div className="succes-assign-product-shop">'Item añadido al carrito'</div>}
                 </div>
             </div>
         </div>
