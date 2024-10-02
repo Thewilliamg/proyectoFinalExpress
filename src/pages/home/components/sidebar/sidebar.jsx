@@ -32,7 +32,6 @@ export default function Sidebar({ isOpen, userId }) { // Recibimos userId como p
       })
       .then(data => {
         setDataUser(data);
-        console.log('Datos del usuario obtenidos:', data);
       })
       .catch((error) => {
         console.error('Hubo un error:', error.message);
