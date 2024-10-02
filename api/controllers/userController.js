@@ -1,6 +1,5 @@
-const { UserSignModel, UserPhoneModel, UserEmailModel,UserCouponModel, UserModel, getUserProfileSidebarModel } = require("../model/userModel");
+const { UserSignModel, UserPhoneModel, UserEmailModel, UserCouponModel, UserModel, getUserProfileSidebarModel } = require("../model/userModel");
 const { newUserSearcherModel } = require("../model/userDiscordModel");
-
 const bcrypt = require('bcrypt');
 const ObjectId = require('mongoose').Types.ObjectId;
 const defaultAvatar = 'https://media.istockphoto.com/id/1337144146/vector/default-avatar-profile-icon-vector.jpg?s=612x612&w=0&k=20&c=BIbFwuv7FxTWvh5S3vB6bkT0Qv8Vn8N5Ffseq84ClGI='
@@ -43,7 +42,6 @@ exports.registerUserNumber = async (req, res) => {
         res.status(500).json({ message: 'Error al crear el usuario', error: error });
     }
 };
-
 
 /**
  * Registra un nuevo usuario con correo electrónico
@@ -115,8 +113,8 @@ exports.loginUser = async (req, res) => {
         const isPasswordValid = await bcrypt.compare(password, user.password);
 
         if (!isPasswordValid) {
-        res.status(401).json({ message: 'Credenciales inválidas' });
-        };
+            return res.status(401).json({ message: 'Credenciales inválidas' });
+        }
         
         res.status(200).json({
             message: 'Usuario autenticado exitosamente',
@@ -197,7 +195,6 @@ exports.getCoupoonUser = async (req, res) => {
     }
 }
 
-
 /**
  * Obtiene un usuario por su ID
  * @param {Object} req - Objeto de solicitud Express
@@ -245,6 +242,11 @@ exports.getuserProfileSidebar = async (req, res) => {
     }
 }
 
+/**
+ * Busca el ID de un usuario por su correo electrónico
+ * @param {Object} req - Objeto de solicitud Express
+ * @param {Object} res - Objeto de respuesta Express
+ */
 exports.searchUserId = async (req, res) => {
     const email = req.params.email;
     try {
@@ -257,4 +259,50 @@ exports.searchUserId = async (req, res) => {
     } catch (error) {
       res.status(500).json({ message: "Error al obtener el email del usuario." });
     }
-  };
+};
+
+/**
+ * Actualiza un usuario por su ID
+ * @param {Object} req - Objeto de solicitud Express
+ * @param {Object} res - Objeto de respuesta Express
+ */
+exports.updateUserById = async (req, res) => {
+    const userId = req.params.id;
+    const updateData = req.body;
+    
+    try {
+        const user = await UserModel.findByIdAndUpdate(userId, updateData, { new: true });
+        if (!user) {
+            return res.status(404).json({ message: 'Usuario no encontrado' });
+        }
+        res.status(200).json(user);
+    } catch (error) {
+        res.status(500).json({ message: 'Error al actualizar el usuario', error: error.message });
+    }
+}
+
+/**
+ * Actualiza la imagen de perfil de un usuario
+ * @param {Object} req - Objeto de solicitud Express
+ * @param {Object} res - Objeto de respuesta Express
+ */
+exports.updateUserImage = async (req, res) => {
+    const userId = req.params.id;
+    
+    if (!req.file) {
+        return res.status(400).json({ message: 'No se proporcionó ninguna imagen' });
+    }
+    
+    try {
+        const imageUrl = `/uploads/${req.file.filename}`; // Asumiendo que estás usando multer para manejar la carga de archivos
+        const user = await UserModel.findByIdAndUpdate(userId, { urlPicture: imageUrl }, { new: true });
+        
+        if (!user) {
+            return res.status(404).json({ message: 'Usuario no encontrado' });
+        }
+        
+        res.status(200).json({ message: 'Imagen de perfil actualizada', imageUrl });
+    } catch (error) {
+        res.status(500).json({ message: 'Error al actualizar la imagen de perfil', error: error.message });
+    }
+}
