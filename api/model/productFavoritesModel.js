@@ -4,6 +4,7 @@
  */
 
 const mongoose = require('mongoose');
+const { Types } = mongoose;
 
 /**
  * @typedef {Object} UserFavorites
@@ -15,13 +16,15 @@ const mongoose = require('mongoose');
  * @type {mongoose.Schema<UserFavorites>}
  */
 const productsSchema = new mongoose.Schema({
-    favorites: { type: Object, required: false },
+    favorites: { type: [Types.ObjectId], ref: 'Product', required: false },
     market: { type: Object, required: false }
-});
+}, {versionKey: false});
 
 /**
  * @type {mongoose.Model<UserFavorites>}
  */
 const productsFavoriteSchema = mongoose.model('productsFavoriteSchema', productsSchema, "Users");
 
-module.exports = productsFavoriteSchema;
+module.exports = {
+    productsFavoriteSchema
+};

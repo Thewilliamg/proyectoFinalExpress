@@ -1,4 +1,4 @@
-const productFavoritesModel = require("../model/productFavoritesModel");
+const { productsFavoriteSchema } = require("../model/productFavoritesModel");
 const { ObjectId } = require('mongodb');
 
 /**
@@ -8,7 +8,7 @@ const { ObjectId } = require('mongodb');
  */
 exports.getProductFavorites = async(req, res) => {
   try {
-      const getFavorites = await productFavoritesModel.aggregate([
+      const getFavorites = await productsFavoriteSchema.aggregate([
           {
             $match: {
               _id: new ObjectId(req.params.id)
@@ -65,3 +65,31 @@ exports.getProductFavorites = async(req, res) => {
       });
   }
 }
+
+exports.addProductToFavorites = async (req, res) => {
+  try {
+      const { userId, productId } = req.body
+
+      // Busca al usuario por su _id
+      const user = await productsFavoriteSchema.findById(new ObjectId(userId));
+      
+      // Agrega el productId al array de favoritos si no existe ya
+      if (!user.favorites.includes( new ObjectId(productId))) {
+          user.favorites.push(new ObjectId(productId));
+          await user.save(); // Guarda los cambios
+      }
+
+      return res.status(200).json({
+        message: "Producto favorito añadido correctamente",
+        status: 200,
+        data: productId
+      });
+      
+  } catch (error) {
+      return res.status(500).json({
+        message: "Error interno del servidor",
+        status: 500,
+        error: error.message
+      });
+  }
+};
