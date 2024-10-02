@@ -39,7 +39,6 @@
 .image-carruselItems img {
     width: 50%;
     height: 50%;
-    filter: invert(1);
 }
 
 .text-carruselItems {
