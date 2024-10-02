@@ -42,7 +42,25 @@ export default function Shop() {
     }
     
     function deleteCard(id) {
-        setItems(items?.filter(item => item.productId !== id))
+        setItems(items?.filter(item => item.productId !== id));
+        items?.forEach((item)=>{
+            if (item.productId === id) { 
+                fetch(`http://localhost:5001/api/items/car/${userId}/${item.productId}`, {
+                        method: 'DELETE',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        }
+                    }
+                )
+                .then(deleteResponse => {
+                    if (!deleteResponse.ok) {
+                        throw new Error('Error al eliminar los productos del carrito.');
+                }
+                })
+                .catch((error) => {
+                    console.error('Hubo un error eliminado el item: ' + error.message)
+                })}
+        })
     }
 
     const subtotal = items.reduce((acum, item) => acum + item.quantity * item.price, 0);
