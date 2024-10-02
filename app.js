@@ -92,7 +92,6 @@ app.get('/auth/google/callback',
   }
 );
 
-
 /**
  * @description Ruta de callback para la autenticación con Google
  */
