@@ -81,6 +81,11 @@ app.get('/auth/discord/callback',
   }
 );
 
+app.get('/auth/google',
+  passport.authenticate('google', { scope: ['profile', 'email'] })
+);
+
+
 /**
  * @description Ruta para iniciar la autenticación con Google
  */
@@ -94,23 +99,23 @@ app.get('/auth/google/callback',
 /**
  * @description Ruta de callback para la autenticación con Google
  */
-app.get('/auth/google/callback', (req, res, next) => {
-  console.log('Callback de Google recibido');
-  passport.authenticate('google', (err, user) => {
-    if (err) {
-      return res.redirect('http://localhost:5173/signup?error=auth_failed');
-    }
-    if (!user) {
-      return res.redirect('http://localhost:5173/signup?error=auth_failed');
-    }
-    req.logIn(user, (err) => {
-      if (err) {
-        return res.redirect('http://localhost:5173/signup?error=auth_failed');
-      }
-      return res.redirect(`http://localhost:5173/home?userId=${user._id}`);
-    });
-  })(req, res, next);
-});
+// app.get('/auth/google/callback', (req, res, next) => {
+//   console.log('Callback de Google recibido');
+//   passport.authenticate('google', (err, user) => {
+//     if (err) {
+//       return res.redirect('http://localhost:5173/signup?error=auth_failed');
+//     }
+//     if (!user) {
+//       return res.redirect('http://localhost:5173/signup?error=auth_failed');
+//     }
+//     req.logIn(user, (err) => {
+//       if (err) {
+//         return res.redirect('http://localhost:5173/signup?error=auth_failed');
+//       }
+//       return res.redirect(`http://localhost:5173/home?userId=${user._id}`);
+//     });
+//   })(req, res, next);
+// });
 
 /**
  * @description Ruta para manejar la cancelación de la autenticación

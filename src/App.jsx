@@ -45,7 +45,7 @@ function App() {
         <Route path="/favorites" element={<PrivateRoute><Favorites/></PrivateRoute> } />
         <Route path="/settings" element={<PrivateRoute><Settings/></PrivateRoute> } />
         {/* //Rutas de descuentos */}
-        <Route path="/home" element={<PrivateRoute><Home/></PrivateRoute>}/>
+        <Route path="/home" element={<Home/>}/>
         <Route path="/discounts" element={<PrivateRoute><Home page={<Discounts/>}/></PrivateRoute>} />
         <Route path="/discounts/product" element={<PrivateRoute><Parrafito /></PrivateRoute>} />
         {/* Rutas de tiendas*/ }
