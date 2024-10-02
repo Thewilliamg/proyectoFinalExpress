@@ -21,7 +21,7 @@ export default function Login() {
     };
 
     const handleGoogleLogin = () => {
-        window.location.href = 'http://localhost:5001/auth/google';
+        window.location.href = 'http://localhost:5001/auth/google/callback';
     };
 
     return (

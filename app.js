@@ -63,7 +63,6 @@ let config = {
 };
 
 app.use('/api', routes);
-
 /**
  * @description Ruta para iniciar la autenticación con Discord
  */
@@ -75,32 +74,42 @@ app.get('/auth/discord', (req, res, next) => {
 /**
  * @description Ruta de callback para la autenticación con Discord
  */
-app.get('/auth/discord/callback', (req, res, next) => {
-  console.log('Callback de Discord recibido');
-  passport.authenticate('discord', {
-    failureRedirect: 'http://localhost:5173/signup',
-    successRedirect: 'http://localhost:5173/home'
-  })(req, res, next);
-});
+app.get('/auth/discord/callback', 
+  passport.authenticate('discord', { failureRedirect: '/login' }),
+  (req, res) => {
+    res.redirect(`http://localhost:5173/home?userId=${req.user._id}`);
+  }
+);
 
 /**
  * @description Ruta para iniciar la autenticación con Google
  */
-app.get('/auth/google', (req, res, next) => {
-  console.log('Iniciando autenticación con Google');
-  passport.authenticate('google', { scope: ['profile', 'email'] })(req, res, next);
-});
+app.get('/auth/google/callback', 
+  passport.authenticate('google', { failureRedirect: '/login' }),
+  (req, res) => {
+    res.redirect(`http://localhost:5173/home?userId=${req.user._id}`);
+  }
+);
 
 /**
  * @description Ruta de callback para la autenticación con Google
  */
 app.get('/auth/google/callback', (req, res, next) => {
   console.log('Callback de Google recibido');
-  passport.authenticate('google', { 
-    failureRedirect: 'http://localhost:5173/signup',
-    successRedirect: 'http://localhost:5173/home'
+  passport.authenticate('google', (err, user) => {
+    if (err) {
+      return res.redirect('http://localhost:5173/signup?error=auth_failed');
+    }
+    if (!user) {
+      return res.redirect('http://localhost:5173/signup?error=auth_failed');
+    }
+    req.logIn(user, (err) => {
+      if (err) {
+        return res.redirect('http://localhost:5173/signup?error=auth_failed');
+      }
+      return res.redirect(`http://localhost:5173/home?userId=${user._id}`);
+    });
   })(req, res, next);
-  console.log(res);
 });
 
 /**
@@ -115,7 +124,6 @@ const server = http.createServer(app);
 const io = socketIo(server, {
   cors: corsOptions
 });
-
 /**
  * @description Configuración de eventos para Socket.IO
  */

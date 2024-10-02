@@ -28,11 +28,6 @@ module.exports = (app) => {
     done(null, user.id);
   });
 
-  /**
-   * Deserialización del usuario a partir del ID almacenado en la sesión
-   * @param {string} id - ID del usuario
-   * @param {Function} done - Callback de finalización
-   */
   passport.deserializeUser(async (id, done) => {
     try {
       const user = await User.findById(id);
@@ -42,9 +37,20 @@ module.exports = (app) => {
     }
   });
 
-  /**
-   * Estrategia de autenticación con Discord
-   */
+  const findOrCreateUser = async (profile, provider) => {
+    let user = await User.findOne({ email: profile.email });
+    if (!user) {
+      user = new User({
+        email: profile.email,
+        name: profile.username || profile.displayName,
+        urlPicture: profile.avatar || profile.photos[0].value
+      });
+    }
+    user[`${provider}Id`] = profile.id;
+    await user.save();
+    return user;
+  };
+
   passport.use(new DiscordStrategy({
     clientID: process.env.DISCORD_CLIENT_ID,
     clientSecret: process.env.DISCORD_CLIENT_SECRET,
@@ -52,61 +58,25 @@ module.exports = (app) => {
     scope: ['identify', 'email']
   }, async (accessToken, refreshToken, profile, done) => {
     try {
-      let user = await User.findOne({ discordId: profile.id });
-      if (!user) {
-        user = new User({
-          discordId: profile.id,
-          username: profile.username,
-          email: profile.email,
-          avatar: `https://cdn.discordapp.com/avatars/${profile.id}/${profile.avatar}.png`
-        });
-        await user.save();
-      }
+      const user = await findOrCreateUser(profile, 'discord');
       return done(null, user);
     } catch (err) {
       return done(err, null);
     }
   }));
   
-  /**
-   * Estrategia de autenticación con Google
-   */
   passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     callbackURL: process.env.GOOGLE_CALLBACK_URL
   }, async (accessToken, refreshToken, profile, done) => {
     try {
-      let user = await User.findOne({ googleId: profile.id });
-      if (!user) {
-        user = new User({
-          googleId: profile.id,
-          name: profile.displayName,
-          email: profile.emails[0].value,
-          urlPicture: profile.photos[0].value
-        });
-
-        const email = profile.emails[0].value;
-
-        const getUserId = async () => {
-          try{
-            const userId = await fetch(`http://localhost:5001/api/search-email/${email}`,{
-              method: 'GET',
-              headers: {
-                'Content-Type': 'application/json',
-              }
-            })
-            return userId
-          } catch (error) {
-            console.error(error);
-            return null
-          }
-        }
-        const userid = getUserId()
-        console.log(userid);
-        await user.save();
-
-      }
+      const user = await findOrCreateUser({
+        id: profile.id,
+        email: profile.emails[0].value,
+        displayName: profile.displayName,
+        photos: profile.photos
+      }, 'google');
       return done(null, user);
     } catch (err) {
       return done(err, null);
