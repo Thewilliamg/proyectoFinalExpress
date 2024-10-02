@@ -6,24 +6,27 @@ import Edit2 from "@/img/userEditIcon2.svg";
 
 export default function User() {
   const [profileImage, setProfileImage] = useState(Profile);
-  const [data, setData] = useState();
+  const [data, setData] = useState({});
+  const [isEditing, setIsEditing] = useState({});
   const id = localStorage.getItem('userId');
 
   useEffect(() => {
+    fetchUserData();
+  }, []);
+
+  const fetchUserData = () => {
     fetch(`http://localhost:5001/api/user/${id}`)
       .then((res) => res.json())
       .then((data) => setData(data))
       .catch((error) => {
         console.error("Hubo un error:" + error.message);
       });
-  }, []);
-  console.log(data);
+  };
 
   const formatDateForInput = (isoDate) => {
     if (!isoDate) return '';
     const date = new Date(isoDate);
-    const formatedDate = date.toISOString().split('T')[0]; // This will return yyyy-mm-dd
-    return formatedDate
+    return date.toISOString().split('T')[0]; // This will return yyyy-mm-dd
   };
 
   const getGenderValue = (gender) => {
@@ -34,12 +37,30 @@ export default function User() {
     return 'otro';
   };
 
-  const handleImageChange = (event) => {
+  const handleImageChange = async (event) => {
     const file = event.target.files[0];
     if (file) {
       const reader = new FileReader();
-      reader.onload = (e) => {
+      reader.onload = async (e) => {
         setProfileImage(e.target.result);
+        
+        // Upload the image to the server
+        const formData = new FormData();
+        formData.append('image', file);
+        
+        try {
+          const response = await fetch(`http://localhost:5001/api/user/${id}/image`, {
+            method: 'POST',
+            body: formData,
+          });
+          if (response.ok) {
+            fetchUserData(); // Refresh user data to get the new image URL
+          } else {
+            console.error('Failed to upload image');
+          }
+        } catch (error) {
+          console.error('Error uploading image:', error);
+        }
       };
       reader.readAsDataURL(file);
     }
@@ -49,29 +70,35 @@ export default function User() {
     document.getElementById("fileInput").click();
   };
 
-  const handleEditClick = (e) => {
-    e.preventDefault();
-    document.getElementById("userInput").focus();
+  const handleEditClick = (field) => {
+    setIsEditing(prev => ({ ...prev, [field]: true }));
   };
 
-  const handleEditClick2 = (e) => {
-    e.preventDefault();
-    document.getElementById("userInput2").focus();
+  const handleSave = async (field) => {
+    setIsEditing(prev => ({ ...prev, [field]: false }));
+    
+    try {
+      const response = await fetch(`http://localhost:5001/api/user/${id}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ [field]: data[field] }),
+      });
+      
+      if (response.ok) {
+        fetchUserData(); // Refresh user data
+      } else {
+        console.error('Failed to update user data');
+      }
+    } catch (error) {
+      console.error('Error updating user data:', error);
+    }
   };
 
-  const handleEditClick3 = (e) => {
-    e.preventDefault();
-    document.getElementById("userInput3").focus();
+  const handleInputChange = (field, value) => {
+    setData(prev => ({ ...prev, [field]: value }));
   };
-
-  const handleEditClick4 = (e) => {
-    e.preventDefault();
-    document.getElementById("sexOptions").focus();
-  };
-
-  function triggerDatePicker() {
-    document.getElementById("userInput4").focus(); // Forzar el focus en el input date
-  }
 
   return (
     <div className="userAll">
@@ -79,7 +106,7 @@ export default function User() {
         <h1>Foto de perfil</h1>
         <div className="userProfile">
           <div className="container-img-userprof">
-            <img src={data?.urlPicture} alt="user" className="img-profile" />
+            <img src={data?.urlPicture || profileImage} alt="user" className="img-profile" />
           </div>
           <img
             src={Edit}
@@ -88,13 +115,13 @@ export default function User() {
             onClick={handleImageClick}
           />
         </div>
-          <input
-            type="file"
-            id="fileInput"
-            style={{ display: "none" }}
-            accept="image/*"
-            onChange={handleImageChange}
-          />
+        <input
+          type="file"
+          id="fileInput"
+          style={{ display: "none" }}
+          accept="image/*"
+          onChange={handleImageChange}
+        />
       </div>
       <form className="userMiddle">
         <div className="userMiddle_Container">
@@ -103,25 +130,34 @@ export default function User() {
             <input
               type="text"
               id="userInput"
-              value={data?.name}
-              readOnly={true}
+              value={data?.name || ''}
+              onChange={(e) => handleInputChange('name', e.target.value)}
+              readOnly={!isEditing.name}
             />
-            <a className="userMiddle_A" onClick={handleEditClick}>
-              <img src={Edit2} alt="Edit2" />
-            </a>
+            {isEditing.name ? (
+              <button onClick={() => handleSave('name')}>Guardar</button>
+            ) : (
+              <a className="userMiddle_A" onClick={() => handleEditClick('name')}>
+                <img src={Edit2} alt="Edit2" />
+              </a>
+            )}
           </div>
           <div className="userMiddle_Input2">
             <h1>Correo: </h1>
             <input
               type="text"
               id="userInput2"
-              value={data?.email}
-              readOnly={true}
-              x
+              value={data?.email || ''}
+              onChange={(e) => handleInputChange('email', e.target.value)}
+              readOnly={!isEditing.email}
             />
-            <a className="userMiddle_A2" onClick={handleEditClick2}>
-              <img src={Edit2} alt="Edit2" />
-            </a>
+            {isEditing.email ? (
+              <button onClick={() => handleSave('email')}>Guardar</button>
+            ) : (
+              <a className="userMiddle_A2" onClick={() => handleEditClick('email')}>
+                <img src={Edit2} alt="Edit2" />
+              </a>
+            )}
           </div>
           <div className="userMiddle_Input3">
             <h1>Celular: </h1>
@@ -296,36 +332,56 @@ export default function User() {
               <option value="opcion168">+690</option>
               <option value="opcion169">+691</option>
             </select>
-            <input type="text" id="userInput3" value={data?.numberPhone} />
-            <a className="userMiddle_A3" onClick={handleEditClick3}>
-              <img src={Edit2} alt="Edit2" />
-            </a>
+            <input
+              type="text"
+              id="userInput3"
+              value={data?.numberPhone || ''}
+              onChange={(e) => handleInputChange('numberPhone', e.target.value)}
+              readOnly={!isEditing.numberPhone}
+            />
+            {isEditing.numberPhone ? (
+              <button onClick={() => handleSave('numberPhone')}>Guardar</button>
+            ) : (
+              <a className="userMiddle_A3" onClick={() => handleEditClick('numberPhone')}>
+                <img src={Edit2} alt="Edit2" />
+              </a>
+            )}
           </div>
           <div className="userMiddle_Input4">
             <h1>Sexo: </h1>
-            <select id="sexOptions" name="sexo"
+            <select
+              id="sexOptions"
+              name="sexo"
               value={getGenderValue(data?.gender)}
-              onChange={(e) => {
-                // Here you would typically update the gender in your state and/or send it to your backend
-                console.log('Gender changed to:', e.target.value);
-              }}>
-              <option value="femenino"> F</option>
-              <option value="masculino"> M</option>
-              <option value="otro"> Otro</option>
+              onChange={(e) => handleInputChange('gender', e.target.value)}
+              disabled={!isEditing.gender}
+            >
+              <option value="femenino">F</option>
+              <option value="masculino">M</option>
+              <option value="otro">Otro</option>
             </select>
-            <a className="userMiddle_A41" onClick={handleEditClick4}>
-              <img src={Edit2} alt="Edit2" />
-            </a>
+            {isEditing.gender ? (
+              <button onClick={() => handleSave('gender')}>Guardar</button>
+            ) : (
+              <a className="userMiddle_A41" onClick={() => handleEditClick('gender')}>
+                <img src={Edit2} alt="Edit2" />
+              </a>
+            )}
             <h2>Fecha de nacimiento: </h2>
             <input
               type="date"
               id="userInput4"
               value={formatDateForInput(data?.birthDate)}
-              readOnly={true}
+              onChange={(e) => handleInputChange('birthDate', e.target.value)}
+              readOnly={!isEditing.birthDate}
             />
-            <a className="userMiddle_A4" onClick={triggerDatePicker}>
-              <img src={Edit2} alt="Edit2" />
-            </a>
+            {isEditing.birthDate ? (
+              <button onClick={() => handleSave('birthDate')}>Guardar</button>
+            ) : (
+              <a className="userMiddle_A4" onClick={() => handleEditClick('birthDate')}>
+                <img src={Edit2} alt="Edit2" />
+              </a>
+            )}
           </div>
         </div>
       </form>

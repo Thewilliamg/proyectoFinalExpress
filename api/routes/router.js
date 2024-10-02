@@ -1,28 +1,43 @@
 const express = require('express');
 const router = express.Router();
 const isAuthenticated = require('../middlewares/auth'); 
+const multer = require('multer');
+const path = require('path');
+
+// Configuración de multer para la carga de imágenes
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, 'uploads/') // Asegúrate de que este directorio exista
+    },
+    filename: function (req, file, cb) {
+        cb(null, Date.now() + path.extname(file.originalname)) // Añade la extensión original del archivo
+    }
+});
+
+const upload = multer({ storage: storage });
 
 const { getProductDiscount, getProductIdDiscount } = require('../controllers/productDiscountController');
 const { getCategory } = require('../controllers/categoryController');
 const { getProductFavorites, addProductToFavorites, removeProductFromFavorites } = require('../controllers/productFavoritesController');
 const { getWorkshopId } = require('../controllers/workshopsIdController');
-const {getAllMarkets} = require('../controllers/marketsController');
-const { registerUserNumber, registerUserEmail, loginUser, getCoupoonUser, getUserById, getuserProfileSidebar } = require('../controllers/userController');
-const {getAllWorkshops, getWorkshopInfo} = require('../controllers/workshopsController');
-const {getAllproductsByMarket,getProduct,getAllproducts} = require('../controllers/productsController');
-const {getAllItemsShopCar, saveOrder, addToCar, deleteAllUserProducts} = require('../controllers/shopCarController');
-const {getAllPurchaseOrderByUser} = require('../controllers/ordersController');
-const {searchUserId} = require('../controllers/userController');
+const { getAllMarkets } = require('../controllers/marketsController');
+const { 
+    registerUserNumber, 
+    registerUserEmail, 
+    loginUser, 
+    getCoupoonUser, 
+    getUserById, 
+    getuserProfileSidebar,
+    searchUserId,
+    updateUserById,
+    updateUserImage
+} = require('../controllers/userController');
+const { getAllWorkshops, getWorkshopInfo } = require('../controllers/workshopsController');
+const { getAllproductsByMarket, getProduct, getAllproducts } = require('../controllers/productsController');
+const { getAllItemsShopCar, saveOrder, addToCar, deleteAllUserProducts } = require('../controllers/shopCarController');
+const { getAllPurchaseOrderByUser } = require('../controllers/ordersController');
 
 const userValidator = require('../validators/userValidator');
-// const productValidator = require('../validators/userValidator');
-// const agentValidator = require('../validators/userValidator');
-// const categoryValidator = require('../validators/userValidator');
-// const couponValidator = require('../validators/userValidator');
-// const marketValidator = require('../validators/userValidator');
-// const messageValidator = require('../validators/userValidator');
-// const orderValidator = require('../validators/userValidator');
-// const workshopValidator = require('../validators/userValidator');
 const shoppingCartValidator = require('../validators/userValidator');
 
 router.get('/discounts',isAuthenticated, getProductDiscount)
@@ -50,5 +65,7 @@ router.get('/orders/user/:userId',isAuthenticated,getAllPurchaseOrderByUser);
 router.get('/sidebar/:userId',isAuthenticated,getuserProfileSidebar);
 router.get('/search-email/:email',isAuthenticated,searchUserId);
 router.delete('/items/car/:userId/:productId',deleteAllUserProducts);
+router.patch('/user/:id', updateUserById);
+router.post('/user/:id/image', upload.single('image'), updateUserImage);
 
 module.exports = router;

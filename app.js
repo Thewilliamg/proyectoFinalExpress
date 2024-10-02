@@ -24,8 +24,9 @@ dotenv.config();
  */
 const corsOptions = {
   origin: 'http://localhost:5173',
-  methods: ["GET", "POST","DELETE","PUT"],
-  credentials: true
+  methods: ["GET", "POST", "PATCH", "DELETE", "OPTIONS"],
+  credentials: true,
+  allowedHeaders: ['Content-Type', 'Authorization']
 };
 
 app.use(cors(corsOptions));
