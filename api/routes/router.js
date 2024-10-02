@@ -5,13 +5,11 @@ const { getProductDiscount, getProductIdDiscount } = require('../controllers/pro
 const { getCategory } = require('../controllers/categoryController');
 const { getProductFavorites } = require('../controllers/productFavoritesController');
 const { getWorkshopId } = require('../controllers/workshopsIdController');
-
 const {getAllMarkets} = require('../controllers/marketsController');
-
 const { registerUserNumber, registerUserEmail, loginUser, getCoupoonUser, getUserById, getuserProfileSidebar } = require('../controllers/userController');
 const {getAllWorkshops, getWorkshopInfo} = require('../controllers/workshopsController');
 const {getAllproductsByMarket,getProduct,getAllproducts} = require('../controllers/productsController');
-const {getAllItemsShopCar, saveOrder, addToCar} = require('../controllers/shopCarController');
+const {getAllItemsShopCar, saveOrder, addToCar, deleteAllUserProducts} = require('../controllers/shopCarController');
 const {getAllPurchaseOrderByUser} = require('../controllers/ordersController');
 const {searchUserId} = require('../controllers/userController');
 
@@ -48,5 +46,6 @@ router.post('/items/car/:productId',addToCar)
 router.get('/orders/user/:userId',getAllPurchaseOrderByUser);
 router.get('/sidebar/:userId',getuserProfileSidebar);
 router.get('/search-email/:email',searchUserId);
+router.delete('/items/car/:userId/:productId',deleteAllUserProducts);
 
 module.exports = router;

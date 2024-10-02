@@ -2,7 +2,6 @@ import GoBackArrow from "../../components/backArrow";
 import Title from "../storage/img/Rectangle-86.svg";
 import Message from "../storage/img/message.svg";
 import { Link } from "react-router-dom";
-import Manta from "../storage/img/manta.svg";
 import { useState, useEffect } from 'react';
 
 export default function Order() {
@@ -25,19 +24,19 @@ export default function Order() {
         console.error('Hubo un error:' + error.message);
       });
 
-      fetch(`http://localhost:5001/api/products`, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-        }
-      })
-        .then(res => res.json())
-        .then(response =>
-          setAllProducts(response)
-        )
-        .catch((error) => {
-          console.error('Hubo un error:' + error.message);
-        });
+    fetch(`http://localhost:5001/api/products`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    })
+      .then(res => res.json())
+      .then(response =>
+        setAllProducts(response)
+      )
+      .catch((error) => {
+        console.error('Hubo un error:' + error.message);
+      });
 
   }, [])
 
@@ -90,7 +89,7 @@ export default function Order() {
         {
           allproducts?.map((items, index) => {
             return (
-              <div className="card-artesan">
+              <div className="card-artesan" key={'k'+index+items.name}>
                 <div className="cardet">
                   <img src={items.picture} alt="" className="img-artesan" />
                   <div className="container-text-artesan">

@@ -21,9 +21,9 @@ export default function PopUp({ ShowPopup, items, userId, totalSum }) {
         })
 
         const purchaseOrder = {
-            userId:userId,
-            total:totalSum,
-            products:productsArray
+            userId: userId,
+            total: totalSum,
+            products: productsArray
         }
 
         fetch(`http://localhost:5001/api/new-shop`,
@@ -35,9 +35,6 @@ export default function PopUp({ ShowPopup, items, userId, totalSum }) {
                 body: JSON.stringify(purchaseOrder)
             }
         )
-            // .then(res => res.json())
-            // .then(items => setResponse(items)
-            // )
             .catch((error) => {
                 console.error('Hubo un error:' + error.message)
             });

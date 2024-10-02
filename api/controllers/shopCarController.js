@@ -98,7 +98,14 @@ exports.saveOrder = async (req, res) => {
       status: 'completada'
     })
     const purchaseOrder = await itemsObject.save();
-    res.status(201).json({ message: 'Orden de compra generada', purchaseOrder: purchaseOrder.status });
+    if (!purchaseOrder){
+      res.status(400).json({ message: 'Error al guardar el pedido . ' + error })
+    }
+    const result = await addToCarModel.deleteMany({ userId: new ObjectId(req.body.userId) });
+    if (!result){
+      res.status(400).json({ message: 'Error vaciando el carrito. ' + error })
+    }
+    res.status(201).json({ message: 'Orden de compra generada y vaciado de carrito con exito.', purchaseOrder: purchaseOrder.status });
   } catch (error) {
     res.status(500).json({ message: 'Error al comprar el producto. ' + error })
   }
@@ -130,5 +137,32 @@ exports.addToCar = async (req, res) => {
     res.status(201).json({ mesage: 'Item añadido al carrito' })
   } catch (error) {
     res.status(500).json({ message: 'Error al añadir el producto. ' + error })
+  }
+}
+
+exports.deleteAllUserProducts = async (req, res) =>{
+
+  try {
+    const userId = req.params.userId;
+    const productId = req.params.productId;
+    console.log(userId);
+    console.log(productId);
+    const result = await addToCarModel.deleteMany({ userId: new ObjectId(userId), productId: new Object(productId) });
+    
+    if (result.deletedCount<1){
+      return res.status(404).json({
+        message: `El usuario no tiene elementos en el carrito.`,
+      });
+    }
+
+    return res.status(200).json({
+      message: `Los productos del usuario en el carrito fueron eliminados.`,
+    });
+
+  } catch (error) {
+    return res.status(500).json({
+      message: "Error al eliminar los productos del usuario.",
+      error: error.message,
+    });
   }
 }
